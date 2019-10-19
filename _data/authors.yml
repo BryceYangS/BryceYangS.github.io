@@ -1,7 +1,7 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
-isme2n:
+BryceYangS:
   name:              Bryce Yang
   email:             nash31@korea.ac.kr
 
@@ -12,11 +12,11 @@ isme2n:
 
   # This photo will be used in the about section
   picture:
-    src:             /assets/img/flower.jpg
+    src:             /assets/img/flower.JPG
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
-      1x:            /assets/img/flower.jpg
-      2x:            /assets/img/flower.jpg
+      1x:            /assets/img/flower.JPG
+      2x:            /assets/img/flower.JPG
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
