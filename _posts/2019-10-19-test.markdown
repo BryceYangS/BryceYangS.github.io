@@ -2,8 +2,8 @@
 layout: post
 title: "[GitBlog]Test"
 subtitle: "hhha"
-categories: test
-tags: testtt
+categories: study
+tags: springboot
 ---
 
 # 깃허브블로그 테스트입니다.
