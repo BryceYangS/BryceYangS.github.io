@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "[SpringBoot]RESTful API"
-subtitle: "RESTful API?"
+title: "[SpringBoot]@RequestParam & @PathVariable"
+subtitle: "파라미터 값 넘겨받기"
 categories: study
 tags: springboot
 ---
 
-## RESTful API??
+## 파라미터 값을 넘겨받는 Annotation
 [TOC]
 ###1. REST란?
   > *잘 표현된 HTTP URI로 리소스를 정의하고, HTTP 메서드로 리소스에 대한 행위를 정의. 리소스는 JSON, XML 등의 여러 방식으로 표현할 수 있다.* 
@@ -47,6 +47,7 @@ PUT		 |Update|해당 URL의 리소스 수정
 DELETE	 |Delete|해당 URI의 리소스 삭제
 
 **[URL? URI?]**
+ 
  *URI*
  - Uniform Resource Identifier
  - 인터넷 상의 자원을 식별하기 위한 문자열
