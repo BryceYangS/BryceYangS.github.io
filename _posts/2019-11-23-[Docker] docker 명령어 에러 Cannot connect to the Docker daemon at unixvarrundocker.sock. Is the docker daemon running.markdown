@@ -3,7 +3,7 @@ layout: post
 title: "[Docker] docker 명령어 에러 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running"
 subtitle: "Docker 명령어 에러"
 categories: study
-tags: AWS & Docker
+tags: Docker
 ---
 
 ## Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running
