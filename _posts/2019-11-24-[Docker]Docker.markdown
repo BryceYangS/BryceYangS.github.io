@@ -31,9 +31,11 @@ tags: Docker
 **1) Docker Daemon**
  -- Docker image, container, network, storage volume을 관리하는 백그라운드 프로세스
  -- 끊임없이 Docker API 요청을 받고 처리함 
+
 **2) Docker Engine REST API**
 --  애플리케이션이 Docker Daemon과 상호작용하기 위한 API
 -- HTTP 클라이언트에 의해 접근
+
 **3) Docker CLI**
 -- Docker 대몬과 상호 작용하기 위한 명령줄 인터페이스 클라이언트.
 ![Docker Engine](https://www.aquasec.com/wiki/download/attachments/2854889/Docker_Engine.png?version=1&modificationDate=1520172702424&api=v2)
