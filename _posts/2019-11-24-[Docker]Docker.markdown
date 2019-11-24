@@ -6,7 +6,7 @@ categories: study
 tags: Docker
 ---
 
-###**Docker란 무엇인가**
+**Docker란 무엇인가**
 ---
 1. Docker 정의
  - 애플리케이션을 신속하게 구축, 테스트 및 배포할 수 있는 소프트웨어 플랫폼
@@ -16,14 +16,15 @@ tags: Docker
 2. Docker 작동 방식
 	![Container&VM](https://d1.awsstatic.com/Developer%20Marketing/containers/monolith_2-VM-vs-Containers.78f841efba175556d82f64d1779eb8b725de398d.png)
 - VM은 서버 하드웨어를 가상화하는 방식 vs Container 기반의 Docker는 서버 운영 체제를 가상화
-- Docker는 각 서버에 설치되며 컨테이너를 구축, 시작 또는 중단하는 데 사용할 수 있는 명령 제공
+- Docker는 각 서버에 설치되며 컨테이너를 구축, 시작 또는 중단하는 데 사용할 수 있는 명령 제공 
 3. Docker Architecture
 - Container VS VM
 	- Docker 플랫폼은 하드웨어 영역에서 OS 단계로 소스를 추상화
 	- VM은 전체 하드웨어 서버를 추상화
 	- Container는 OS kernel을 추상화
 		- 가상화의 전혀 다른 접근법, 더 가벼운 instance
-###**Docker Engine**
+
+**Docker Engine**
 ---
 - Docker Engine은 다음과 같은 구성요소로 애플리케이션 개발, run.
 
