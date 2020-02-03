@@ -23,13 +23,12 @@ tags: Git
 
 _featured_tags/study-Git.md
 _posts/2019-11-24-[Docker]Docker.markdown
-"_posts/2020-02-02-[Git]Git Bash \354\202\254\354\232\251\355\225\230\352\270\260.markdown"
-"_posts/2020-02-02-[Git]Git \354\213\234\354\236\221\355\225\230\352\270\260.markdown"
 assets/img/areas.png
 assets/img/container.png
 assets/img/logo.png
 favicon.ico
 ```
+
 **변동 파일들 압축 파일 생성**
 ---
 - `git archive -o [파일명.zip] HEAD $(updatedFileList.txt)`
