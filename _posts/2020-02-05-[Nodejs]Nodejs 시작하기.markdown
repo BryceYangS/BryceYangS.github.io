@@ -1,4 +1,5 @@
-﻿---
+﻿
+---
 layout: post
 title: "[Node.js]Node.js 시작하기"
 subtitle: "Node.js 시작하기"
@@ -17,8 +18,8 @@ tags: Nodejs
 	cf) 멀티 스레드 방식 : 프로세스 다수 스레드. 여러 로직 동시 처리 방식  → 복잡한 동기화 문제 발생(동기화 모델, lock 등의 개념에 대한 학습 필요)
 
 2. Non-blocking I/O
-	- cf) Blocking 방식 : 현재 흔한 프로그래밍 방식. 뒷 줄의 실행이 앞 줄 실행 후 이루어짐. 순차적 진행.
-	- 함수를 매개변수로 전달 : Non-blocking 방식 동작
+ - cf) Blocking 방식 : 현재 흔한 프로그래밍 방식. 뒷 줄의 실행이 앞 줄 실행 후 이루어짐. 순차적 진행.
+- 함수를 매개변수로 전달 : Non-blocking 방식 동작
 ```
 var fs = require('fs');
 
@@ -27,11 +28,10 @@ fs.readFile('./test.txt' , function (err, data){
 });
 console.log('Hi Node');
 ```
-
-	- 실행순서 : ./test.txt -> console.log('Hi Node') -> callback 함수 ( console.log(data) )
-	- 함수 호출 후 리턴값을 받거나, 함수만 호출 시 Blocking 방식 동작
-	- 시간이 오래 걸리는 작업은 워커 스레드로 진행, 메인 스레드 코드는 계속 진행. 워커 스레드 작업 끝날 시 메인 스레드로 전송
-
+-
+	 - 실행순서 : ./test.txt -> console.log('Hi Node') -> callback 함수 ( console.log(data) )
+	 - 함수 호출 후 리턴값을 받거나, 함수만 호출 시 Blocking 방식 동작
+	 - 시간이 오래 걸리는 작업은 워커 스레드로 진행, 메인 스레드 코드는 계속 진행. 워커 스레드 작업 끝날 시 메인 스레드로 전송
  3. npm 
 	- Node Packaged Modules
 	- Node.js로 만들어진 모듈을 인터넷에서 받아서 설치해주는 패키지 매니저
@@ -48,6 +48,7 @@ console.log('Hi Node');
 ---
 - c:/nodejstest 폴더 생성
 - helloworld.js 파일 생성
+
 ```
 <<helloworld.js>>
 const http = require('http');
@@ -59,6 +60,7 @@ http.createServer((request, response) => {
 
 console.log('server running 8090 port');
 ```
+
  - cmd 명령프롬프트 실행 후 서버 시작
  ```
  >cd c:/nodejstest
