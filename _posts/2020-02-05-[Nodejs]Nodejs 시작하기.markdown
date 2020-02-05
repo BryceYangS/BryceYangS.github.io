@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "[Node.js]Node.js 시작하기"
+title: "[Nodejs]Nodejs 시작하기"
 subtitle: "Node.js 시작하기"
 categories: study
 tags: Nodejs
