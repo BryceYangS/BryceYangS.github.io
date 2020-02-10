@@ -1,14 +1,19 @@
 **앞으로 써야할 내용**
 ---
+
+
+Git : 나의 Fork & Fork의 original repository와 동기화
+---
 [\[Git\] Fork 한 repository 최신으로 동기화하기](https://json.postype.com/post/210431)
 
 
 yarn 에러 발생 관련
 ---
-`>yarn install`  erorr 발생
+`>yarn install` erorr 발생
 error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz: self signed certificate in certificate chain".
 
 해결방법
+
 `>yarn config set "strict-ssl" false`
 
 vs Code 
