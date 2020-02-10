@@ -1,3 +1,8 @@
+**앞으로 써야할 내용**
+---
+[\[Git\] Fork 한 repository 최신으로 동기화하기](https://json.postype.com/post/210431)
+
+
 yarn 에러 발생 관련
 ---
 `>yarn install`  erorr 발생
