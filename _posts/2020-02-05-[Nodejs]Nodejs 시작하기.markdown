@@ -70,4 +70,3 @@ console.log('server running 8090 port');
 
 [Reference]
  - nodejs : [https://nodejs.org/en/](https://nodejs.org/en/)
- - [http://pyrasis.com/nodejs/nodejs-HOWTO](http://pyrasis.com/nodejs/nodejs-HOWTO)
