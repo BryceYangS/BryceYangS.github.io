@@ -71,3 +71,7 @@ iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 80
 
 ## AWS ec2 / nginx : http -> https redirect
 https://perfectacle.github.io/2017/10/05/https-with-elb/
+
+
+## How to install node and mongodb on Amazon EC2
+https://github.com/SIB-Colombia/dataportal-explorer/wiki/How-to-install-node-and-mongodb-on-Amazon-EC2
