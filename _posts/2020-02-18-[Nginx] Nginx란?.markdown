@@ -1,10 +1,11 @@
-﻿---
+---
 layout: post
 title: "[etc]Nginx"
 subtitle: "Nginx"
 categories: study
 tags: etc
----  
+---
+
 
 ## 1. Nginx
 - Apache HTTPd 취약점 보완하기 위해 개발
