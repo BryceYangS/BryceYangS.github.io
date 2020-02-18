@@ -1,3 +1,11 @@
+﻿---
+layout: post
+title: "[etc]Nginx"
+subtitle: "Nginx"
+categories: study
+tags: etc
+---  
+
 ## 1. Nginx
 - Apache HTTPd 취약점 보완하기 위해 개발
 - Apache C10K 문제 : 10,000개 이상의 소켓을 열게 되면 하드웨어 성능이 충분함에도 불구하고 I/O 처리 방식의 문제 때문에 프로세스가 제대로 처리하지 못함
