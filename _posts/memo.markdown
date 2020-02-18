@@ -19,8 +19,16 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 `>yarn config set "strict-ssl" false`
 
 ## vs Code 
-
-// js
+{
+    "editor.fontFamily": "'D2Coding ligature', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 15,
+    "editor.fontLigatures": true,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "window.zoomLevel": 1,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    // js
     "javascript.suggestionActions.enabled": false,
     "javascript.format.enable": false,
     "javascript.validate.enable": false,
@@ -39,8 +47,7 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
     "eslint.enable": true,
     "eslint.format.enable": true,
     "eslint.alwaysShowStatus": true,
-    
-    
+}
     
 
 2. 조회 및 삭제 방법
