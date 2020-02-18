@@ -19,6 +19,7 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 `>yarn config set "strict-ssl" false`
 
 ## vs Code 
+```
 {
     "editor.fontFamily": "'D2Coding ligature', Consolas, 'Courier New', monospace",
     "editor.fontSize": 15,
@@ -48,7 +49,8 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
     "eslint.format.enable": true,
     "eslint.alwaysShowStatus": true,
 }
-    
+```
+
 
 2. 조회 및 삭제 방법
 https://srzero.tistory.com/entry/Ubuntu-Iptable-nat-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%84%A4%EC%A0%95-%EC%82%AD%EC%A0%9C
