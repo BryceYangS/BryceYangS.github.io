@@ -1,16 +1,13 @@
 # 앞으로 써야할 내용
----
 
 
 
 ## Git : 나의 Fork & Fork의 original repository와 동기화
----
 
 [\[Git\] Fork 한 repository 최신으로 동기화하기](https://json.postype.com/post/210431)
 
 
 ## yarn 에러 발생 관련
----
 
 `>yarn install` erorr 발생
 
@@ -22,7 +19,6 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 `>yarn config set "strict-ssl" false`
 
 ## vs Code 
----
 
 // js
     "javascript.suggestionActions.enabled": false,
@@ -46,7 +42,6 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 
 
 ## port forwarding
----
 1. 등록
 iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
 
@@ -57,6 +52,5 @@ iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 80
 https://srzero.tistory.com/entry/Ubuntu-Iptable-nat-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%84%A4%EC%A0%95-%EC%82%AD%EC%A0%9C
 
 ## ec2 & nginx & mariaDB설치
----
 https://daddyprogrammer.org/post/2348/aws-ec2-install-nginx-mariadb/
 
