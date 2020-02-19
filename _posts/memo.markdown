@@ -75,3 +75,10 @@ https://perfectacle.github.io/2017/10/05/https-with-elb/
 
 ## How to install node and mongodb on Amazon EC2
 https://github.com/SIB-Colombia/dataportal-explorer/wiki/How-to-install-node-and-mongodb-on-Amazon-EC2
+
+
+## Front End 공부
+https://poiemaweb.com/
+
+## Mongo DB 
+https://www.tutorialspoint.com/mongodb/mongodb_environment.htm
