@@ -4,5 +4,5 @@ title: etc
 slug: etc
 category: study
 menu: false
-order: 6
+order: 9
 ---
