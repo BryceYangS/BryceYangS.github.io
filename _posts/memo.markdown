@@ -82,3 +82,9 @@ https://poiemaweb.com/
 
 ## Mongo DB 
 https://www.tutorialspoint.com/mongodb/mongodb_environment.htm
+
+## javascript 공부
+http://www.jstips.co/en/javascript/
+
+## 웹개발 공부
+https://www.codecademy.com/
