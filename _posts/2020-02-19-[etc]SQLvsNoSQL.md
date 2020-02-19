@@ -38,8 +38,6 @@ tags: etc
 
 ## 1.1.2. NoSQL (비관계형 데이터베이스)
 
----
-
 - SQL의 record는 documnet라고 불림
 - document는 JSON과 비슷한 형태
 - 일반적으로 관련 데이터를 동일한 Collection에 넣음
@@ -55,7 +53,6 @@ tags: etc
 
 ## 1.1.3. 수직적, 수평적 확장
 
----
 
 - 수직적 확장
   - 데이터베이스 서버의 성능을 향상 시킴(CPU 업그레이드 등)
@@ -71,7 +68,6 @@ tags: etc
 
 ## 1.1.4. 선택
 
----
 
 - <u>어떤 데이터를 다루는지</u>, <u>어떤 애플리케이션에서 사용되는지</u>를 종합적으로 고려
 
@@ -118,6 +114,5 @@ NoSQL의 단점
 
 ### 참조
 
----
 
 - SQL vs NoSQL : https://academind.com/learn/web-dev/sql-vs-nosql/
