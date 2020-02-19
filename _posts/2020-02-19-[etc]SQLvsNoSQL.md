@@ -38,7 +38,8 @@ tags: etc
 
 ## 1.1.2. NoSQL (비관계형 데이터베이스)
 
-- SQL의 record는 documnet라고 불림
+- NoSQL의 Collection은 SQL의 Table
+- NoSQL의 document는 SQL의 record
 - document는 JSON과 비슷한 형태
 - 일반적으로 관련 데이터를 동일한 Collection에 넣음
 
@@ -58,7 +59,7 @@ tags: etc
   - 데이터베이스 서버의 성능을 향상 시킴(CPU 업그레이드 등)
 - 수평적 확장
   - 서버가 추가되고 데이터베이스가 전체적으로 분산
-  - 하나의 데이터베이스에서 여러 호스트에서 작동
+  - 하나의 데이터베이스에서 여러 호스트 작동
 
 ![Vertical & Horizontal Scailing](https://academind.com/static/3d5e1fd10206c1c76da6214c01c7a5f4/a2510/horizontal-and-vertical-scaling.jpg)
 
