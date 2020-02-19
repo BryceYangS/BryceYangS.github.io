@@ -6,8 +6,6 @@ categories: study
 tags: etc
 ---
 
-<a href="https://www.mongodb.com"><img src="/assets/img/mongodb.jpeg" width="400px" alt="MongoDB"></a>
-
 # 1.1. SQL vs NoSQL
 
 - SQL과 NoSQL은 상황에 따라 적용해야함. 무조건적으로 NoSQL이 좋다고 할 수 없음.
