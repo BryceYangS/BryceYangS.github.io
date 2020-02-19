@@ -59,7 +59,7 @@ tags: etc
   - 데이터베이스 서버의 성능을 향상 시킴(CPU 업그레이드 등)
 - 수평적 확장
   - 서버가 추가되고 데이터베이스가 전체적으로 분산
-  - 하나의 데이터베이스에서 여러 호스트 작동
+  - 하나의 데이터베이스에 대해 여러 호스트 작동
 
 ![Vertical & Horizontal Scailing](https://academind.com/static/3d5e1fd10206c1c76da6214c01c7a5f4/a2510/horizontal-and-vertical-scaling.jpg)
 
