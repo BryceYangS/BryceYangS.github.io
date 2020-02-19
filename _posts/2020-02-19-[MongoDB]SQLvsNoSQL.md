@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[etc]SQL vs NoSQl"
+title: "[MongoDB]SQL vs NoSQl"
 subtitle: "SQL vs NoSQL"
 categories: study
-tags: etc
+tags: mongo
 ---
 
 # 1.1. SQL vs NoSQL
