@@ -72,6 +72,18 @@
  Router -> Router
   - Bus형
 
+```
+> netstat -an
+```
+  - 로컬 주소 : 본인 컴퓨터 주소 / 외부 주소 : 현재 접속하고 있는 주소. 80포트는 현재 켜놓고 있는 웹 서버 주소.
+
+```
+cmd 실행
+ncpa.cpl 입력
+````
+ - 랜카드, 네트워크 설정 관련   
+
+
 ## OSI 7 Layers
 [Upper Layers]   
 7. Application : 사용자와 통신   
@@ -84,16 +96,79 @@
 2. Data link : 스위치, 랜카드  
 1.Physical : 케이블(Hub 장비)   
 
-### Data Encapsulation   
+
+## CSMA/CD
+ - CSMA/CD (Carrier Sense Multiple Access Collision Detect)
+ - Carier Sense : 보낼 데이터가 있는 노드는 네트워크 상에 Carrier(전기신호)가 있는지 감지. 네트워크 현재 사용중인지를 확인하는 과정.
+ - Multiple Sense : Carrier가 없는 것을 감지할 경우, 노드는 네트워크상에 Packet을 전송. 모든 노드가 전송 가능, 노드별 우선순위 X.
+ - Collision Detection : 패킷 전송에 충돌 있는지 확인.
+ - 대기 : 충돌 발생한 경우 대기 및 차례대로 전송
+
+
+## Data Encapsulation   
 ![data encasulation](/assets/img/data_encapsulation.png)   
 
  - 보내는 쪽에서 Data를 잘개 쪼개 랜 카드까지 흘려 보내는 과정
  - Layer 4 Header : TCP 인지 UDP인지 값을 보내줌 ---> `Segment`라고 함
  - Layer 3 Header : 보내는 사람 ip, 받는 사람 ip ---> `Packet` : 라우터 단에서 호출 시 
- - `Frame` : 스위치 단에서 호출 시
- - 랜카드에서 Bit로 바꿈
+ - `Frame` : 스위치 단에서 호출 시 데이터를 가리킴
+ - 랜카드에서 `Bit`로 바꿈
  
  ## De-Encapsulation   
  ![de encasulation](/assets/img/de_encapsulation.png)   
 
   - 데이터를 받아 상단 계층으로 보내면서 header를 제거. 다시 재조립하는 과정
+
+
+## Collision/Broadcast Domain  
+- Collision Domain
+	- Switch의 한 포트에 해당. Hub의 경우 전체가 하나의 Collision Domain
+- Broadcast Domain
+	- Router의 한 포트가 하나의 Broadcast Domain
+
+
+- switch , Bridge : Collision Domain을 나눔
+- Router : Broadcast Domain을 나눔
+
+
+
+## The OSI Model and Nework Devices
+![osi_model](/assets/img/osi_model.png)  
+
+ - L4 switch(Advanced Switch) : Router 기능 있음, load balancing 등의 기능도 가지고 있음
+
+## TCP/IP Protocol Stack
+ - TCP/IP 먼저, OSI 7 Layer Model이 나중에 나옴  
+ - OSI 7 Layer 모델 표준에 맞추면 다른 회사와 호완이 됨   
+
+
+| OSI 7 Layer | TCP/IP | 
+|---|---|
+| Application, Presentation, session | Application | 
+| Transport | Tranport | 
+| Network | Network | 
+| Data link, Physical | Network Interface |
+
+
+Cloud는 가상 환경 기반. 가상 네트워크.
+
+
+# 네트워크 장비와 실습구성
+
+## Media
+ - Media : 컴퓨터와 컴퓨터를 연결하는 케이블.
+	- 주요 기능 : Bits 형태의 정보 흐름을 carry. 
+ - Repeater : 신호증폭 장치
+ - 100m 이상 넘어갈 경우 신호가 약해짐. Repeater를 이용해 신호 증폭.  
+
+ - Token Ring
+ - FDDI Ring
+ - Ethernet Line : LAN에서 사용 케이블. Swich - Comput 연결. ( Switch - Hub - Comput 연결)
+ - Serial Line : WAN에서 사용 케이블 , 라우터에서 다른 라우터로 연결할 때 사용 ( Router - Router )
+
+## Ethernet Protocol Description
+ - 예 : 100 BASE-TX
+ 	- 100 : LAN 속도 100Mbps
+ 	- BASE : Baseband(디지털) / Broad : Broadband (아날로그)
+ 	- TX : Cable의 물리적인 타입을 나타내거나, 숫자일 경우 최대길이 (Num * 100m)가 된다.
+
