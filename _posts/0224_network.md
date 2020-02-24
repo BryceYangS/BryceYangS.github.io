@@ -212,11 +212,11 @@ Cloud는 가상 환경 기반. 가상 네트워크.
 1. 7~5계층
 	1) APP DATA 
 2. 4계층
-	1) UDP HR + APP DATA : TCP/UDP 전송계층 header 더함
+	1) __UDP HR__ + APP DATA : TCP/UDP 전송계층 header 더함
 3. 3계층
-	1) SRC IP + DST IP + UDP HD + APP DATA : 보내는 host IP , 목적지 ip header 더함
+	1) __SRC IP__ + __DST IP__ + UDP HD + APP DATA : 보내는 host IP , 목적지 ip header 더함
 4. 2계층
-	1) SRC MAC + DST MAC + SRC IP + DST IP + UDP HD + APP DATA
+	1) __SRC MAC__ + __DST MAC__ + SRC IP + DST IP + UDP HD + APP DATA
 	2) Mac 주소가 Router 밖에 있을 경우 Gateway 주소를 가져오고 Router 밖으로 보냄
 	3) ARP 를 통해 해당 mac 주소를 가져옴. 캐시에 저장
 	4) 저장된 mac 주소는 나중에 재활용
