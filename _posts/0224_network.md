@@ -111,7 +111,7 @@ ncpa.cpl 입력
  - 보내는 쪽에서 Data를 잘개 쪼개 랜 카드까지 흘려 보내는 과정
  - Layer 4 Header : TCP 인지 UDP인지 값을 보내줌 ---> `Segment`라고 함
  - Layer 3 Header : 보내는 사람 ip, 받는 사람 ip ---> `Packet` : 라우터 단에서 호출 시 
- - `Frame` : 스위치 단에서 호출 시 데이터를 가리킴
+ - `Frame` : 스위치 단에서 호출 시 데이터를 가리킴. Mac 주소(보내는 Mac/ 목적지 Mac).
  - 랜카드에서 `Bit`로 바꿈
  
  ## De-Encapsulation   
@@ -158,7 +158,7 @@ Cloud는 가상 환경 기반. 가상 네트워크.
 ## Media
  - Media : 컴퓨터와 컴퓨터를 연결하는 케이블.
 	- 주요 기능 : Bits 형태의 정보 흐름을 carry. 
- - Repeater : 신호증폭 장치
+ - Repeater : 신호증폭 장치 (1계층에 있음. Hub도 1계층에 있음)
  - 100m 이상 넘어갈 경우 신호가 약해짐. Repeater를 이용해 신호 증폭.  
 
  - Token Ring
@@ -172,3 +172,60 @@ Cloud는 가상 환경 기반. 가상 네트워크.
  	- BASE : Baseband(디지털) / Broad : Broadband (아날로그)
  	- TX : Cable의 물리적인 타입을 나타내거나, 숫자일 경우 최대길이 (Num * 100m)가 된다.
 
+## Cable
+ - Sraight-Through Cable : Direct Cable이라고도 함.
+	- 양쪽의 케이블 배열이 동일
+	- 다른 장비 간 연결 시 사용
+		- Switch - Router 연결
+		- Switch - PC or Server
+		- Hub - PC or Server
+ - Crossover Cable
+	- 케이블이 다르게 배열. Cross 되어있음.
+	- 같은 장비 간 연결 시 사용
+		- Switch - Switch
+		- Switch - Hub
+		- Hub - Hub
+		- Router - Router
+		- PC - PC
+
+ - 내부망의 끝에 Router 장비를 두고 ISP 업체의 장비 CSU/DSU를 둠(?)
+
+
+
+## 장비
+- Repeater : Hub와 함께 1계층 장비
+- NIC (Network Interface Card, 랜카드)
+	- <u>Mac 주소(물리적 주소)</u>. 랜카드는 고유 주소를 가짐. 
+	- 2계층(Data Link)은 Mac주소를 가지고 통신
+	- 자기 Mac 주소 케이블만 데이터로 받고 , 그외에는 다 drop시킴
+	- 메인보드 랜카드 슬롯 : ISA , EISA, PCI(요즘 보드에 주로 장착되어있는 슬롯), MCA, PCMCIA	
+	- Switch : 각 port의 주소를 메모리에 기록. mac 주소를 학습시킴. 학습 후 데이터 들어오면 모든 port로 flooding이 아닌 해당 Mac 주소에만 forwarding
+	- cf) Hub는 Mac 주소 X.
+	- mac 주소 : Router 밖까지는 못감. ARP Request가 목적지 mac 주소를 탐색.
+
+- 3계층 Router
+	- IP 주소 통신.
+	- L4 Switch : Router 기능을 포함함.
+
+
+## Host-to-Host Packet Delivery
+1. 7~5계층
+	1) APP DATA 
+2. 4계층
+	1) UDP HR + APP DATA : TCP/UDP 전송계층 header 더함
+3. 3계층
+	1) SRC IP + DST IP + UDP HD + APP DATA : 보내는 host IP , 목적지 ip header 더함
+4. 2계층
+	1) SRC MAC + DST MAC + SRC IP + DST IP + UDP HD + APP DATA
+	2) Mac 주소가 Router 밖에 있을 경우 Gateway 주소를 가져오고 Router 밖으로 보냄
+	3) ARP 를 통해 해당 mac 주소를 가져옴. 캐시에 저장
+	4) 저장된 mac 주소는 나중에 재활용
+
+```
+cmd 실행
+> arp -a
+```
+  - 브로드캐스트를 통해 목적지의 mac 주소를 알아옴
+  - 브로드캐스트 데이터는 Router 를 못건너감.
+  - arp : ip를 통해 mac 주소를 얻음. arp 메모리에 한 번 알아온 mac 주소를 캐시에 저장.
+  - rarp : mac 주소를 통해 ip를 얻어옴
