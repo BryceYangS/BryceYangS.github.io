@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Network
-slug: Network
+title: network
+slug: network
 category: study
 menu: false
 order: 7
