@@ -4,5 +4,5 @@ title: network
 slug: network
 category: study
 menu: false
-order: 8
+order: 7
 ---
