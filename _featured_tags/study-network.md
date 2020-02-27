@@ -3,6 +3,6 @@ layout: tag-blog
 title: network
 slug: network
 category: study
-menu: false
+menu: true
 order: 7
 ---
