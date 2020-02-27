@@ -6,17 +6,11 @@ categories: study
 tags: network
 ---
 
-------------------------
 **복습**
-
-
 ```
 > ipconfig /flushdns
 > ipconfig /registerdns
 ```
-
-
---------------------------
 
 
 # 오늘 배울 내용
