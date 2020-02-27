@@ -83,6 +83,10 @@ https://poiemaweb.com/
 ## Mongo DB 
 https://www.tutorialspoint.com/mongodb/mongodb_environment.htm
 
+#### mongo DB 명령어
+https://velopert.com/545
+https://sjh836.tistory.com/100
+
 ## javascript 공부
 http://www.jstips.co/en/javascript/
 
