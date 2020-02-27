@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "[Network] 네트워크 Day-3"
-subtitle: "TCP/IP"
+title: "[Network] 네트워크 Day-4"
+subtitle: "VLAN & Trinking"
 categories: study
 tags: network
 ---  
