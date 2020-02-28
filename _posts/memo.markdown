@@ -2,9 +2,35 @@
 
 
 
-## Git : 나의 Fork & Fork의 original repository와 동기화
+## Git
+
+#### 나의 Fork & Fork의 original repository와 동기화
 
 [\[Git\] Fork 한 repository 최신으로 동기화하기](https://json.postype.com/post/210431)
+
+
+#### git 원격지 브랜치 삭제
+작성자 : 정광섭 - 2014, 6월 27
+git 에서 remote branch delete 하는 방법.
+
+삭제할 브랜치 이름은 feature/TEST-860 이다
+
+ 
+
+방법 1
+git push origin --delete feature/TEST-860
+ 
+
+방법 2
+git branch -d feature/TEST-860
+git push origin feature/TEST-860
+ 
+
+Ref
+How to delete a Git branch both locally and remotely?
+
+ 
+
 
 
 ## yarn 에러 발생 관련
