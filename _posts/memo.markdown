@@ -109,6 +109,9 @@ https://poiemaweb.com/
 ## Mongo DB 
 https://www.tutorialspoint.com/mongodb/mongodb_environment.htm
 
+#### 몽고DB 윈도우 설치
+https://javacpro.tistory.com/64
+
 #### mongo DB 명령어
 https://velopert.com/545
 https://sjh836.tistory.com/100
@@ -118,3 +121,8 @@ http://www.jstips.co/en/javascript/
 
 ## 웹개발 공부
 https://www.codecademy.com/
+
+
+## AWS
+### AWS에 FileZilla로 SFTP에 접속하기
+https://nickjoit.tistory.com/150
