@@ -78,8 +78,6 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 ```
 
 
-2. 조회 및 삭제 방법
-https://srzero.tistory.com/entry/Ubuntu-Iptable-nat-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%84%A4%EC%A0%95-%EC%82%AD%EC%A0%9C
 
 ## ec2 & nginx & mariaDB설치
 https://daddyprogrammer.org/post/2348/aws-ec2-install-nginx-mariadb/
@@ -94,6 +92,11 @@ iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 80
 
 
 위와같은 명령어를 터미널에서 입력하면 80으로 들어오는 모든 패킷을 8080으로 리다이렉트 처리해버립니다. 80포트로 요청을 받기위해서 웹서버를 8080으로 띄워놓고 위처럼 iptable을 이용해서 80으로 들어오는 패킷을 웹서버가 받도록 하는 것입니다.
+
+2. 조회 및 삭제 방법
+https://srzero.tistory.com/entry/Ubuntu-Iptable-nat-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%84%A4%EC%A0%95-%EC%82%AD%EC%A0%9C
+
+
 
 ## AWS ec2 / nginx : http -> https redirect
 https://perfectacle.github.io/2017/10/05/https-with-elb/
