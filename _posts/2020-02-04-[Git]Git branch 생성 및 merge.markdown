@@ -28,3 +28,8 @@ $ git branch
 	- master 브랜치로 HEAD가 가리키도록함.
 - `git merge <commit>`
 	- 지정한 <commit> 내용이 HEAD가 가리키고 있는 브랜치에 병합.
+	
+```
+$ git checkout master
+$ git merge opt-express -m 'merge'
+```
