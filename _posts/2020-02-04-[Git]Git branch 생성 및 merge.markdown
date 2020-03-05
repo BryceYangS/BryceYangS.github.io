@@ -33,3 +33,34 @@ $ git branch
 $ git checkout master
 $ git merge opt-express -m 'merge'
 ```
+
+**Merge 전으로 reset**
+---
+```
+$ git reflog
+8ee26d8 HEAD@{0}: merge opt-express: Merge made by the 'recursive' strategy.
+9e75da8 HEAD@{1}: commit: v2
+23fa160 HEAD@{2}: checkout: moving from opt-express to master
+73aa9b3 HEAD@{3}: commit: f1
+23fa160 HEAD@{4}: checkout: moving from master to opt-express
+23fa160 HEAD@{5}: checkout: moving from opt-express to master
+23fa160 HEAD@{6}: checkout: moving from master to opt-express
+23fa160 HEAD@{7}: commit (initial): v1
+```
+git reflog : 히스토리 확인. 
+```
+$ git reset --hard HEAD@{2}
+```
+‘v2’를 commit한 ‘HEAD@{2}’ 시점으로 reset.
+
+- git reset 옵션  
+
+|옵션|설명|
+|---|---|
+|–soft	|Repository이력만 되돌립니다.|
+|[–mixed]|	Stage영역까지만 되돌립니다.|
+|–hard|	Working Directory까지 되돌립니다.|
+
+**Reference**
+---
+-https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88
