@@ -119,6 +119,16 @@ https://javacpro.tistory.com/64
 https://velopert.com/545
 https://sjh836.tistory.com/100
 
+#### mongo DB 데이터 Dump
+mongodump --out <경로> --db <db명>
+
+#### mongo DB 데이터를 
+mongorestore --db <db명> <경로> --drop
+
+#### AWS EC2 Mongo DB 반영
+mongorestore -u <어드민아이디> -p <어드민비번> --authenticationDatabase admin 다른 방법은 동일
+
+
 ## javascript 공부
 http://www.jstips.co/en/javascript/
 
