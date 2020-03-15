@@ -122,7 +122,7 @@ https://sjh836.tistory.com/100
 #### mongo DB 데이터 Dump
 mongodump --out <경로> --db <db명>
 
-#### mongo DB 데이터를 
+#### mongo DB dump file을 가지고 DB 추가
 mongorestore --db <db명> <경로> --drop
 
 #### AWS EC2 Mongo DB 반영
