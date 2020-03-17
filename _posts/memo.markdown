@@ -26,6 +26,13 @@ git branch -d feature/TEST-860
 git push origin feature/TEST-860
  
 
+방법 3 
+git checkout develop
+git branch --delete feature-01
+
+(git branch -D feature-01    ---> 강제 삭제)
+git push origin :feature-01  --> 원격 브랜치 삭제
+
 Ref
 How to delete a Git branch both locally and remotely?
 
