@@ -146,3 +146,7 @@ https://www.codecademy.com/
 ## AWS
 ### AWS에 FileZilla로 SFTP에 접속하기
 https://nickjoit.tistory.com/150
+
+
+## Vue.js & Express로 백/프론트 분리하기
+https://medium.com/hivelab-dev/vue-express-mysql-part1-98f68408d444
