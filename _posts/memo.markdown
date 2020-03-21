@@ -37,8 +37,16 @@ Ref
 How to delete a Git branch both locally and remotely?
 
  
+#### git remote에서 branch 삭제했는데 local 에서 조회가 될 경우
+git remote update 후
+git branch -a 를 통해 branch 를 조회할 때 remote 에서 삭제된 branch들이 조회됨
 
-
+해결 방법   
+```
+git fetch --all --prune
+또는
+git remote prune origin
+```
 
 ## yarn 에러 발생 관련
 
