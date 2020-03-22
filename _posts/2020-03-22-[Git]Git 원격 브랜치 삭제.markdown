@@ -1,5 +1,4 @@
-
-﻿---
+---
 layout: post
 title: "[Git] 원격 브랜치 삭제"
 subtitle: "GIt 원격 브랜치 삭제"
