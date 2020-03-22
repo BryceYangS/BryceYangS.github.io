@@ -44,7 +44,6 @@ await axios.get(`https://<지라 URL 입력하세요>/rest/api/2/issue/{issueIdO
  
 **axios 를 활용한 예시**
 ```
-
 await axios.put(`https://<지라 URL 입력하세요>/rest/api/2/issue/{issueIdOrKey}`,{
 		headers : {
 			'Accept': 'application/json',
