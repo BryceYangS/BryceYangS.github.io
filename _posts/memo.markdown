@@ -48,6 +48,16 @@ git fetch --all --prune
 git remote prune origin
 ```
 
+
+###git 에서 리모트 리포지토리를 로컬로 덮어쓰기
+실서버 소스를 약간 수정한 뒤 git pull을 했더니, conflict가 일어나서 패닉상태가 되었을때.. 이 두 커멘트면 해결이 가능하다.
+
+$ git fetch origin
+$ git reset --hard origin/master
+
+참고로 인터넷상에, git pull 커멘드를 이용해 강제로 pull을 받는 방법이 소개되어 있는데, pull은 git fetch와 git merge origin/master를 동시에 해주는 커멘드로써, 로컬에서 소스와 merge할 일이 없으면 되도록이면 쓰지 않는게 좋다.
+
+
 ## yarn 에러 발생 관련
 
 `>yarn install` erorr 발생
