@@ -178,3 +178,10 @@ https://joshua1988.github.io/web-development/javascript/promise-for-beginners/#p
 
 ## GeoCoding
 https://scyoon.tistory.com/103
+
+
+## Python
+### package 설치 시 SSL 에러
+https://surpreem.com/%ED%8C%81-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98%ED%95%A0-%EB%95%8C-ssl-%EC%9D%B8%EC%A6%9D-%EC%98%A4%EB%A5%98-%ED%95%B4%EC%A0%9C-%EB%B0%A9%EB%B2%95/
+
+http://blog.naver.com/PostView.nhn?blogId=kyung4502&logNo=221498420654
