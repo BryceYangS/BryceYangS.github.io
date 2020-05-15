@@ -21,7 +21,7 @@ tags: etc
 
 
 **axios 를 활용한 예시**
-```
+```javascript
 await axios.get(`https://<지라 URL 입력하세요>/rest/api/2/issue/{issueIdOrKey}`,{
 			headers : {
 				'Accept': 'application/json',
@@ -43,7 +43,7 @@ await axios.get(`https://<지라 URL 입력하세요>/rest/api/2/issue/{issueIdO
  - **유의사항)**  issue의 필드 형태에 따라 값을 넣어주는 방법이 다름
  
 **axios 를 활용한 예시**
-```
+```javascript
 await axios.put(`https://<지라 URL 입력하세요>/rest/api/2/issue/{issueIdOrKey}`,{
 		headers : {
 			'Accept': 'application/json',
