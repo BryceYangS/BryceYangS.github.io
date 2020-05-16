@@ -19,7 +19,11 @@ tags: Nodejs
 2. Non-blocking I/O
  - cf) Blocking 방식 : 현재 흔한 프로그래밍 방식. 뒷 줄의 실행이 앞 줄 실행 후 이루어짐. 순차적 진행.
 - 함수를 매개변수로 전달 : Non-blocking 방식 동작
+<<<<<<< HEAD
 ```
+=======
+```javascript
+>>>>>>> 234dca0354054c6318765710583dd41de701a912
 var fs = require('fs');
 
 fs.readFile('./test.txt' , function (err, data){
@@ -48,7 +52,11 @@ console.log('Hi Node');
 - c:/nodejstest 폴더 생성
 - helloworld.js 파일 생성
 
+<<<<<<< HEAD
 ```
+=======
+```javascript
+>>>>>>> 234dca0354054c6318765710583dd41de701a912
 <<helloworld.js>>
 const http = require('http');
 
