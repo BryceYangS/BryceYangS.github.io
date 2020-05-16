@@ -17,11 +17,11 @@ tags: springboot
 - 분산 시스템 설계를 위한 아키텍쳐 스타일.
 - 아키텍처 제약 조건
 
-1. **Client-server architecture**
-   -- 유저인터페이스를 데이터 스토리지와 분리
-   -- 멀티 플랫폼 : 데이터 처리와 클라이언트를 분리시켜 여러 클라이언트에서 데이터에 대한 출력이 가능해짐)
+  1)**Client-server architecture**
+  -- 유저인터페이스를 데이터 스토리지와 분리
+  -- 멀티 플랫폼 : 데이터 처리와 클라이언트를 분리시켜 여러 클라이언트에서 데이터에 대한 출력이 가능해짐)
 
-2. **Stateless**: 각 요청에 클라이언트의 context가 서버에 저장되어서는 안된다.
+  2. **Stateless**: 각 요청에 클라이언트의 context가 서버에 저장되어서는 안된다.
 
 3. **Cacheable**
    클라이언트는 응답을 캐싱할 수 있어야 한다.
@@ -35,7 +35,7 @@ tags: springboot
 6. **uniform interface**
    자원은 유일하게 식별가능해야하고, HTTP Method로 표현을 담아야 하고, 메세지는 스스로를 설명(self-descriptive)해야하고, 하이퍼링크를 통해서 애플리케이션의 상태가 전이(HATEOAS)되어야 한다.
 
-### 2. REST 구성요소
+###2. REST 구성요소
 
 - URI : 리소스 / Method : 행위 / MIME TYPE : 표현방식  
   `1 | GET /100 HTTP/1.1 Host : https://bryceyangs.github.io`

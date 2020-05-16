@@ -1,0 +1,45 @@
+---
+layout: post
+title: "[Git] 원격 브랜치 삭제"
+subtitle: "Git 원격 브랜치 삭제"
+categories: study
+tags: Git
+---
+
+
+**git 원격 브랜치 삭제**
+---
+
+ **f/test  브랜치 삭제**
+
+방법 1 
+`> git push origin --delete f/test`
+
+방법 2 
+```
+> git branch -d feature/f/test 
+> git push origin feature/f/test
+```
+방법 3 
+```
+> git checkout develop 
+> git branch --delete f/test
+```
+방법 4
+```
+> git branch -D f/test          ~~~~> local 브랜치 강제 삭제
+> git push origin :f/test       ~~~~> 원격 브랜치 삭제
+```
+- -D 옵션:  강제 삭제
+
+
+## git remote에서 branch 삭제했는데 local 에서 조회가 될 경우
+
+`git remote update` 후 `git branch -a` 를 통해 branch 를 조회할 때 remote 에서 삭제된 branch들이 조회됨
+
+**해결 방법**
+```
+git fetch --all --prune
+또는
+git remote prune origin
+```

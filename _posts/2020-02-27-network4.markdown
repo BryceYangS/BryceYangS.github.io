@@ -1,0 +1,214 @@
+---
+layout: post
+title: "[Network] 네트워크 Day-4"
+subtitle: "VLAN & Trinking"
+categories: study
+tags: network
+---  
+
+
+**복습**
+```
+> ipconfig /flushdns
+> ipconfig /registerdns
+```
+
+
+# 오늘 배울 내용
+# VLAN과 Trunking
+### VLAN의 필요성
+### VLAN 설정
+### VLAN 라우팅
+### Trunking 의미
+### Trunking 포트와 Access 포트
+### 801.Q 구조와 동작 원리
+### VTP 동작과 설정
+### STP의 동작과 이해
+------------
+
+
+
+## SWITCH의 기본 작동원리
+Layer 2 장비
+Bridge와 비슷 : Bridge는 포트가 2,3개. S/W적으로 처리
+Switch
+ - 24, 48, 100포트 등의 많은 포트
+ - 속도 빠름.
+ - 포트마다 밴드위드 조정 가능(10Mbps, 100M , 100G.. 등)
+ - 3가지 기능
+	- Address Learning : Address 학습을 위해 처음에는 flooding 해서 Mac 주소 Gathering
+	- Broadcast/Multicast Flooding : 모든 포트로. (Broadcast,Multicast 프레임 : Flooding)
+	- Forward/Filter Decision : 해당 맥 주소로만 (Unicast 프레임 : Foward)
+	- Loop Avoidance : 스위치 이중화 시키는 경우 있음. --> 이때 스위치 끼리 Looping이 발생할 수 있음. `STP` 알고리즘이 막아줌.
+
+@ STP
+ - Switch 이중화 경우 : Looping 방지 위한 하나의 protocol, algorithm
+
+## VLAN
+하나의 스위치에서 각각 다른 Broadcast domain 나눌 수 있음  
+하나의 라우터 인터페이스에서 Broadcast domain을 분리 시킬 수 있음.  
+VLAN ID : 1 ~ 1000개 까지의 Broadcast domain을 만들 수 있음  
+Switch의 포트에 고유 식별자를 넣어서 같은 식별자끼리만 통신하도록 만듦  
+1개의 스위치가 마치 3개의 스위치처럼 동작 가능
+
+VLAN 작동법
+ - 각각의 Logical VLAN은 분리된 서브넷과 같음
+ - VLAN은 여러 개의 스위치를 거쳐 구성 가능
+ - Trunk는 다수(전부일 수도 있음)의 VLAN Traffic을 전달
+ - Trunk는 서로 다른 VLAN을 구별하기 위해 특별한 Encapsulation(ISL or 802.1q)을 사용
+	- ISL (Inter-Switch Link) : cisco 장비에서만 사용.
+	- 802.1q : 표준
+ - Trunked Link는 1 - 1005개의 VLAN을 연결할 수 있다
+ - 제약사항 : Trunk Port는 Fast Ethernet (100Mbps) 이상 Port에서만 가능  
+
+802.1Q Trunking
+ - Switch 사이에 Trunk 설정의 표준
+ - VLAN 트래픽을 전달하는 방법
+ - Tagging 메커니즘 사용 
+	- 스위치에서 들어오는 패킷의 헤더에 VALN 태그 값을 추가
+ - Not Tagged Frame들을 위한 Native VLAN을 정의 --> 1번 VLAN (default VLAN)
+	- 태그가 붙지 않은 VLAN은 전부 default VLAN으로 데이터를 보냄  
+
+![tagged-frame](/assets/img/tagged_frame.png)
+
+@ Trunk
+ - VLAN 트래픽 전달하는 포트
+ - 스위치와 스위치 연결위해서는 각 스위치에 Trunk port를 설정해야 함
+
+@ Access Port vs Trunk Port
+ - Trunk : 모든 VLAN에 넘겨 줄 수 있음. VLAN에서 발생하는 모든 데이터를 다른 스위치에 넘겨줄 때
+ - Access : 특정 VLAN. Trunk Port 제외 그 외 포트.
+
+
+## Switch VLAN 설정  
+STEP 1. VLAN 생성 : vlan 11, vlan 12, vlan 13 생성  
+```
+SW# show vlan brief : VLAN 정보 보기
+SW# conf t
+SW(config)# vlan 11
+SW(config-vlan)# name VLAN_A : 태그 값 설정
+SW(config-vlan)# vlan 12
+SW(config-vlan)# name VLAN_B
+SW(config-vlan)# vlan 13
+SW(config-vlan)# name VLAN_C
+SW(config-vlan)# end
+SW# show vlan brief
+```
+ - VLAN 설정을 위해 두 개의 스위치에 동일한 vlan name 값을 가져야 함
+ - VLAN ID 1번 : switch port interface 관리
+ - VLAN ID 1번에 있는 interface를 해당 vlan id로 할당해줘야함  
+
+STEP 2-1. Switch 1 VLAN Access 설정
+	vlan 11 - fa0/1
+	vlan 12 - fal0/2
+```
+SW1# conf t
+SW1(config)# int fa0/1   : interface fastEthernet0/1
+SW1(config-if)# switchport mode access : access 모드 지정
+SW1(config-if)# switchport access vlan 11 : access port vlan id vlan 11이라고 할당
+SW1(config-if)# 
+SW1(config-if)# int fa0/2
+SW1(config-if)# switchport mode access
+SW1(config-if)# switchport access vlan 11 : access port vlan id vlan 12할당.
+SW1(config-if)# end
+SW1# show run   : show runnng-config (메모리 세팅 정보 조회)
+SW1# show vlan brief
+```
+
+STEP 2-2. Switch 2 VLAN Access 설정
+	vlan 11 - fa0/3
+	vlan 12 - fa0/4
+	vlan 13 - fa0/5
+```
+SW2# conf t
+SW2(config)# int fa0/3   : interface fastEthernet0/1
+SW2(config-if)# switchport mode access : access 모드 지정
+SW2(config-if)# switchport access vlan 11 : interface fa0/3 access port 를 vlan id 11에 할당
+SW2(config-if)# 
+....
+SW2(config-if)# end
+SW2# show run   : show runnng-config (메모리 세팅 정보 조회)
+SW2# show vlan brief
+```
+
+
+STEP 3. VLAN Trunk 구성
+          dot1q Trunk               dot1q Trunk
+SW1 [F0/24] ---------------------------- [F0/24] SW2
+
+
+```
+SW1(config)# int fa0/24
+      ??? SW1(config-if)# switchport trunk encapsulation dot1q     : 802.1q표준 (Natice vlan 지원: Not Tagged Frame을 default vlan에)
+SW1(config-if)# switchport mode trunk
+SW1(config-if)# end
+SW1(config-if)# show run
+SW1(config-if)# show int trunk : Trunk 인터페이스만 조회
+
+
+SW2 도 설정 동일
+```
+
+
+STEP 4. Router 설치
+ - gi0/0 서브 인터페이스를 이용한 vlan 게이트웨이 및 Trunk
+
+```
+R1# con t
+R1(config)# int gi0/0
+R1(config-if)# no shutdown
+R1(config-if)# int gi0/0.11 : 서브 인터페이스. 하나의 인터페이스에 하위 인터페이스를 가상화하여 생성
+R1(config-subif)# encapsulation dot1q 11
+R1(config-subif)# ip address 192.168.11.254 255.255.255.0
+R1(config-subif)#
+R1(config-subif)# int gi0/0.12
+R1(config-subif)# encapsulation dot1q 12
+R1(config-subif)# ip address 192.168.12.254 255.255.255.0.
+R1(config-subif)#
+R1(config-subif)# int gi0/0.13
+R1(config-subif)# encapsulation dot1q 13
+R1(config-subif)# ip address 192.168.13.254 255.255.255.0
+R1(config-subif)# end
+R1# show run
+R1# show ip route
+R1# show int gi0/0.11
+R1# show int gi0/0.12
+R1# show int gi0/0.13
+```
+
+
+## VTP(VLAN Trunking Protocol)
+ - 스위치간에 VLAN정보를 주고 받아 VLAN 정보를 일치 시켜주는 프로토콜
+ - VLAN Configuration Information을 전달하는 Messaging
+ - VTP 관리 도메인을 통해 VLAN Configuration Consistency를 보장
+ - VTP는 Trunk Port를 사용해 메시지를 전달
+ - VTP 작동되는 영역 = VTP domain
+
+## VTP Modes
+![vtp-mode](/assets/img/vtp_mode.png)  
+ - Server에선 NVRAM에 저장
+ - Client는 동기화만 함. NVRAM에 저장 X.
+ - Transparent : 동기화 X. 혼자 정보 가지고 있음. 정보를 Client에 알려주지 않음. (cf. Server는 Client에 알려주고 동기화)
+
+
+## STP
+ - 스위치를 이중화시켰을 때 STP 설정을 해줘야 함.
+ - cf) VTP는 VLAN 정보를 동기화해주는 것
+ - 하나의 Switch가 문제 발생했을 때 다른 Switch로 보내도록 이중화함. ----> Broadcast Storms 문제 발생할 수 있음 : STP가 해결!
+
+@ Broadcast Storm
+ - Brodcast Packet은 들어온 port 제외 전부 port에 flooding
+ - host에서 Broadcast 프레임을 보내면 스위치 1과 스위치 2가 서로 프레임을 주고 받으면서 Broadcast Storm 발생
+ - Unicast일 땐 문제 발생 X  
+
+Root Bridge 또는 Root Switch 를 선정해야함  
+ - Bridge ID 또는 Switch ID = 2byte(18bit: 1~65535; 중간값인 32768들어감...) + Mac주소(48bit)  
+ - 모든 Switch는 값을 가짐. default 32768 + Mac 주소    
+ - Root Bridge 선정 기준 :  32768보다 낮은 값이 Root Bridge가 됨  
+ - 그외 Bridge는 Non-Root Bridge
+ - Broadcast Domain 별로 오직 하나의 스위치가 Root Bridge가 됨
+Non-Root Bridge마다 하나의 Root port 선정해줌  
+ - Root Port : Root Bridge와 통신
+
+Root Bridge : Designated Port 를 가짐.
+Non-Root Bridge : Non-Designated Port.
