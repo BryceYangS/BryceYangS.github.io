@@ -22,8 +22,9 @@ tags: react
  - 전체 application은 component들의 결합  
 	- 각 component들은 다른 앱에서 재사용 가능  
  - React의 목표는 성능보다 유지가능한 앱을 만드는 것 --> Component 덕분에 가능  
- 
- #### 2. JSX
+
+
+#### 2. JSX
 ```javascript
 class Square extends React.Component {
 	render() {
@@ -58,6 +59,7 @@ ReactDOM.render(
 	- 선언형(Declarative)의 장점
 		- html의 형태와 비슷한 JSX는 개발자가 만들고자 하는 view에 직관적으로 접근하는 것을 가능하게 해줌.  
 
+
 #### 3. Virtual DOM
  - DOM?
 	- Document Object Model : 웹페이지에 대한 인터페이스. HTML요소들의 구조화된 표현.
@@ -87,6 +89,7 @@ class HelloMessage extends React.Component {
 
 **※유의 사항 : React가 무조건 효율적인 것은 아니다. 최적화 작업이 수반되지 않는다면 오히려 퍼포먼스가 떨어질 수 도 있음**
   
+  
 ## 1. Hello World
 ```javascript
 ReactDOM.render(
@@ -94,7 +97,7 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 ```
-
+  
  Reference:  
   - [What,exactly, is the DOM?](https://bitsofco.de/what-exactly-is-the-dom/?utm_source=CSS-Weekly&utm_campaign=Issue-341&utm_medium=email)  
   - [Mungue Lee님의 "React: #1 React의 탄생배경과 특징"
