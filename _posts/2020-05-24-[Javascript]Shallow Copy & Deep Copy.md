@@ -98,7 +98,7 @@ console.log(JSON.stringify(b)); // {"x":{"z":0},"y":2}
  - `Array.from(myObject, obj => Object.assign({}, obj))` :  JSON.parse(JSON.stringify(obj)) 보다 더 빠름 
 	- 다만, 유의사항으로 IE에서 Array.from() 이 지원되지 않음
 
-
+ - `var newArray = oldArray.slice();` : 기본형이 담긴 배열에 대해서만 deep copy 가능
 
 Reference:
  - [JavaScript Deep copy for array and object](https://medium.com/@gamshan001/javascript-deep-copy-for-array-and-object-97e3d4bc401a)
