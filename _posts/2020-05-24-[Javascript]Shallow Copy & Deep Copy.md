@@ -84,7 +84,7 @@ console.log(d)//[0, 2, 3]
 
 ### Deep Copy 방법
  - `JSON.parse(JSON.stringify(a))`  
-```javascript
+```javascript  
 // Deep Copy
 let a = { x:{z:1} , y: 2};
 let b = JSON.parse(JSON.stringify(a));
