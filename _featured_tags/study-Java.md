@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Javascript
-slug: javascript
+title: Java
+slug: java
 category: study
 menu: false
 order: 11
