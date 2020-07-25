@@ -49,6 +49,7 @@ public class User extends Domain {
     private String password;
 }
  ```  
+
  ```java
 User user1 = new User();
 user1.setId(1L);
@@ -68,7 +69,8 @@ user1.equals(user2);
 ### @Data
  - `@ToString`, `@EqualsAndHashCode`, `@Getter` 모든필드, `@Setter` final로 선언되지 않은 모든필드, `@RequiredArgsConstructor` 어노테이션을 모두 포함한 어노테이션
  - ***JPA와 같은 `ORM`을 사용할 경우 유의사항 존재***
-    - 부모객체와 자식객체의 toString() 간의 문제가 발생할 수 있음
+    - 부모객체와 자식객체의 toString() 간의 문제가 발생할 수 있음  
+
     ```java
     public class Member {
         private String id;
@@ -91,7 +93,8 @@ user1.equals(user2);
             return "Address [zipcode=" + zipcode + ", member=" + member + "]";
         }
     }
-    ```
+    ```  
+    
     - Member 객체의 `toString()` 호출 시 Address의 `toString()`이 호출 되면서, 다시 Member 객체의 `toString()`을 호출하게 되면서 <u>무한루프</u> 발생  
     <i>---> `@Data` 어노테이션 보다 `@Getter`, `@Setter`를 이용하는 것이 더 안전</i>
 
