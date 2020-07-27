@@ -1,12 +1,12 @@
 # 앞으로 써야할 내용
 
-## Git
+## 1. Git
 
-#### 나의 Fork & Fork의 original repository와 동기화
+#### 1-1. 나의 Fork & Fork의 original repository와 동기화
 
 [\[Git\] Fork 한 repository 최신으로 동기화하기](https://json.postype.com/post/210431)
 
-#### git 원격지 브랜치 삭제
+#### 1-2. git 원격지 브랜치 삭제
 
 작성자 : 정광섭 - 2014, 6월 27
 git 에서 remote branch delete 하는 방법.
@@ -30,7 +30,7 @@ git push origin :feature-01 --> 원격 브랜치 삭제
 Ref
 How to delete a Git branch both locally and remotely?
 
-#### git remote에서 branch 삭제했는데 local 에서 조회가 될 경우
+#### 1-3.git remote에서 branch 삭제했는데 local 에서 조회가 될 경우
 
 git remote update 후
 git branch -a 를 통해 branch 를 조회할 때 remote 에서 삭제된 branch들이 조회됨
@@ -51,7 +51,10 @@ $ git reset --hard origin/master
 
 참고로 인터넷상에, git pull 커멘드를 이용해 강제로 pull을 받는 방법이 소개되어 있는데, pull은 git fetch와 git merge origin/master를 동시에 해주는 커멘드로써, 로컬에서 소스와 merge할 일이 없으면 되도록이면 쓰지 않는게 좋다.
 
-## yarn 에러 발생 관련
+#### 1-4. git cherry-pick
+
+
+## 2. yarn 에러 발생 관련
 
 `>yarn install` erorr 발생
 
@@ -61,7 +64,9 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 
 `>yarn config set "strict-ssl" false`
 
-## vs Code
+
+
+## 3. vs Code
 
 ```
 {
@@ -95,16 +100,18 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 }
 ```
 
-## ec2 & nginx & mariaDB설치
+## 4. ec2 & nginx & mariaDB설치
 
 https://daddyprogrammer.org/post/2348/aws-ec2-install-nginx-mariadb/
 
-## Linux
+
+
+## 5. Linux
 
 $ sudo su -  : root 계정으로 전환
 $
 
-**port forwarding**
+#### 5-1. port forwarding
 
 1. 등록
    iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
@@ -114,97 +121,135 @@ $
 2. 조회 및 삭제 방법
    https://srzero.tistory.com/entry/Ubuntu-Iptable-nat-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%84%A4%EC%A0%95-%EC%82%AD%EC%A0%9C
 
-## AWS ec2 / nginx : http -> https redirect
+
+
+## 6. AWS ec2 / nginx : http -> https redirect
 
 https://perfectacle.github.io/2017/10/05/https-with-elb/
 
-## How to install node and mongodb on Amazon EC2
+
+
+## 7. How to install node and mongodb on Amazon EC2
 
 https://github.com/SIB-Colombia/dataportal-explorer/wiki/How-to-install-node-and-mongodb-on-Amazon-EC2
 
-## Front End 공부
+
+
+## 8. Front End 공부
 
 https://poiemaweb.com/
 
-## Mongo DB
+
+
+## 9. Mongo DB
 
 https://www.tutorialspoint.com/mongodb/mongodb_environment.htm
 
-#### 몽고DB 윈도우 설치
+#### 9-1. 몽고DB 윈도우 설치
 
 https://javacpro.tistory.com/64
 
-#### mongo DB 명령어
+#### 9-2. mongo DB 명령어
 
 https://velopert.com/545
 https://sjh836.tistory.com/100
 
-#### mongo DB 데이터 Dump
+#### 9-3. mongo DB 데이터 Dump
 
 mongodump --out <경로> --db <db명>
 
-#### mongo DB dump file을 가지고 DB 추가
+#### 9-4. mongo DB dump file을 가지고 DB 추가
 
 mongorestore --db <db명> <경로> --drop
 
-#### AWS EC2 Mongo DB 반영
+#### 9-5. AWS EC2 Mongo DB 반영
 
 mongorestore -u <어드민아이디> -p <어드민비번> --authenticationDatabase admin 다른 방법은 동일
 
-## javascript
 
-### javascript 공부
+
+## 10. javascript
+
+#### 10-1. javascript 공부
 
 http://www.jstips.co/en/javascript/
 
-### javascript 관련
+#### 10-2. javascript 관련
 
 ```javascript
 // 길이 9 짜리 배열을 만들고 각 배열의 값을 "1"로 초기화함
 const a = Array(9).fill("1");
 //결과 : (9) ["1", "1", "1", "1", "1", "1", "1", "1", "1"]
 ```
-### Javascript 비동기 / Promise
+#### 10-3. Javascript 비동기 / Promise
 
 https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/
 https://joshua1988.github.io/web-development/javascript/promise-for-beginners/#promise%EA%B0%80-%EB%AD%94%EA%B0%80%EC%9A%94
 
 
-### javascript push/concat 차이
+#### 10-4. javascript push/concat 차이
  - push : 기존 배열을 복사한 후 원소 추가 수행.
  - concat : 기존 배열 복제하지 않음.
 
-### [javascript] Shallow Copy  vs Deep Copy 
+#### 10-5. [javascript] Shallow Copy  vs Deep Copy 
  - Shallow Copy : Call by reference
     - javascript 는 객체의 주소값을 할당
  - Deep Copy : Call by Value
     - deep copy 하는 법 : JSON.parse(JSON.stringify(target-object))
 
 
-## 웹개발 공부
+## 11. 웹개발 공부
 
 https://www.codecademy.com/
 
-## AWS
 
-### AWS에 FileZilla로 SFTP에 접속하기
+
+## 12. AWS
+
+### 12-1. AWS에 FileZilla로 SFTP에 접속하기
 
 https://nickjoit.tistory.com/150
 
-## Vue.js & Express로 백/프론트 분리하기
+
+
+## 13. Vue.js & Express로 백/프론트 분리하기
 
 https://medium.com/hivelab-dev/vue-express-mysql-part1-98f68408d444
 
 
 
-## GeoCoding
+## 14. GeoCoding
 
 https://scyoon.tistory.com/103
 
-## Python
 
-### package 설치 시 SSL 에러
+
+## 15. Python
+
+### 15-1. package 설치 시 SSL 에러
 
 https://surpreem.com/%ED%8C%81-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98%ED%95%A0-%EB%95%8C-ssl-%EC%9D%B8%EC%A6%9D-%EC%98%A4%EB%A5%98-%ED%95%B4%EC%A0%9C-%EB%B0%A9%EB%B2%95/
 
 http://blog.naver.com/PostView.nhn?blogId=kyung4502&logNo=221498420654
+
+
+## 16. html
+
+#### 16-1. <script> 태그의 defer 속성
+http://tcpschool.com/html-tag-attrs/script-defer
+
+#### 16-2. map 태그
+https://www.w3schools.com/tags/tag_map.asp
+
+#### 16-3. video poster 속성
+http://tcpschool.com/html-tag-attrs/video-poster
+- 비디오를 다운로드하는 동안이나 사용자가 재생 버튼을 누르기 전까지 비디오 대신 보여줄 이미지를 명시
+- 만약 poster 속성이 명시되어 있지 않으면, 브라우저는 비디오의 첫 번째 프레임(frame)을 대신 보여줌
+- video태그는 html5에 추가됨
+
+#### 16-4. html nav 태그
+https://aboooks.tistory.com/348
+
+#### 16-5. blockquote 태그
+#### 16-6. datalist 태그
+#### 16-7. html void elements
