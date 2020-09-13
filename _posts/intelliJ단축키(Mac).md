@@ -1,0 +1,4 @@
+# [Mac OS] IntelliJ 단축키
+
+1. Option + Command + 'V' : 메서드에 대한 리턴 변수 자동 생성
+2. Control + Enter : 클래스 생성자, Getter/Setter, toString, equals/hashCode 등 생성

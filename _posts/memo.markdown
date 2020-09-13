@@ -53,7 +53,6 @@ $ git reset --hard origin/master
 
 #### 1-4. git cherry-pick
 
-
 ## 2. yarn 에러 발생 관련
 
 `>yarn install` erorr 발생
@@ -63,8 +62,6 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 해결방법
 
 `>yarn config set "strict-ssl" false`
-
-
 
 ## 3. vs Code
 
@@ -104,8 +101,6 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 
 https://daddyprogrammer.org/post/2348/aws-ec2-install-nginx-mariadb/
 
-
-
 ## 5. Linux
 
 $ sudo su -  : root 계정으로 전환
@@ -121,25 +116,17 @@ $
 2. 조회 및 삭제 방법
    https://srzero.tistory.com/entry/Ubuntu-Iptable-nat-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%84%A4%EC%A0%95-%EC%82%AD%EC%A0%9C
 
-
-
 ## 6. AWS ec2 / nginx : http -> https redirect
 
 https://perfectacle.github.io/2017/10/05/https-with-elb/
-
-
 
 ## 7. How to install node and mongodb on Amazon EC2
 
 https://github.com/SIB-Colombia/dataportal-explorer/wiki/How-to-install-node-and-mongodb-on-Amazon-EC2
 
-
-
 ## 8. Front End 공부
 
 https://poiemaweb.com/
-
-
 
 ## 9. Mongo DB
 
@@ -166,8 +153,6 @@ mongorestore --db <db명> <경로> --drop
 
 mongorestore -u <어드민아이디> -p <어드민비번> --authenticationDatabase admin 다른 방법은 동일
 
-
-
 ## 10. javascript
 
 #### 10-1. javascript 공부
@@ -181,28 +166,27 @@ http://www.jstips.co/en/javascript/
 const a = Array(9).fill("1");
 //결과 : (9) ["1", "1", "1", "1", "1", "1", "1", "1", "1"]
 ```
+
 #### 10-3. Javascript 비동기 / Promise
 
 https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/
 https://joshua1988.github.io/web-development/javascript/promise-for-beginners/#promise%EA%B0%80-%EB%AD%94%EA%B0%80%EC%9A%94
 
-
 #### 10-4. javascript push/concat 차이
- - push : 기존 배열을 복사한 후 원소 추가 수행.
- - concat : 기존 배열 복제하지 않음.
 
-#### 10-5. [javascript] Shallow Copy  vs Deep Copy 
- - Shallow Copy : Call by reference
-    - javascript 는 객체의 주소값을 할당
- - Deep Copy : Call by Value
-    - deep copy 하는 법 : JSON.parse(JSON.stringify(target-object))
+- push : 기존 배열을 복사한 후 원소 추가 수행.
+- concat : 기존 배열 복제하지 않음.
 
+#### 10-5. [javascript] Shallow Copy vs Deep Copy
+
+- Shallow Copy : Call by reference
+  - javascript 는 객체의 주소값을 할당
+- Deep Copy : Call by Value
+  - deep copy 하는 법 : JSON.parse(JSON.stringify(target-object))
 
 ## 11. 웹개발 공부
 
 https://www.codecademy.com/
-
-
 
 ## 12. AWS
 
@@ -210,19 +194,13 @@ https://www.codecademy.com/
 
 https://nickjoit.tistory.com/150
 
-
-
 ## 13. Vue.js & Express로 백/프론트 분리하기
 
 https://medium.com/hivelab-dev/vue-express-mysql-part1-98f68408d444
 
-
-
 ## 14. GeoCoding
 
 https://scyoon.tistory.com/103
-
-
 
 ## 15. Python
 
@@ -232,24 +210,34 @@ https://surpreem.com/%ED%8C%81-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%8C%A8%ED%82%A4%EC
 
 http://blog.naver.com/PostView.nhn?blogId=kyung4502&logNo=221498420654
 
-
 ## 16. html
 
 #### 16-1. <script> 태그의 defer 속성
+
 http://tcpschool.com/html-tag-attrs/script-defer
 
 #### 16-2. map 태그
+
 https://www.w3schools.com/tags/tag_map.asp
 
 #### 16-3. video poster 속성
+
 http://tcpschool.com/html-tag-attrs/video-poster
+
 - 비디오를 다운로드하는 동안이나 사용자가 재생 버튼을 누르기 전까지 비디오 대신 보여줄 이미지를 명시
 - 만약 poster 속성이 명시되어 있지 않으면, 브라우저는 비디오의 첫 번째 프레임(frame)을 대신 보여줌
 - video태그는 html5에 추가됨
 
 #### 16-4. html nav 태그
+
 https://aboooks.tistory.com/348
 
 #### 16-5. blockquote 태그
+
 #### 16-6. datalist 태그
+
 #### 16-7. html void elements
+
+# 참고 도서
+
+1. 자바 ORM 표준 JPA 프로그래밍 - 김영한
