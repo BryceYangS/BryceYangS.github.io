@@ -68,4 +68,6 @@ tags: Docker
 
 ### 컨테이너 ip 확인
 
-> docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [컨테이너명]
+```shell
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [컨테이너명]
+```
