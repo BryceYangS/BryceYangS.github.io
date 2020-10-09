@@ -188,6 +188,8 @@ https://joshua1988.github.io/web-development/javascript/promise-for-beginners/#p
 
 https://www.codecademy.com/
 
+[Spring REST API 이미지 또는 파일을 리턴하기](https://lazymankook.tistory.com/74)
+
 ## 12. AWS
 
 ### 12-1. AWS에 FileZilla로 SFTP에 접속하기
@@ -238,6 +240,10 @@ https://aboooks.tistory.com/348
 
 #### 16-7. html void elements
 
+---
+
 # 참고 도서
 
 1. 자바 ORM 표준 JPA 프로그래밍 - 김영한
+2. Effective Java
+3. Working Effectively With Legacy Code

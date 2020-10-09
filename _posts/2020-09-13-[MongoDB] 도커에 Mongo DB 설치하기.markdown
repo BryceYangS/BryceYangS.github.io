@@ -31,8 +31,8 @@ tags: mongo
 
 - Mongod가 기본적으로 config 파일을 읽지 않기 때문에 container 시작시 confing 파일을 마운트해서 읽도록 함
 
-> docker run -d --name mongodb -p 37017:27017 \
-> -v /home/sa/data/mongod.conf:/etc/mongod.conf \
+> docker run -d --name mongodb -p 37017:27017 \  
+> -v /home/sa/data/mongod.conf:/etc/mongod.conf \  
 > -v /home/sa/data/db:/data/db mongo --config /etc/mongod.conf
 
 ## 외부 컨테이너 -> 몽고DB 컨테이너 접속

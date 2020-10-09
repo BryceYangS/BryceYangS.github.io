@@ -38,28 +38,13 @@ bash로 컨테이너에 접속한 후 `mongo` 명령어로 몽고DB에 접속합
 
 먼저 admin 데이터베이스에 admin 유저를 생성합니다.
 
-> use admin
+> use admin  
 > db.createUser({ user:"root", pwd:"root", roles:["root"] });
 
 다음으로, 다른 유저 정보를 생성합니다.
 
 > use demo  
-> db.createUser(
-> {
-> user: "demo",
-> pwd:"demo12345",
-> roles :[
->
-> {
->
-> role:"readWrite",
->
-> db:"demo"
->
-> }
-> ]
-> }
-> );
+> db.createUser({user: "demo",pwd:"demo12345", roles :[{role:"readWrite",db:"demo"}]});
 
 이제 인증을 통한 몽고DB접속을 위한 준비가 되었습니다.
 
