@@ -16,3 +16,5 @@ tags: etc
    - 파일 찾기
 4. `Contrl + 'R'`
    - application 실행
+5. `Command + 'e'`
+   - 최근 열었던 파일 보기 및 검색

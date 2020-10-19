@@ -5,7 +5,7 @@ layout: compress
 {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] %}
 
 {% assign color = site.color | default:'#5ff656b' %}
-{% assign image = site.image | default:'/assets/img/nap.jpg' %}
+{% assign image = site.image | default:'/assets/img/logo.png' %}
 
 {% if page.categories.size > 0 %}
   {% assign category_name = page.categories.first %}
@@ -30,5 +30,5 @@ layout: compress
 </head>
 
 <body>
-  {% include body.html %}
+{% include body.html %}
 </body>
