@@ -247,3 +247,8 @@ https://aboooks.tistory.com/348
 1. 자바 ORM 표준 JPA 프로그래밍 - 김영한
 2. Effective Java
 3. Working Effectively With Legacy Code
+4. DDD Start - 최범균
+5. Domain-Driven Design - 에릭 에반스
+6. 그림으로 공부하는 it 인프라 구조
+7. SQL 전문가 가이드
+8. 친절한 SQL 튜닝
