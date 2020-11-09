@@ -24,3 +24,9 @@ tags: etc
    - 메서드명 뿐만 아니라 클래스명 등의 변경 가능
 7. `Option + Command + 'm'`
    - Extract Method  : 선택한 부분 메서드로 추출
+
+
+
+★ 유용한 plugin
+   - Material Theme UI  : UI 플러그인
+   - Key Promoter X : 단축키 
