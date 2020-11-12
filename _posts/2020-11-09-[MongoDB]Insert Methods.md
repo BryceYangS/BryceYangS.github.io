@@ -10,7 +10,7 @@ tags: mongo
 
 **목차**  
  - [Insert Methods](#insert-methods)  
- - [추가 Insert 메소드들](#Insert-기능을-제공하는-추가적인-메소드들)
+ - [추가 Insert 메소드들](#insert-기능을-제공하는-추가적인-메소드들)
 ---
 
 ## Insert Methods
