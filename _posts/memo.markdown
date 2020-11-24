@@ -97,6 +97,14 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 }
 ```
 
+### 3-1. vsCode Extension
+1. ESLint
+2. Prettier : code formatter
+3. Live Server : front 테스트용 Server 실행 Extension
+4. Material Icon Theme : 아이콘 테마
+5. Night Owl : vsCode 테마
+6. Local History : 로컬 파일 history
+
 ## 4. ec2 & nginx & mariaDB설치
 
 https://daddyprogrammer.org/post/2348/aws-ec2-install-nginx-mariadb/
@@ -239,6 +247,15 @@ https://aboooks.tistory.com/348
 #### 16-6. datalist 태그
 
 #### 16-7. html void elements
+
+
+
+## 17. IntelliJ
+
+#### 17-1. IntelliJ Extension
+1. Material Theme UI : 테마
+2. Key Parameter X : 사용자가 하는 행위에 대한 단축키를 우측 하단에서 알려줌
+3. Atom Material Icon : 아이콘 테마
 
 ---
 
