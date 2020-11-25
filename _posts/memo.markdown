@@ -97,13 +97,19 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 }
 ```
 
-### 3-1. vsCode Extension
+#### 3-1. vsCode Extension
 1. ESLint
 2. Prettier : code formatter
 3. Live Server : front 테스트용 Server 실행 Extension
 4. Material Icon Theme : 아이콘 테마
 5. Night Owl : vsCode 테마
 6. Local History : 로컬 파일 history
+
+#### 3-2. vsCode 단축키
+1. 좌측 창 닫기 : Ctrl + 'b'
+2. 설정(setting) : Ctrl + ','
+3. 파일 열기 : Ctrl + 'p'
+4. Terminal 열기 : Ctrl + '`'
 
 ## 4. ec2 & nginx & mariaDB설치
 
