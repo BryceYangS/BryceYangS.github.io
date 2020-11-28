@@ -53,6 +53,21 @@ $ git reset --hard origin/master
 
 #### 1-4. git cherry-pick
 
+
+
+
+#### 1-5. git submodul 삭제방법
+
+1. .gitmodules 파일에서 해당 섹션을 삭제 또는 .gitmodules 파일이 아예 불필요해졌다면 파일을 삭제
+2. git rm --cached {path/to/submodule}
+    - git에서 해당 submodule에 대해서 cache된 것을 없애기 위해서 cache에서 제거
+    - 이 명령을 하지 않으면, git submodule status 등 submodule 정보 확인시 계속 나온다;; 있다고 ㅋ
+3. rm -rf .git/modules/{submodule}
+    - .git에 남아있는 submodule 파일을 삭제한다.
+    - 이건 안해도 무방은 하다..다만 garbage 처럼 남아있으니 삭제해두자!
+4. rm -rf {path/to/submodule}
+    - 실제 submodule 이 존재하는 폴더를 삭제한다.
+
 ## 2. yarn 에러 발생 관련
 
 `>yarn install` erorr 발생
