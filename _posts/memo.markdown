@@ -53,20 +53,17 @@ $ git reset --hard origin/master
 
 #### 1-4. git cherry-pick
 
-
-
-
-#### 1-5. git submodul 삭제방법
+#### 1-5. git submodule 삭제방법
 
 1. .gitmodules 파일에서 해당 섹션을 삭제 또는 .gitmodules 파일이 아예 불필요해졌다면 파일을 삭제
 2. git rm --cached {path/to/submodule}
-    - git에서 해당 submodule에 대해서 cache된 것을 없애기 위해서 cache에서 제거
-    - 이 명령을 하지 않으면, git submodule status 등 submodule 정보 확인시 계속 나온다;; 있다고 ㅋ
+   - git에서 해당 submodule에 대해서 cache된 것을 없애기 위해서 cache에서 제거
+   - 이 명령을 하지 않으면, git submodule status 등 submodule 정보 확인시 계속 나온다;; 있다고 ㅋ
 3. rm -rf .git/modules/{submodule}
-    - .git에 남아있는 submodule 파일을 삭제한다.
-    - 이건 안해도 무방은 하다..다만 garbage 처럼 남아있으니 삭제해두자!
+   - .git에 남아있는 submodule 파일을 삭제한다.
+   - 이건 안해도 무방은 하다..다만 garbage 처럼 남아있으니 삭제해두자!
 4. rm -rf {path/to/submodule}
-    - 실제 submodule 이 존재하는 폴더를 삭제한다.
+   - 실제 submodule 이 존재하는 폴더를 삭제한다.
 
 ## 2. yarn 에러 발생 관련
 
@@ -113,6 +110,7 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 ```
 
 #### 3-1. vsCode Extension
+
 1. ESLint
 2. Prettier : code formatter
 3. Live Server : front 테스트용 Server 실행 Extension
@@ -121,6 +119,7 @@ error An unexpected error occurred: "https://registry.yarnpkg.com/debug/-/debug-
 6. Local History : 로컬 파일 history
 
 #### 3-2. vsCode 단축키
+
 1. 좌측 창 닫기 : Ctrl + 'b'
 2. 설정(setting) : Ctrl + ','
 3. 파일 열기 : Ctrl + 'p'
@@ -132,7 +131,7 @@ https://daddyprogrammer.org/post/2348/aws-ec2-install-nginx-mariadb/
 
 ## 5. Linux
 
-$ sudo su -  : root 계정으로 전환
+$ sudo su - : root 계정으로 전환
 $
 
 #### 5-1. port forwarding
@@ -269,11 +268,10 @@ https://aboooks.tistory.com/348
 
 #### 16-7. html void elements
 
-
-
 ## 17. IntelliJ
 
 #### 17-1. IntelliJ Extension
+
 1. Material Theme UI : 테마
 2. Key Parameter X : 사용자가 하는 행위에 대한 단축키를 우측 하단에서 알려줌
 3. Atom Material Icon : 아이콘 테마
