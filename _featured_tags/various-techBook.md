@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Book
-slug: book
+title: Tech-Book
+slug: techBook
 category: various
 menu: false
 order: 1

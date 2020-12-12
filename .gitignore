@@ -1,5 +1,6 @@
 # history
 .history/
+.vscode/
 
 # Ignore docs files
 _gh_pages

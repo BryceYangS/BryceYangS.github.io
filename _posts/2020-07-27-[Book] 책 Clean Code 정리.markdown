@@ -3,7 +3,7 @@ layout: post
 title: "[Clean Code] 2장. 의미있는 이름"
 subtitle: "Clean Code 2장 정리"
 categories: various
-tags: book
+tags: techBook
 ---
 
 # CLEAN CODE
