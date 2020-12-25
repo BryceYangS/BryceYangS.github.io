@@ -5,4 +5,5 @@ menu: true
 order: 99
 ---
 
-{% include search.html %}
+
+## Search
