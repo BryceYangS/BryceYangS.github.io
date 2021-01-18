@@ -47,7 +47,9 @@ org.springframework.http.client 패키지에 있다. HttpClient는 HTTP를 사�
 
 ## RestTemplate 사용
 
-**주요 메서드**
+
+**주요 메서드**  
+
 |메서드|HTTp|설명|
 |--|--|--|
 |getForObject|GET|주어진 URL 주소로 HTTP GET 메서드로 객체로 결과를 반환받는다|
