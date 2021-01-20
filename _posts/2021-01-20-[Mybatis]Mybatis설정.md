@@ -9,15 +9,14 @@ tags: etc
 > Mybatis 설정
 
 
-application.yml 파일
-
-    ```yml
-    mybatis:
-       enabled: true
-       config-location: sql/configuration.xml # 설정 파일
-       mapper-locations: classpath:/sql/mysql/**/sql-*.xml # mapper XML 매핑
-       type-aliases-package: com.bryce.yang.test # type 클래스의 경로 설정
-    ```
+application.yml 파일  
+```yml
+mybatis:
+    enabled: true
+    config-location: sql/configuration.xml # 설정 파일
+    mapper-locations: classpath:/sql/mysql/**/sql-*.xml # mapper XML 매핑
+    type-aliases-package: com.bryce.yang.test # type 클래스의 경로 설정
+```
 
 ## type-aliases-package
 
