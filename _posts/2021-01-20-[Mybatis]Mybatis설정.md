@@ -27,7 +27,7 @@ type-aliases-package의 값으로 `패키지 경로`를 설정하면 모든 path
 ### 적용 전
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="TestXml">
     <select id="selectTest" parameterType="com.bryce.yang.test.dto.TestSearchDTO" resultType="com.bryce.yang.test.dto.TestEntity">
@@ -40,7 +40,7 @@ type-aliases-package의 값으로 `패키지 경로`를 설정하면 모든 path
 ### 적용 후
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="TestXml">
     <select id="selectTest" parameterType="TestSearchDTO" resultType="TestEntity">
@@ -49,3 +49,33 @@ type-aliases-package의 값으로 `패키지 경로`를 설정하면 모든 path
     </select>
 </mapper>
 ```
+
+
+## configuration
+
+- `자바` 또는 `XML` 파일 중에 하나를 활용해 Mybatis 설정이 가능하다.
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="multipleResultSetsEnabled" value="true" />
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+        <setting name="callSettersOnNulls" value="true" />
+        <setting name="jdbcTypeForNull" value="NULL" />
+        <setting name="logImpl" value="SLF4J" />
+    </settings>
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.ClobTypeHandler" jdbcType="CLOB" javaType="java.lang.String">
+    </typeHandlers>
+</configuration>
+```
+
+
+[References]
+- Mybatis Docs : [https://mybatis.org/mybatis-3/ko](https://mybatis.org/mybatis-3/ko)
+- TypeHandler : [https://mybatis.org/mybatis-3/ko/configuration.html#typeHandlers](https://mybatis.org/mybatis-3/ko/configuration.html#typeHandlers)
