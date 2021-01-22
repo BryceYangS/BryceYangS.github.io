@@ -51,7 +51,7 @@ Netflix에서 개발한 오픈소스로, 원격 시스템이나 서비스를 호
 - Main 실행 파일
     + @EnableCircuitBreaker : Hystrix 사용
     + @EnableHystrixDashboard : Hystrix Dashboard 사용
-    
+
 ```java
 @EnableCircuitBreaker
 @EnableHystrixDashboard
@@ -69,6 +69,7 @@ public class AccountApplication {
     + execution.isolation.thread.timeoutInMilliseconds : 타임아웃 설정
     + hystrix.command.retrieveCustomer : 특정 commandKey의 설정을 따로 설정할 수 있음
     + `Hystrix Dashboard` 사용을 위해 하위 2개 property 설정
+    
 ```properties
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=10000
 hystrix.command.retrieveCustomer.execution.isolation.thread.timeoutInMilliseconds=10000
@@ -120,11 +121,12 @@ public class CustomerCompositeImpl implements CustomerComposite {
 > 실시간 분석 UI
 
 - URL : `http://{WAS_IP}:{PORT}/{CONTEXT-PATH}/actuator/hystrix.stream` 입력
+
 ![Hystrix Dashboard](/assets/img/springboot/Hystrix-Dashboard.png)
 
 - URL을 입력하면 아래와 같은 대시보드 화면으로 넘어가며 실시간 모니터링을 할 수 있다.
+
 ![Hystrix Dashboard](/assets/img/springboot/Hystrix-Dashboard2.png)
-![node-logo.png](/assets/img/node-logo.png)
 
 
 [References]
