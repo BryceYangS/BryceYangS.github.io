@@ -276,6 +276,9 @@ https://aboooks.tistory.com/348
 2. Key Parameter X : 사용자가 하는 행위에 대한 단축키를 우측 하단에서 알려줌
 3. Atom Material Icon : 아이콘 테마
 
+## 18. Spring Batch
+- 스프링 배치 공부 자료 : https://github.com/jojoldu/spring-batch-in-action
+
 ---
 
 # 참고 도서
