@@ -19,6 +19,8 @@ Java Bean 간의 매핑 구현을 단순화한 코드 생성기. 즉, 서로 다
 Spring 에선 주로 `DTO` 와 `Entity` 간의 객체 매핑에 쓰인다.
 
 ## 2. MapStruct 설치
+- IntelliJ 의 경우 `MapStruct Support` 플러그인을 제공하고 있음
+- **Lombok과 같이 적용할 경우 롬복 순서가 <u>더 먼저/위</u>에 있어야 함**
 
 ### 2-1. Maven
 **pom.xml 파일**
@@ -85,7 +87,20 @@ Spring 에선 주로 `DTO` 와 `Entity` 간의 객체 매핑에 쓰인다.
     }
     ```
 
-- IntelliJ 의 경우 `MapStruct Support` 플러그인을 제공하고 있음
+- Lombok 함께 적용 시 : **lombok 먼저!**
+    
+    ```gradle
+    dependencies {
+        ...
+        // lombok
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+        // MapStruct
+        implementation 'org.mapstruct:mapstruct:1.4.1.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
+    }
+    ```
 
 ## 3. MapStruct 활용
 
@@ -218,7 +233,7 @@ Spring 에선 주로 `DTO` 와 `Entity` 간의 객체 매핑에 쓰인다.
     ```
 
 ### 3-2. MapStruct 적용 후
-- 적용 과정에서 Builder의 경우 `private final String customerId;` 와 같이 필수 입력 값을 설정하는 Builder 패턴을 사용할 경우 에러가 발생 : 결국 final 변수가 없는 Builder 패턴 사용
+- 참고사항) Builder 패턴 적용이 잘 되지 않고 있음. 일관성 있게 적용되지 않고 있어 생성자 방식으로 Mapper 구현.
 
 - DTO 파일
 
@@ -226,7 +241,6 @@ Spring 에선 주로 `DTO` 와 `Entity` 간의 객체 매핑에 쓰인다.
 @Getter
 @Setter
 public class CustomerDTO {
-
   private String customerId;
   private String name;
   private LocalDate birthDay;
@@ -237,26 +251,18 @@ public class CustomerDTO {
   public CustomerDTO() {
     super();
   }
-
-  public CustomerDTO(Customer customer) {
-    this.customerId = customer.getCustomerId();
-    this.name = customer.getName();
-    this.birthDay = customer.getBirthDay();
-    this.gender = customer.getGender();
-    this.phoneNumber = customer.getPhoneNumber();
-    this.address = customer.getAddress();
-  }
-  
 }
 ```
 
 - Entity 파일
-    + Lombok : `@Builder`, `@NoArgsConstructor`, `@AllArgsConstructor` 추가
+    + Lombok : `@Builder`, `@AllArgsConstructor` 추가
+    + **@NoArgsConstructor 를 사용할 경우** Mapper에서 DTO -> Entity 전환 메서드 구현체 로직이 정상적으로 생성되지 않는 문제가 있음
+        * 만약 @NoArgsConstructor 를 사용해야 하는 경우 `@NoArgsConstructor(access = AccessLevel.PRIVATE)` 와 같이 접근제어자를 Mapper의 전환 메서드가 사용하지 못하도록 막으면 됨.
 
     ```java
     @Entity
     @Builder
-    @NoArgsConstructor
+    @Getter
     @AllArgsConstructor
     public class Customer {
 
@@ -271,50 +277,17 @@ public class CustomerDTO {
     private String phoneNumber;
     private String address;
 
-    public Long getNo() {
-        return no;
     }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public LocalDate getBirthDay() {
-        return birthDay;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    }
-
     ```
 
 - Mapper 인터페이스 파일
-    + `@Mapper` : componentModel 속성 값 "sprint" 부여
-    + `CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);`
+    + `@Mapper` : componentModel 속성 값 "spring" 부여
 
     ```java
     @Mapper(componentModel = "spring")
     public interface CustomerMapper {
-
-    CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
-
-    Customer toEntity(CustomerDTO customerDto);
-    CustomerDTO toDto(Customer customer);
+        Customer toEntity(CustomerDTO customerDto);
+        CustomerDTO toDto(Customer customer);
     }
     ```
 
@@ -322,9 +295,9 @@ public class CustomerDTO {
 
     ```java
     @Generated(
-        value = "org.mapstruct.ap.MappingProcessor",
-        date = "2021-01-27T01:36:24+0900",
-        comments = "version: 1.4.1.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-6.7.1.jar, environment: Java 14.0.2 (Oracle Corporation)"
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2021-02-03T01:50:11+0900",
+    comments = "version: 1.4.1.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-6.7.1.jar, environment: Java 1.8.0_261 (Oracle Corporation)"
     )
     @Component
     public class CustomerMapperImpl implements CustomerMapper {
@@ -335,16 +308,25 @@ public class CustomerDTO {
                 return null;
             }
 
-            CustomerBuilder customer = Customer.builder();
+            String customerId = null;
+            String name = null;
+            LocalDate birthDay = null;
+            String gender = null;
+            String phoneNumber = null;
+            String address = null;
 
-            customer.customerId( customerDto.getCustomerId() );
-            customer.name( customerDto.getName() );
-            customer.birthDay( customerDto.getBirthDay() );
-            customer.gender( customerDto.getGender() );
-            customer.phoneNumber( customerDto.getPhoneNumber() );
-            customer.address( customerDto.getAddress() );
+            customerId = customerDto.getCustomerId();
+            name = customerDto.getName();
+            birthDay = customerDto.getBirthDay();
+            gender = customerDto.getGender();
+            phoneNumber = customerDto.getPhoneNumber();
+            address = customerDto.getAddress();
 
-            return customer.build();
+            Long no = null;
+
+            Customer customer = new Customer( no, customerId, name, birthDay, gender, phoneNumber, address );
+
+            return customer;
         }
 
         @Override
