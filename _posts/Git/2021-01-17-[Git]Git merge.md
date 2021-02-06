@@ -12,15 +12,15 @@ tags: Git
 - FF, 즉 빨리감기라고 이해하면 된다.
 - 아래 `master`와 `hotfix`는 fast-forward 관계이다. `master`를 `hotfix`에 머지할 경우 `fast-forward Merge`가 발생하며 커밋 히스토리가 발생하지 않고 브랜치 포인터가 최신 커밋으로 이동한다.  
 
-![fast-forward](/assets/git/fast-forward.png)
+![fast-forward](/assets/img/git/fast-forward.png)
 
-1. fast-forward 관계 O
+**1.fast-forward 관계 O**
 ![fast-forward](/assets/img/git/fast-forward-ok.png)
 
 커밋B의 히스토리에 커밋A의 히스토리가 모두 포함되어 있다.
 
 
-2. fast-forward 관계 X
+**2.fast-forward 관계 X**
 ![fast-forward](/assets/img/git/fast-forward-no.png)
 
 커밋B의 히스토리에 커밋A의 히스토리가 포함되어 있지 않다.（A의 커밋이 포함되어 있지 않다.）
@@ -28,10 +28,10 @@ tags: Git
 
 ## 2.Merge
 `git merge`는 `fast-forward` 또는 `3-way merge`를 행한다.
-- fast-forward Merge는 위와 같이 브랜치 포인터를 이동만 하면 되는 경우 발생
+- fast-forward Merge는 브랜치 포인터를 최신 커밋으로 이동만 하면 되는 경우 발생
 - 3-way Merge는 merge commit 을 발생시켜 브랜치를 병합하는 방식
 
-Git의 Merge는 `merge` 명령어와 `rebase` 명령어를 통해 진행하며, 두 명령어의 작동방식이 다르기 때문에 전략에 따라
+Git의 Merge는 `merge` 명령어와 `rebase` 명령어를 통해 진행하며, 두 명령어의 작동방식이 다르기 때문에 전략에 따라 선택적으로 사용한다.
 
 
 ### 2-1. git merge의 --no-ff 옵션
@@ -50,9 +50,9 @@ $ git merge --no-ff noff
 
 
 ## 3. Squash Merge
-> git merge --squash <branch명>
+> git merge \-\-squash <branch명>
 
-![squash](/assets/git/squash.png)
+![squash](/assets/img/git/squash.png)
 
 - a,b,c 커밋이 합쳐져 새로운 커밋을 만들어 merge한다.
 - 새로운 커밋의 *parent는 1개*로 merge 대상(merge from - to 에서 from 에 해당되는 브랜치)의 기록은 추적 불가하다
@@ -66,7 +66,7 @@ $ git commit -m "squash merge message"
 ## 4. Rebase Merge
 > git rebase <branch명>
 
-![rebase](/assets/git/rebase.png)
+![rebase](/assets/img/git/rebase.png)
 
 브랜치의 commit들이 합쳐지지 않고 main 브랜치에 추가된다.  
 추가된 commit history는 하나의 parent를 가진다.
