@@ -19,6 +19,49 @@ tags: etc
 |Option + Command + 'm'|Extract Method  : 선택한 부분 메서드로 추출|
 
 
+
+---
+
+1. Alt + Enter
+   - 무엇이든 수정(에러 외에도 리팩토링 제안 방안 등)
+
+2. F2
+   - 다음 오류, 경고, 제안으로 이동
+
+3. 맥 :커맨드 + 1  
+   윈도우/리눅스 : Alt + 1  
+   - 좌측 프로젝트 창 활성화/비활성화
+   - ESC를 눌러 에디터로 컴백
+
+4. 맥 : 커맨드 + e  
+   윈도우/리눅스 : Ctrl + e  
+   - 최근 열었던 파일
+
+5. 맥 : 커맨드 + b  
+   윈도우/리눅스 : Ctrl + b  
+   - 심볼의 선언으로 이동 가능  
+   - Alt + Cmd + b / Ctrl + Alt + b(윈도우) 사용 시 구현 탐색 가능
+
+6. Alt + F7  
+   - 사용 위치 확인 (호출 확인 가능)
+
+7. 맥 : Alt(option) + 위,아래 방향키  
+   윈/리 : Ctrl + w / Shift + Ctrl + w  
+   - 커서 기준 코드 섹션 확장/축소
+
+8. Alt + Cmd + /  
+   - 코드 블락
+
+9. Alt + Cmd + l  
+   - 코드 정렬 
+
+10. 맥 : Ctrl + t  
+    윈/리 : Shift + Ctrl + Alt + t  
+      - 리팩터
+
+11. Shift + Cmd + a  
+      - Find Action : 단축키 검색 가능
+
 <br/>
 <br/>
 <br/>
