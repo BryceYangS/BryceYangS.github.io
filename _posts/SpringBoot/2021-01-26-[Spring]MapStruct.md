@@ -8,6 +8,11 @@ tags: springboot
 
 > MapStruct : Entity <-> DTO 객체 전환 매핑
 
+
+백기선님의 우아한 테크 세미나를 듣다가 알게 된 라이브러리 `ModelMapper`가 더 좋을 듯합니다.  
+[modelmapper.org](http://modelmapper.org/)
+
+
 ## 1. MapStruct란?
 > MapStruct is a code generator that greatly simplifies the implementation of mappings between Java bean types based on a convention over configuration approach.  
 > The generated mapping code uses plain method invocations and thus is fast, type-safe and easy to understand.

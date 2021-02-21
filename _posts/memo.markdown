@@ -43,7 +43,7 @@ git fetch --all --prune
 git remote prune origin
 ```
 
-###git 에서 리모트 리포지토리를 로컬로 덮어쓰기
+### git 에서 리모트 리포지토리를 로컬로 덮어쓰기
 실서버 소스를 약간 수정한 뒤 git pull을 했더니, conflict가 일어나서 패닉상태가 되었을때.. 이 두 커멘트면 해결이 가능하다.
 
 $ git fetch origin
@@ -278,6 +278,12 @@ https://aboooks.tistory.com/348
 
 ## 18. Spring Batch
 - 스프링 배치 공부 자료 : https://github.com/jojoldu/spring-batch-in-action
+
+## 19. docker
+#### 19-1. docker dive
+- docker image 구성 정보 볼 수 있음
+[docker dive github](https://github.com/wagoodman/dive)
+
 
 ---
 

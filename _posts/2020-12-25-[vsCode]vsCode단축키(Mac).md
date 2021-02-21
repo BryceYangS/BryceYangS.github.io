@@ -22,3 +22,4 @@ tags: etc
 |Ctrl + 숫자               |활성화되어있는 윈도우의 특정 탭으로 이동|
 |Command + Alt + (↓ 또는 ↑)|커서 여러줄|
 |Command + Alt + (→ 또는 ←)|탭 이동|
+|Command + p               |파일 찾기|
