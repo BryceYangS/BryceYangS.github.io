@@ -298,3 +298,4 @@ https://aboooks.tistory.com/348
 7. SQL 전문가 가이드
 8. 친절한 SQL 튜닝
 9. Clean Architecture
+10. 엔터프라이즈 애플리케이션 아키텍처 패턴 - 마틴 파울러
