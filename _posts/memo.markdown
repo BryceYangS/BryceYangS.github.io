@@ -299,3 +299,4 @@ https://aboooks.tistory.com/348
 8. 친절한 SQL 튜닝
 9. Clean Architecture
 10. 엔터프라이즈 애플리케이션 아키텍처 패턴 - 마틴 파울러
+11. 데이터 중심 애플리케이션 설계 - 마틴 클레프만
