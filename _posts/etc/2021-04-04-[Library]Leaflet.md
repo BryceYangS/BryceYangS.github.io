@@ -180,7 +180,7 @@ L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
       type="text/css"
     />
     <style>
-      .map {
+      .olMap {
         height: 400px;
         width: 100%;
       }
@@ -190,10 +190,10 @@ L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
   </head>
   <body>
     <h2>My Map</h2>
-    <div id="map" class="map"></div>
+    <div id="olMap" class="olMap"></div>
     <script type="text/javascript">
       var map = new ol.Map({
-        target: "map",
+        target: "olMap",
         layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM(),
