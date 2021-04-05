@@ -32,6 +32,7 @@ tags: etc
 - 오래된 라이브러리인 만큼 다수의 플러그인과 많은 예시, 커뮤니티 존재
 - 3D지도와 같은 고급 기능이 필요하지 않은 간단한 2D 지도 구현에 적합
 - Leaflet.js QuickStart sample code
+
 <html>
 <head>
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -50,13 +51,12 @@ tags: etc
  <div id="mapid"></div>
 <script>
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
     attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
     tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
+    zoomOffset: -1
 }).addTo(mymap);
 </script>
 </body>
@@ -172,7 +172,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 - Leaflet 코어에서 GeoJSON 형식만 지원하는 것과 달리 다양한 GIS 형식 지원
 - OpenLayers QuickStart sample code
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <link
