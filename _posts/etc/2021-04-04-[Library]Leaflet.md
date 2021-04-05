@@ -280,7 +280,7 @@ L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
 
 ### 기상청 날씨누리
 
-- 기상청 날씨누리 : https://www.weather.go.kr/wgis-nuri/html/map.html
+- 기상청 날씨누리 : [https://www.weather.go.kr/wgis-nuri/html/map.html](https://www.weather.go.kr/wgis-nuri/html/map.html)
 
 ![weater](/assets/img/build/7_기상청날씨누리.png)
 
@@ -289,15 +289,14 @@ L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
 
 ### 4월 총선 알리미
 
-- 4월 총선 알리미 : https://produce300.com
-- CNS 사원 세 명이서 진행한 사이드 프로젝트
+- 4월 총선 알리미 : [https://produce300.com](https://produce300.com)
+- 세 명이서 진행한 사이드 프로젝트
 - 2020년 4월 21대 총선 정보 지도 기반 종합서비스
   ![vote](/assets/img/build/8_Produce300_1.gif)
-
-https://www.youtube.com/watch?v=nZaZ2dB6pow
 
 [References]
 
 - [Leaflet](https://leafletjs.com/)
 - [Map libraries comparison: Leaflet vs Mapbox GL vs OpenLayers - trends and statistics](https://www.geoapify.com/map-libraries-comparison-leaflet-vs-mapbox-gl-vs-openlayers-trends-and-statistics)
 - [Mapbox GL new license and 6 free alternatives](https://www.geoapify.com/mapbox-gl-new-license-and-6-free-alternatives)
+- https://www.youtube.com/watch?v=nZaZ2dB6pow
