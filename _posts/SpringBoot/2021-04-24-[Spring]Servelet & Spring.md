@@ -75,3 +75,12 @@ public interface Servlet {
 - HttpServletBean : 스프링
 - FrameworkServlet : 스프링
 - DispatcherServlet : 스프링
+
+
+
+### 공부하면서..
+해당 자료를 공부하면서 우연히 Spring-webmvc를 직접 열어보았더니, DispatcherServlet의 doDispatch 메서드에 하드코딩 되어 있는 부분을 발견해서 enum을 적용한 수정본을 Pull Request를 Spring에 날리기도 했다.  
+ Spring-webmvc는 내부적으로 spring-web을 의존하고 있기 때문에 HttpMethod enum을 사용할 수 있다고 생각했기 때문에 기존 "GET", "HEAD"로 되어 있던 하드 코딩을 spring-mvc의 HttpMethod enum 타입으로 적용했다.  
+ PR을 받아줄지는 모르겠지만 그래도 뭔가 신기하고 재밌는 경험이었다.  
+ [https://github.com/spring-projects/spring-framework/pull/26855](https://github.com/spring-projects/spring-framework/pull/26855)
+
