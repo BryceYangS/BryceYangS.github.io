@@ -25,7 +25,7 @@ Generics의 장점
 
  즉, Generics는 **다룰 객체의 타입을 미리 명시해줌으로써 번거로운 형변환을 줄여주는 것**이다.
 
- ### Generic Class 선언
+### Generic Class 선언
 **Generics 적용 전** 
 ```java
 class Box {
@@ -64,8 +64,8 @@ Box    : 원시 타입
     + static멤버에 타입 변수 T 사용 불가 : T는 인스턴스변수로 간주됨
     ```java
     class Box<T> {
-        static T item; //에러
-        ststic int compare(T t1, T t2) { ... } // 에러
+            static T item; //에러
+            ststic int compare(T t1, T t2) { ... } // 에러
     }
     ```
     + Generic 타입의 배열 생성 불가
