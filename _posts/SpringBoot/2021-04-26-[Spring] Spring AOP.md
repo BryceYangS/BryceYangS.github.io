@@ -62,6 +62,7 @@ AOP 또한 한 가지 관심사로 응집하여 객체가 활동할 수 있어�
     - 한 개 이상의 포인트컷과 어드바이스의 조합으로 만들어지며, 보통 싱글톤 형태의 오브젝트로 존재한다.
 
 ## Spring Dynamic Proxy
+
 ```java
 @SuppressWarnings("serial")
 public class ProxyFactory extends ProxyCreatorSupport {
