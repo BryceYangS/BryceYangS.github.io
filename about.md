@@ -34,6 +34,7 @@ order: 10
    2. SpringCloud ⭐️
       - 분산 환경에서 사용되는 Springclound를 활용해 간단한 애플리케이션을 토이 프로젝트로 진행한 경험이 있습니다.
       - [Springcloud 적용 토이프로젝트 Repository](https://github.com/BryceYangS/bank)
+      
    - [SpringBoot 및 Springcloud 관련 블로그 포스팅](https://bryceyangs.github.io/tag/study-springboot/)
    3. Junit4 ⭐️⭐️
       - Junit4를 활용한 테스트 코드 작성에 거부감이 없으며, 테스트에 대한 중요성을 인식하고 있습니다.
