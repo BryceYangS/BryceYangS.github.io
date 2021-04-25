@@ -5,7 +5,7 @@ subtitle: "db lock"
 categories: study
 tags: db
 ---
-> Database의 Lock에 대한 이해
+> Database의 Lock에 대한 이해  
 # DB Lock
 ```
 💡 Lock은 트랜잭션 처리의 순차성을 보장해주는 기능을 제공
