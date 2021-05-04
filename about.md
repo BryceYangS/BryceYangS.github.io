@@ -31,7 +31,7 @@ order: 10
       - 스프링부트 기반 애플리케이션 개발이 가능합니다.
       - IoC(DI), AOP, PSA의 개념을 이해하고 설명이 가능합니다
          + DI를 위한 Reflection, AOP를 위한 Dynamic Proxy, CGLIB을 이해하는 기초적인 수준 정도를 학습했습니다.
-      - DispatcherServlet 클래스의 HttpMethod에 대한 하드 코딩을 제거한 PR을 요청하기도 했습니다.
+      - spring-framework Contributor : spring-webmvc의 DispatcherServlet 클래스에 대한 하드 코딩 제거
          - [https://github.com/spring-projects/spring-framework/pull/26855](https://github.com/spring-projects/spring-framework/pull/26855)
    2. SpringCloud ⭐️
       - 분산 환경에서 사용되는 Springclound를 활용해 간단한 애플리케이션을 토이 프로젝트로 진행한 경험이 있습니다.
