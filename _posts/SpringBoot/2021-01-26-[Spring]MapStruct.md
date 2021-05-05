@@ -10,7 +10,10 @@ tags: springboot
 
 
 백기선님의 우아한 테크 세미나를 듣다가 알게 된 라이브러리 `ModelMapper`가 더 좋을 듯합니다.  
-[modelmapper.org](http://modelmapper.org/)
+[modelmapper.org](http://modelmapper.org/)  
+
+- modelMapper 사용 시 주의 사항 : `getter`/`setter`가 필수
+
 
 
 ## 1. MapStruct란?
