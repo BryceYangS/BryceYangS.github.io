@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "[Spring]Load Balancing-Ribbon"
+title: "[SpringCloud]Load Balancing-Ribbon"
 subtitle: "Ribbon"
 categories: study
 tags: springboot
 ---
 
-> Load Balancing : Riboon 라이브러리 활용
+> SpringCloud Load Balancing : Riboon 라이브러리 활용
 
 [참조코드 Git Repository](https://github.com/BryceYangS/bank/tree/load-balancing)
 
