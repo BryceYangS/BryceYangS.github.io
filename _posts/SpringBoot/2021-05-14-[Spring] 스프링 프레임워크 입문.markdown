@@ -1,0 +1,109 @@
+---
+layout: post
+title: "[Spring] 백기선-스프링 프레임워크 입문"
+subtitle: "스프링 프레임워크 입문"
+categories: study
+tags: springboot
+---
+
+> 백기선님의 "스프링 프레임워크 입문" 강의 정리
+
+스프링의 핵심 3가지  
+1. IoC
+2. AOP
+3. PSA
+
+
+## 1. IoC
+
+### IoC 컨테이너
+ApplicationContext(BeanFactory)가 Bean을 만들고 엮어주며 제공해준다. 직접 쓸 일은 많지 않다.
+
+### Bean
+스프링 IoC 컨테이너가 관리하는 객체  
+등록 방법 2가지  
+1. Component Scan
+    - @Component
+        - @Controller
+        - @Service
+        - @Repository
+        - @Configuration
+2. 직접 일일이 등록
+    - @Bean : 항상 `@Configuration` 애노테이션이 붙어잇는 타입 안에서 정의를 해야함.
+        - Configuration이 없는 곳에서 Bean을 사용하면 Bean 객체를 생성해주고 관리한다. 다만, 싱글톤으로 작동하지 않을 수 있다. Configuration 애노테이션이 붙은 클래스는 CGLIB으로 생성된 객체이다. 프록시 객체로 생성된 Configuration이 붙은 클래스는 해당 빈이 생성되어 있는지 확인하고 없으면 생성, 있으면 해당 객체를 리턴하도록 한다.
+
+### 의존성 주입
+@Autowired / @Inject 사용  
+스프링 5.x 부터는 빈의 `생성자가 하나`만 있고 `파라미터로 받는 타입의 빈이 존재`한다면 파라미터로 받는 빈은 기본적으로 `주입`을 해준다.
+
+
+어디에 애너테이션을 붙일 것인가?  
+- 생성자 : 추천
+- setter : setter가 있다면 필드보다는 setter에 붙임.
+- 필드 : setter가 없을 경우
+
+## 2. AOP
+흩어진 코드를 한 곳으로 모아라  
+
+AOP 적용하는 방법  
+1. 바이트 코드를 조작하는 방법
+    - AspectJ가 AOP 적용할 때 사용
+2. 프록시 패턴
+    - 상속을 받는 클래스를 만들어서 사용
+    - `Spring AOP`는 프록시 패턴을 사용
+
+`@Transactional`이 AOP가 적용되는 예  
+
+**AOP 실제 적용 코드**  
+
+```java
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface LogExecutionTime {
+}
+```
+
+
+```java
+@Component
+@Aspect
+public class LogAspect {
+
+    Logger logger = LoggerFactory.getLogger(LogAspect.class);
+
+    @Around("@annotation(LogExecutionTime)")
+    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Exceptions {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+
+        Object ret = joinPoint.proceed();
+
+        stopWatch.stop();
+        logger.info(stopWatch.prettyPrint());
+
+        return ret;
+    }
+}
+```
+
+
+## 3. PSA
+> Portable Service Abstract  
+
+잘 만든 인터페이스  
+스프링이 제공하는 대부분의 API가 인터페이스  
+인터페이스롤 만들어 확장에는 열려있음, 변화에는 닫혀있음.  
+내 코드는 바꿀 필요가 없음
+
+
+### 스프링 트랜잭션
+`PlatformTransactionManager` 인터페이스  
+구현 기술이 바뀌어도 PlatformTransactionManager 인터페이스에 의존하는 @Transactional을 처리하는 코드가 변경될 필요가 없음.
+
+### 스프링 캐시 
+@Cachable, @CacheEvict, ...   
+
+### 스프링 웹 MVC
+@Controller, @RequestMapping, ...
+Spring 5.x부터는 Servlet일 수도 있고, Reactive일 수도 있음.  
+밑단의 기술인 Servlet, Reactive가 바뀌어도 코드를 안바꿔도 됨.
