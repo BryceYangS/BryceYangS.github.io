@@ -5,13 +5,18 @@ menu: true
 order: 10
 ---
 
-## Introduce
+## 🙋🏻Introduce
 안녕하세요. I'm Bryce! Bryce라는 닉네임을 사용하고 있는 3년차 백엔드 개발자입니다.  
 
 - 혼자만의 성장이 아닌 함께 하는 성장을 중시합니다.
 - 레거시 코드로부터 고난과 역경을 경험한 후 클린 코드, 읽기 좋은 코드 작성을 위해 노력하고 있습니다.
 - 각자도생의 개인이 아닌 공통의 목표와 목적을 가지고 함께 노력하는 조직에서 일하기를 원합니다.
 - 출퇴근 이동 시간이나 남는 시간에 고전 문학을 읽는 것을 좋아합니다.
+
+## ☎️ Connect
+- LinkedIn : [https://www.linkedin.com/in/ho-suk-yang-1820571a6/](https://www.linkedin.com/in/ho-suk-yang-1820571a6/)
+- 메일 : nash31@korea.ac.kr
+- github : [https://github.com/BryceYangS](https://github.com/BryceYangS)
 
 ## Skills (⭐️ ~ ⭐️⭐️⭐️⭐️⭐️)
 💻언어
