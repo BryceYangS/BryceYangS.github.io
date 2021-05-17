@@ -14,9 +14,10 @@ order: 10
 - 출퇴근 이동 시간이나 남는 시간에 고전 문학을 읽는 것을 좋아합니다.
 
 ## ☎️ Connect
-- LinkedIn : [https://www.linkedin.com/in/ho-suk-yang-1820571a6/](https://www.linkedin.com/in/ho-suk-yang-1820571a6/)
-- 메일 : nash31@korea.ac.kr
 - github : [https://github.com/BryceYangS](https://github.com/BryceYangS)
+- blog : [https://bryceyangs.github.io](https://bryceyangs.github.io)
+- 메일 : nash31@korea.ac.kr
+- LinkedIn : [https://www.linkedin.com/in/ho-suk-yang-1820571a6/](https://www.linkedin.com/in/ho-suk-yang-1820571a6/)
 
 ## Skills (⭐️ ~ ⭐️⭐️⭐️⭐️⭐️)
 💻언어
