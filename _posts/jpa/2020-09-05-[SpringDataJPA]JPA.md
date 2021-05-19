@@ -3,7 +3,7 @@ layout: post
 title: "[SpringDataJPA] JPA"
 subtitle: "JPA"
 categories: study
-tags: springdatajpa
+tags: jpa
 ---
 
 **해당 블로그 글은 백기선님의 [스프링 데이터 JPA강의](https://www.inflearn.com/course/스프링-데이터-jpa)를 참고해 쓴 것입니다.**

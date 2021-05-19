@@ -4,5 +4,5 @@ title: Javascript
 slug: javascript
 category: study
 menu: false
-order: 9
+order: 10
 ---

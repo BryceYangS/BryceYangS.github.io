@@ -4,5 +4,5 @@ title: React
 slug: react
 category: study
 menu: false
-order: 8
+order: 12
 ---

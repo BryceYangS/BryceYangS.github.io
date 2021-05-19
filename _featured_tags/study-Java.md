@@ -4,5 +4,5 @@ title: Java
 slug: java
 category: study
 menu: false
-order: 11
+order: 1
 ---

@@ -4,5 +4,5 @@ title: Database
 slug: db
 category: study
 menu: false
-order: 6
+order: 4
 ---

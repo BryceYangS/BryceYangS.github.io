@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: SpringBoot
+title: Spring & SpringBoot
 slug: springboot
 category: study
 menu: false
-order: 1
+order: 2
 ---

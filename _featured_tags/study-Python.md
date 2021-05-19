@@ -4,5 +4,5 @@ title: Python
 slug: python
 category: study
 menu: false
-order: 10
+order: 13
 ---
