@@ -20,7 +20,7 @@ order: 10
 - LinkedIn : [https://www.linkedin.com/in/ho-suk-yang-1820571a6/](https://www.linkedin.com/in/ho-suk-yang-1820571a6/)
 
 ## Skills (⭐️ ~ ⭐️⭐️⭐️⭐️⭐️)
-💻언어
+### 💻언어
    1. Java ⭐️⭐️⭐️⭐
       - Java 8을 활용한 개발이 가능합니다.
       - 객체지향의 특징(상태, 행위, 협력, 책임)을 이해하고 객체지향의 특징과 원칙 등을 설명할 수 있습니다.
@@ -31,7 +31,7 @@ order: 10
       - 알고리즘을 위해 공부를 진행했으며, 기초적인 기능 구현이 가능합니다.
       - beautifulsoup4를 활용한 데이터 크롤링 애플리케이션 개발 경험이 있습니다.
 
-💻 프레임워크 & 라이브러리
+### 💻 프레임워크 & 라이브러리
    1. SpringBoot ⭐️⭐️⭐️
       - 스프링부트 기반 애플리케이션 개발이 가능합니다.
       - IoC(DI), AOP, PSA의 개념을 이해하고 설명이 가능합니다
@@ -47,7 +47,7 @@ order: 10
    3. Junit4 ⭐️⭐️
       - Junit4를 활용한 테스트 코드 작성에 거부감이 없으며, 테스트에 대한 중요성을 인식하고 있습니다.
    
-💻 인프라
+### 💻 인프라
    1. Docker ⭐️⭐️
       - Docker에 대한 기초 개념을 설명할 수 있으며, 현재 개인적으로 Docker를 활용하고 있습니다.
       - [Docker 관련 블로그 포스팅](https://bryceyangs.github.io/tag/study-docker/)
@@ -57,7 +57,7 @@ order: 10
       - Redis에 대한 기본 개념을 알고 있으며, Springboot 기반의 토이 프로젝트에 적용한 경험이 있습니다.
       - [Redis 적용 토이프로젝트 Commit 히스토리](https://github.com/BryceYangS/produce300/commit/b4947c70c12c7226a09e69428a935d9467eeeef2)
 
-💻 툴
+### 💻 툴
    1. Git ⭐️⭐️⭐️
       - 기본적인 Git 활용법을 습득했습니다.
       - Git 브랜치 관리 전략을 알고 있으며, 회사의 프로젝트에 STS 기반 브랜치 전략 적용 가이드 파일을 만들어 배포한 경험이 있습니다.
@@ -67,6 +67,12 @@ order: 10
       - Jira에 익숙하고 필요에 따라 issue search, dashboard를 만들고 활용할 수 있습니다.
       - Jira Rest API를 활용해 issue 티켓 데이터를 엑셀 파일로 출력하는 Node.js 기반 애플리케이션을 개발한 경험이 있습니다.
       - [Jira Issue Rest API 관련 블로그 포스팅](https://bryceyangs.github.io/study/2020/03/22/Jira-issue-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EC%88%98%EC%A0%95/)
+
+### 💻 IDE
+   1. IntellJ
+   2. Visual Studio Code
+   3. Eclipse, STS
+
 
 ## Career
    1. 기상청 프로젝트
