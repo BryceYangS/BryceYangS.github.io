@@ -28,7 +28,7 @@ BUILD FAILED in 4s
 ```
 위와 같은 에러가 발생 시 
 
-![intelliJ-JUnit](/assets/img/IntelliJ_JUnit_error.png)
+![intelliJ-JUnit](/assets/img/etc/IntelliJ_JUnit_error.png)
 
 Run tests using 을 `IntelliJ IDEA`로 변경하면 해결된다.
 

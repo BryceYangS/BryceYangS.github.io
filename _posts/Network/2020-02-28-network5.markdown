@@ -52,7 +52,7 @@ Routing Table
  - 그외 알 수 없는 것은 0.0.0.0
 
 ## IGP vs BGP
-![igp_bgp](/assets/img/igp_egp.png)
+![igp_bgp](/assets/img/network/igp_egp.png)
 IGP
  - Interior Gateway Protocols : 하나의 AS 내에서 사용되어지는 Protocol
 

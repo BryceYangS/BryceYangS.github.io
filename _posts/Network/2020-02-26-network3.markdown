@@ -89,7 +89,7 @@ Router - Router 연결
 
 # TCP/IP 패킷 구조
 ## TCP/IP Protocol Stack
-![tcp-ip](/assets/img/tcp_ip.png)
+![tcp-ip](/assets/img/network/tcp_ip.png)
  - Layer
 	- Application Layer
 		- FTP : 인증
@@ -236,7 +236,7 @@ Router Mode 3가지
 	- Global Configuration Mode 내 5가지 Mode 있음   
 	
 
-![router_global_conf](/assets/img/router_global_conf.png)
+![router_global_conf](/assets/img/network/router_global_conf.png)
 
 - 나갈때는 `exit` 입력
 

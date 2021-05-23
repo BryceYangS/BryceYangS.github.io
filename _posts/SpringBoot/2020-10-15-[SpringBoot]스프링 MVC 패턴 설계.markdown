@@ -8,7 +8,7 @@ tags: springboot
 
 # 스프링 MVC 패턴
 
-![SpringMvcFlow.png](/assets/img/SpringMvcFlow.png)
+![SpringMvcFlow.png](/assets/img/springboot/SpringMvcFlow.png)
 
 ## 흐름 설명
 

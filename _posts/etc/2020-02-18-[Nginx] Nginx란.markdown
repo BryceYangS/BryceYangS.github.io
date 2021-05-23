@@ -34,7 +34,7 @@ tags: etc
 
 - Event-Driven 방식 동작.
 - 한 개 또는 고정된 프로세스만 생성, 그 프로세스 내부에서 `비동기 방식`으로 처리 - 접속 요청이 많아도 프로세스 또는 쓰레드 생성 비용이 발생 X  
-![event-driven](/assets/img/event-driven.png)
+![event-driven](/assets/img/etc/event-driven.png)
 
 
 ```

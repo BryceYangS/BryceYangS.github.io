@@ -78,7 +78,7 @@ git config --global commit.template 템플릿파일경로/템플릿파일.txt
 - `git commit` 메시지를 입력하면 템플릿 파일이 열림
 - commit 메시지 입력 완료 후 :wq를 통해 저장하면 commit 됨
 
-![git-commit.png](/assets/img/git-commit-template.png)
+![git-commit.png](/assets/img/git/git-commit-template.png)
 
 ### 3. log 조회하기
 

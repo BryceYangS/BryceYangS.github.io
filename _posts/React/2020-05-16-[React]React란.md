@@ -6,7 +6,7 @@ categories: study
 tags: react
 ---
 
-![react.png](/assets/img/react.png)
+![react.png](/assets/img/react/react.png)
 
  - **React** : A library for creating user interfaces.  
 

@@ -6,7 +6,7 @@ categories: study
 tags: mongo
 ---
 
-<a href="https://www.mongodb.com"><img src="/assets/img/mongodb.jpeg" width="400px" alt="MongoDB"></a>
+<a href="https://www.mongodb.com"><img src="/assets/img/mogodb/mongodb.jpeg" width="400px" alt="MongoDB"></a>
 
 # Mongo DB
 

@@ -39,5 +39,5 @@
   * 정리 : TCP/IP 설정 방법은 2가지가 있다. (1. 자동할당 2. 수동할당) *
   
   
-  ![dhcp](/assets/img/network.png)
+  ![dhcp](/assets/img/network/network.png)
   

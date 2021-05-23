@@ -47,7 +47,7 @@ tags: network
   * 정리 : TCP/IP 설정 방법은 2가지가 있다. (1. 자동할당 2. 수동할당) *
   
   
-  ![dhcp](/assets/img/network.png)
+  ![dhcp](/assets/img/network/network.png)
   
   
   네트워크
@@ -115,7 +115,7 @@ ncpa.cpl 입력
 
 
 ## Data Encapsulation   
-![data encasulation](/assets/img/data_encapsulation.png)   
+![data encasulation](/assets/img/network/data_encapsulation.png)   
 
  - 보내는 쪽에서 Data를 잘개 쪼개 랜 카드까지 흘려 보내는 과정
  - Layer 4 Header : TCP 인지 UDP인지 값을 보내줌 ---> `Segment`라고 함. (Segment : Collision Domain. 충돌이 발생할 수 있는 단위)
@@ -124,7 +124,7 @@ ncpa.cpl 입력
  - 랜카드에서 `Bit`로 바꿈
  
  ## De-Encapsulation   
- ![de encasulation](/assets/img/de_encapsulation.png)   
+ ![de encasulation](/assets/img/network/de_encapsulation.png)   
 
   - 데이터를 받아 상단 계층으로 보내면서 header를 제거. 다시 재조립하는 과정
 
@@ -142,7 +142,7 @@ ncpa.cpl 입력
 
 
 ## The OSI Model and Nework Devices
-![osi_model](/assets/img/osi_model.png)  
+![osi_model](/assets/img/network/osi_model.png)  
 
  - L4 switch(Advanced Switch) : Router 기능 있음, load balancing 등의 기능도 가지고 있음
 
@@ -261,7 +261,7 @@ cf) Bridges : Layer 2 장비. 포트 3-4개밖에 없음. S/W적으로 처리하
  - Network (3계층) 장비
 
 ## VLAN  
-![vlan](/assets/img/vlan.png)
+![vlan](/assets/img/network/vlan.png)
  - Switch 에서 Broadcast Domain을 나누는 것을 `VLAN`이라고 한다.
  - VLAN = Broadcast Domain = Logical Network(Subnet)
  - Router 에서 Broadcast Domain 분리. --> Switch가 Router 없이 하나의 네트워크을 쓰지만 다른 네트워크로 분리 (VLAN) 구현 가능.

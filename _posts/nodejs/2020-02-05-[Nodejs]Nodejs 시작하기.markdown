@@ -6,7 +6,7 @@ categories: study
 tags: Nodejs
 ---
 
-![node-logo.png](/assets/img/node-logo.png)
+![node-logo.png](/assets/img/etc/node-logo.png)
 
 ## **Node.js**
 

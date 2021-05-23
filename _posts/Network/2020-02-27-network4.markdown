@@ -69,7 +69,7 @@ VLAN 작동법
  - Not Tagged Frame들을 위한 Native VLAN을 정의 --> 1번 VLAN (default VLAN)
 	- 태그가 붙지 않은 VLAN은 전부 default VLAN으로 데이터를 보냄  
 
-![tagged-frame](/assets/img/tagged_frame.png)
+![tagged-frame](/assets/img/network/tagged_frame.png)
 
 @ Trunk
  - VLAN 트래픽 전달하는 포트
@@ -185,7 +185,7 @@ R1# show int gi0/0.13
  - VTP 작동되는 영역 = VTP domain
 
 ## VTP Modes
-![vtp-mode](/assets/img/vtp_mode.png)  
+![vtp-mode](/assets/img/network/vtp_mode.png)  
  - Server에선 NVRAM에 저장
  - Client는 동기화만 함. NVRAM에 저장 X.
  - Transparent : 동기화 X. 혼자 정보 가지고 있음. 정보를 Client에 알려주지 않음. (cf. Server는 Client에 알려주고 동기화)
