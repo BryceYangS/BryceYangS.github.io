@@ -9,72 +9,7 @@ tags: etc
 
 # 1. Java
 ## 1.1. HashMap & TreeMap
-### Map 이란?
-- key-value 형식의 데이터를 저장할 수 있는 자료구조.  
-- Map의 구현체로 java.util 패키지 내 `HashMap`, `TreeMap`, `LinkedHashMap`, `HashTable`, `EnumMap` 이 있으며, 그 외 패키지에 다양한 구현체들이 있음.  
-
-### 🚀HashMap
-
-- Key를 해시 함수를 이용해 저장하여 빠르게 처리
-- 입력과 삭제에 대한 시간복잡도가 `O(1)`인 자료구조
-
-![hashmap](/assets/img/etc/HashMap_Orchestration.png)  
-
-
-#### 💻Hash Map의 작동 방식
-각 객체의 hashCode() 메서드가 반환하는 int 값을 사용. hash 값이 겹치는 경우가 발생하는데 이를 `해시 충돌`이라고 한다.  
-해시 충돌이 발생하더라도 데이터를 저장하고 조회할 수 있게 하는 방식으로 `Open Addressing`과 `Seperate Chaining`의 두 가지가 있다.  
-1. Open Addressing
-    - 데이터를 삽입하려는 해시 버킷이 이미 사용 중인 경우 다른 해시 버킷에 해당 데이터를 삽입하는 방식
-    - 데이터를 저장/조회할 해시 버킷을 찾을 때는 Linear Probing, Quadratic Probing 등의 방법을 사용
-2. Separate Chaining
-    - 각 배열의 인자는 인덱스가 같은 해시 버킷을 연결한 링크드 리스트의 첫 부분(head)  
-
-#### 💻시간복잡도
-
-- 둘 다 Worst Case : `O(M)`
-- Open Addressing은 연속된 공간에 데이터를 저장하기 때문에 Separate Chainig에 비해 캐시 효율 높음
-- 데이터 개수가 충분히 적다면 `Open Addressing`이 Separate Chaining보다 성능 좋음
-
-
-#### 💻HashMap은 `Separate Chaining`방식 사용.  Why?
-1. 데이터 삭제에 있어서 더 장점이 있기 때문. 
-2. 키-값 쌍 개수가 일정 개수 이상으로 많아지면 Open Addressing보다 빠름
-    - Open Addressing의 경우 해시 버킷을 채운 밀도가 높아질수록 Worst Case 발생 빈도가 더 높아지기 때문
-
-#### 💻Java 8 HashMap에서의 Separate Chaining
-Java 8 부터는 데이터의 개수가 많아지면 Separate Chaining에서 링크드 리스트 대신 `트리`를 사용.  
-링크드 리스트와 트리 사용의 기준은 `하나의 해시 버킷에 할당된 키-값 쌍의 개수`.  
-트리는 Red-Black Tree를 사용. 자바 콜렉션 프레임워크의 TreeMap과 구현 거의 동일.
-
-
-#### 💻해시 버킷 동적 확장
-HashMap은 키-값 쌍 데이터 개수가 일정 개수가 이상이 되면, 해시 버킷의 개수를 두 배로 늘림. 이렇게 해시 버킷 개수를 늘리면 값도 작아져, 해시 충돌로 인한 성능 손실 문제를 어느 정도 해결 가능.  
-해시 버킷 개수의 기본값은 `16`, 데이터 개수가 임계점에 이를 때마다 해시 버킷 개수의 크기를 두 배씩 증가함.  
-HashMap에 저장될 데이터 개수가 어느 정도인지 예측 가능한 경우에는 이를 생성자의 인자로 지정하면 불필요하게 Separate Chaining을 재구성하지 않게 할 수 있음.  
-임계치의 경우 `0.75`이 기본값이나, 직접 설정할 수도 있음.
-
-- 자바 스프링에서 성능을 위해 해시 버킷 개수를 지정하는 경우가 있음.  
-
-
-```java
-public enum HttpMethod {
-
-	GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE;
-
-	private static final Map<String, HttpMethod> mappings = new HashMap<>(16);
-    // ... 이하 생략
-}
-```
-
-### 🚀TreeMap
-내부의 값들을 **Key 값**을 기준으로 `정렬`해 가지고 있음. 정렬된 순서를 알 수 없는 HashMap과 차이가 있음.  
-내부에서 `Red-Black Tree` 자료구조를 이용.
-
-
-### 🚀1.1. 참조  
-    - [https://d2.naver.com/helloworld/831311](https://d2.naver.com/helloworld/831311)
-    - [https://sabarada.tistory.com/139](https://sabarada.tistory.com/139)
+[[Java] HashMap vs TreeMap](/study/2021/05/24/Java-HashMap-vs-TreeMap)
 
 ## 1.2. primitive & reference
 ### 🚀기본형 타입 (Primitive Type)
@@ -312,17 +247,79 @@ POST와 PUT의 경우 멱등성에 있어 차이를 보인다. POST는 idempoten
 
 
 # 3. 네트워크
-## 3.1. Load-Balance
-L7 & L4
+## 3.1. Load-Balancer
+> 여러 대의 서버가 분산 처리할 수 있도록 요청을 나누어주는 서비스  
+
+클라이언트가 증가해 응답해야 하는 서버에 과부하가 걸리는 현상이 발생. 서버가 멈추는 경우가 발생하면 안되기 때문에 서버 증가가 필요하게 됨.  
+
+### 🚀서버 성능 증가 방법
+1. Scale-Up : 서버가 더 빠르게 동작하기 위해 하드웨어 성능을 올림
+2. Scale-Out : 서버의 개수를 늘려 여러 서버가 요청을 나눠서 처리
+
+
+### 🚀Load Balancer 종류
+OSI 7 Layer 기준으로 어떤 것을 나누는지에 따라 다름  
+
+#### 💻1. L2
+Mac 주소 기준 Load Balancing  
+
+#### 💻2. L3
+IP 주소 기준  
+
+#### 💻3. L4
+Transport Layer (IP & Port) 레벨에서 Load Balancing
+서버 A, 서버 B로 로드 밸런싱  
+IP와 Port정보를 보고 정해진 정책에 따라 라우팅  
+
+
+#### 💻4. L7
+Application Layer(User Request) 레벨에서 Load Balancing (HTTPS, HTTP, FTP)  
+IP와 Port정보 뿐만 아니라 패킷의 URL 정보, 쿠키, payload 정보들을 보고 정해진 정책에 따라 라우팅  
+하위 로드밸런서보다 세부적인 로드 밸런싱이 가능  
+마이크로서비스 간의 통신은 보통 HTTP 사용. 그래서 HTTP 기반 로드 밸런서는 이러한 통신을 쉽게 처리할 수 있다는 장점도 있음  
+하지만, 패킷 내용을 복호화하여 처리를 해야하기 때문에 부하가 많이 걸릴 수 있음.  
+
+### 🚀3.1. 참조
+- [10분 테코톡] 🐿 제이미의 Forward Proxy, Reverse Proxy, Load Balancer : [https://www.youtube.com/watch?v=YxwYhenZ3BE](https://www.youtube.com/watch?v=YxwYhenZ3BE)
+- [https://peemangit.tistory.com/197](https://peemangit.tistory.com/197)
+- [https://gruuuuu.github.io/network/lb01/](https://gruuuuu.github.io/network/lb01/)
+
 ## 3.2. TCP vs UDP
-TCP 신뢰성을 유지할 수 있는 방법
+### 🚀TCP
+전송 제어 프로토콜 (Transmission Control Protocol)  
+1. 연결지향 - TCP 3 way handshake
+    1) Client - SYN : 접속 요청
+    2) Server - SYN + ACK : 요청 수락
+    3) Client - ACK : ACK와 함께 데이터 전송도 가능. 즉, 4단계 생략 가능
+    4) Client - 데이터 전송
+2. 데이터 전달 보증
+3. 순서 보장
+
+#### 💻TCP 신뢰성을 유지할 수 있는 방법
+##### 1. 잘 받았으면 ACK, 못 받았으면 NAK
+오류가 날 경우 보냈던 TCP Segment를 다시 보내주게 된다. 이를 위해 수신자는 잘 받았다면 ACK(Positive Acknowledge)를, 중간에 오류가 났다면 NAK(Negative Acknowledge)를 송신자에게 보내주게 된다. 이를 통해 송신자는 다시 TCP Segment를 보낼지 말지 결정하게 된다.
+
+##### 2. 어떻게 수신자는 TCP Segment에 오류가 있는지 알 수 있는가?
+TCP Segment의 Header 부분
+
+### 🚀UDP
+사용자 데이터그램 프로토콜(User Datagram Protocol)  
+- 연결 지향 - TCP 3 way handshake❌
+- 데이터 전달 보증 ❌
+- 순서 보장 ❌
+- 단순하고 빠름
+- IP 통신과 거의 같음 + 알파 : Port, 체크섬 기능 정도만 추가됨
+
+### 🚀3.2. 참조
+- [https://wjdtn7823.tistory.com/37](https://wjdtn7823.tistory.com/37)
+- 인프런, 김영한님의 [모든 개발자를 위한 HTTP 웹 기본 지식](https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC#)
 
 # 4. 데이터베이스
 ## 4.1. 복합키
 
 ## 4.2. Sharding & Replication
 
-## 4.3. PreparedStatement & StateMent
+## 4.3. PreparedStatement & Statement
 
 ### 🚀Statement
 1. Statement 객체는 Connection 클래스의 createStatement() 메서드 호출을 통해 생성.
