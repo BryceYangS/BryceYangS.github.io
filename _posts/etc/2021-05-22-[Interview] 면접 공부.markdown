@@ -12,138 +12,12 @@ tags: etc
 [[Java] HashMap vs TreeMap](/study/2021/05/24/Java-HashMap-vs-TreeMap)
 
 ## 1.2. primitive & reference
-### 🚀기본형 타입 (Primitive Type)
-- 8가지의 기본형 타입 : boolean / byte, short, int, long / float, double / char
-- 기본값이 있기 때문에 Null이 존재하지 않음
-- 실제 값을 저장하는 공간으로 `스택`메모리에 저장됨
-- 담을 수 있는 크기를 벗어나면 컴파일 시점에 에러 발생함
-
-#### 💻장점
-1. 접근 속도  
-원시 타입은 `스택` 메모리에 값이 존재. 반면에 참조 타입은 인스턴스이기 때문에 `스택`메모리에는 참조값만 있고, 실제 값은 `힙`메모리에 존재. 그리고 값을 필요로 할 때마다 언박싱 과정을 거쳐야 하니 원시 타입과 비교해서 접근 속도가 느려지게 됨.  
-(예외적으로 엄청 큰 숫자를 복사해야 한다면, 참조값만 넘길 수 있는 참조 타입이 좋을 수도 있음)
-
-2. 차지하는 메모리 양  
-참조 타입이 메모리를 더 차지함
-
-### 🚀참조형 타입 (Reference Type)
-- 기본형 타입을 제외한 타입
-- Null이 존재
-- 값이 저장되어 있는 곳의 주소값을 저장하는 공간으로 `힙` 메모리에 저장
-- 실제 객체는 힙 메모리에 저장, 참조 타입 변수는 스택 메모리에 실제 객체들의 주소를 저장. 객체를 사용할 때마다 참조 변수에 저장된 객체의 주소를 불러와 사용하는 방식
-- 문법상으로는 문제가 없어 컴파일 시점에 에러가 잡히지 않으며, 런타임 시에 에러가 발생한다. (ie. NullPointerException)
-
-### 🚀1.2. 참조
-- [https://gbsb.tistory.com/6](https://gbsb.tistory.com/6)
-- [https://www.baeldung.com/java-primitives-vs-objects](https://www.baeldung.com/java-primitives-vs-objects)
-
 ## 1.3. Boxing & Unboxing
-- Boxing
-    > 원시 타입을 참조 타입으로 변환시키는 것  
-- Unboxing
-    > 참조 타입을 원시 타입으로 변환시키는 것  
-
-자바 1.5부터는 Auto Boxing, Unboxing 기능을 제공함. Auto Boxing, Unboxing은 **메모리 누수**의 원인이 될 수 있음
-
-### 🚀차이점
-1. null을 담을 수 있는가?  
-원시 타입은 null을 담을 수 없음. 참조 타입은 null 할당 가능
-
-2. 제네릭 타입에서 사용 가능 여부  
-원시 타입은 제네릭 타입에서 사용 불가. 참조 타입은 제네릭 타입에서 사용 가능.
-
-
-
-### 🚀1.3. 참조
-- [https://velog.io/@gillog/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85-%EC%B0%B8%EC%A1%B0%ED%83%80%EC%9E%85Primitive-Type-Reference-Type](https://velog.io/@gillog/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85-%EC%B0%B8%EC%A1%B0%ED%83%80%EC%9E%85Primitive-Type-Reference-Type)
-- [https://siyoon210.tistory.com/139](https://siyoon210.tistory.com/139)
+[[Java] Primitive & Reference & Boxing & Unboxing](/study/2021/05/24/Java-Primitive-&-Reference-&-Boxing-&-Unboxing)
 
 
 ## 1.4. JVM 메모리
-### 🚀자바의 스택 메모리 & 힙 공간
-#### 💻스택 메모리
-Java의 스택 메모리는 **정적 메모리 할당** 및 **스레드 실행에 사용**됩니다. 여기에는 메서드에 고유한 기본 값과 메서드에서 참조되는 힙에 있는 객체에 대한 참조가 포합됩니다.  
-이 메모리에 대한 액세스는 `LIFO` 순서. 새 메서드가 호출될 때마다 스택 상단에 기본 변수 및 객체에 대한 참조와 같이 해당 메서드에 특정한 값을 포함하는 새 블록이 생성됩니다.  
-메서드가 실행을 마치면 해당 스택 프레임이 플러시되고 흐름이 호출 메서드로 돌아가고 다음 메서드에 공간을 사용할 수 있게 됩니다.  
-
-##### 💻스택 메모리 주요기능
-- 새로운 메서드가 각각 호출되고 반환됨에 따라 확장 및 축소됩니다.
-- 스택 내부의 변수는 변수를 생성한 *메서드가 실행되는 동안에만 존재*합니다.
-- 메서드 실행이 완료되면 *자동으로 할당되고 할당 해제*됩니다.
-- 이 메모리가 가득 차면 *java.lang.StackOverFlowError*를 발생시킵니다.
-- 이 메모리에 대한 액세스는 *힙 메모리에 비해 빠릅*니다.
-- 이 메모리는 각 스레드가 자체 스택에서 작동하므로 *스레드로부터 안전*합니다.
-
-#### 💻힙 Space
-**Java의 힙 공간은 런타임시 Java 객체 및 JRE 클래스에 대한 동적 메모리 할당에 사용**됩니다. 새 객체는 항상 힙 공간에 생성되며 이 객체에 대한 참조는 스택 메모리에 저장됩니다.  
-이러한 객체는 전역 액세스 권한이 있으며 응용 프로그램의 어느 곳에서나 액세스 할 수 있습니다.  
-
-자바 힙 공간 세 부분  
-    1. Young Generation : 모든 새로운 객체가 할당되고 노화되는 곳.  
-    2. Old Generation : 오래 살아남은 객체가 저장되는 곳.  
-    3. Permanent Generation : 런타임 클래스 및 애플리케이션 메서드에 대한 JVM 메타 데이터로 구성됩니다.  
-
-##### 💻힙 메모리 주요 기능
-- Young, Old, Permanent Generation을 포함한 복잡한 메모리 관리 기술을 통해 액세스
-- 힙 공간이 가득 차면 Java에서 *java.lang.OutOfMemoryError*가 발생합니다.
-- 이 메모리에 대한 액세스는 *스택 메모리보다 상대적으로 느립*니다.
-- 스택과 달리 메모리는 *자동으로 할당 해제되지 않습니다*. 메모리 사용의 효율성을 유지하기 위해 사용하지 않는 객체를 확보하려면 가비지 콜렉터가 필요합니다.
-- 스택과 달리 힙은 *스레드로부터 안전하지 않으며* 코드를 적절하게 *동기화*해 보호해야 합니다.
-
-#### 💻예
-
-```java
-class Person {
-    int id;
-    String name;
-
-    public Person(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-}
-
-public class PersonBuilder {
-    private static Person buildPerson(int id, String name) {
-        return new Person(id, name);
-    }
-
-    public static void main(String[] args) {
-        int id = 23;
-        String name = "Bryce";
-        Person person = null;
-        person = buildPerson(id, name);
-    }
-}
-```  
-
-#### 💻단계별 분석
-1. main() 메서드에 들어가면 스택 메모리에 이 메서드의 기본 요소와 참조를 저장하기 위해 공간이 생성됨
-    - int id의 원시 값은 스택 메모리에 직접 저장됨
-    - Person 유형의 참조 변수 person도 힙의 실제 객체를 가리키는 스택 메모리에 생성됨
-2. main() 에서 매개 변수화 된 생성자 Person(int,String)에 대한 호출은 이전 스택 위에 추가 메모리를 할당. 다음을 저장
-    - 스택 메모리에서 호출 객체의 this 객체 참조
-    - 스택 메모리의 기본 값 id
-    - 힙 메모리의 문자열 풀에서 실제 문자열을 가리키는 문자열 인수 name의 참조 변수
-3. main() 메서드는 buildPerson() 정적 메서드를 호출한다. 
-4. 하지만, 새로 생성된 객체에 대한 Person 타입의 person, 모든 인스턴스 변수는 힙 메모리에 저장된다.
-
-![java-heap-stack-diagram](/assets/img/etc/java-heap-stack-diagram.webp)
-
-||스택 메모리|힙 Space|
-|--|--|--|
-|Application            |스택은 스레드 실행 중에 한 번에 하나씩 부분적으로 사용됨|전체 애플리케이션은 런타임 동안 힙 공간을 사용|
-|Size                   |스택은 OS에 따라 크기 제한이 있으며, 일반적으로 힙보다 작음|사이즈 제한 없음|
-|Storage                |힙 공간에서 생성된 객체에 대한 참조와 기본 변수만 저장|새로 생성된 모든 객체가 저장됨|
-|Order                  |LIFO 메모리 할당 시스템 사용해 액세스|Young/Old/Permanent Generation을 포함하는 복잡한 메모리 관리 기술을 통해 액세스|
-|Life                   |현재 메서드가 실행되는 동안에만 존재|애플리케이션이 실행되는 동안 존재|
-|Efficieny              |힙에 비해 상대적으로 훨씬 빠른 할당|스택에 비해 할당 속도 느림|
-|Allocation/Deallocation|이 메모리는 메서드가 각각 호출되고 반환될 때 자동을 할당 및 할당 해제|새 객체가 생성될 때 힙 공간이 할당 / 더 이상 참조되지 않는 객체에 대해 가비지 콜렉터에 의해 할당 해제|
-
-
-
-### 🚀1.4. 참조
-- [https://www.baeldung.com/java-stack-heap](https://www.baeldung.com/java-stack-heap)
+[[Java] JVM Stack & Heap](/study/2021/05/24/Java-JVM-Stack-&-Heap)
 
 ## 1.5. Generic
 > 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크를 해주는 기능  
@@ -285,34 +159,7 @@ IP와 Port정보 뿐만 아니라 패킷의 URL 정보, 쿠키, payload 정보�
 - [https://gruuuuu.github.io/network/lb01/](https://gruuuuu.github.io/network/lb01/)
 
 ## 3.2. TCP vs UDP
-### 🚀TCP
-전송 제어 프로토콜 (Transmission Control Protocol)  
-1. 연결지향 - TCP 3 way handshake
-    1) Client - SYN : 접속 요청
-    2) Server - SYN + ACK : 요청 수락
-    3) Client - ACK : ACK와 함께 데이터 전송도 가능. 즉, 4단계 생략 가능
-    4) Client - 데이터 전송
-2. 데이터 전달 보증
-3. 순서 보장
-
-#### 💻TCP 신뢰성을 유지할 수 있는 방법
-##### 1. 잘 받았으면 ACK, 못 받았으면 NAK
-오류가 날 경우 보냈던 TCP Segment를 다시 보내주게 된다. 이를 위해 수신자는 잘 받았다면 ACK(Positive Acknowledge)를, 중간에 오류가 났다면 NAK(Negative Acknowledge)를 송신자에게 보내주게 된다. 이를 통해 송신자는 다시 TCP Segment를 보낼지 말지 결정하게 된다.
-
-##### 2. 어떻게 수신자는 TCP Segment에 오류가 있는지 알 수 있는가?
-TCP Segment의 Header 부분
-
-### 🚀UDP
-사용자 데이터그램 프로토콜(User Datagram Protocol)  
-- 연결 지향 - TCP 3 way handshake❌
-- 데이터 전달 보증 ❌
-- 순서 보장 ❌
-- 단순하고 빠름
-- IP 통신과 거의 같음 + 알파 : Port, 체크섬 기능 정도만 추가됨
-
-### 🚀3.2. 참조
-- [https://wjdtn7823.tistory.com/37](https://wjdtn7823.tistory.com/37)
-- 인프런, 김영한님의 [모든 개발자를 위한 HTTP 웹 기본 지식](https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC#)
+[[Network] TCP & UDP](/study/2021/05/24/Network-TCP-&-UDP)
 
 # 4. 데이터베이스
 ## 4.1. 복합키

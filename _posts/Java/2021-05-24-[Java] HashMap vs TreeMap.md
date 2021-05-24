@@ -6,7 +6,7 @@ categories: study
 tags: java
 ---
 
-> Garbage Collection 정리 글 : 네이버 D2 포스팅 정리.
+> HashMap vs TreeMap 비교
 
 ## Map 이란?
 - key-value 형식의 데이터를 저장할 수 있는 자료구조.  
