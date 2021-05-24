@@ -66,9 +66,9 @@ POST와 PUT의 경우 멱등성에 있어 차이를 보인다. POST는 idempoten
 - 특정 리소스의 URI가 영구적으로 이동
 - 원래의 URL을 사용❌, 검색 엔진 등에서도 변경 인지
 - HTTP 상태 코드
-    1. 301 Moved Permanently
-        - 리다이렉트시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있음
-    2. 308 Permanent Redirect
+    1. `301` Moved Permanently
+        - 리다이렉트시 요청 메서드가 **GET**으로 변하고, 본문이 제거될 수 있음
+    2. `308` Permanent Redirect
         - 301과 기능 동일
         - 리다이렉트시 요청 메서드와 본문 유지
 - ie) /members → /users
@@ -79,12 +79,12 @@ POST와 PUT의 경우 멱등성에 있어 차이를 보인다. POST는 idempoten
 - 리소스의 URI가 일시적으로 변경
 - 검색 엔진 등에서 URL을 변경하면 안됨
 - HTTP 상태 코드
-    1. 302 Found
-        - 리다이렉트시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있음
-    2. 307 Temporary Redirect
+    1. `302` Found
+        - 리다이렉트시 요청 메서드가 **GET**으로 변하고, 본문이 제거될 수 있음
+    2. `307` Temporary Redirect
         - 302와 기능 동일
         - 리다이렉트시 요청 메서드와 본문 유지(요청 메서드를 변경하면 안된다)
-    3. 303 See Other
+    3. `303` See Other
         - 302와 기능 동일
         - 리다이렉트시 요청 메서드가 GET으로 변경
 - PRG : Post/Redirect/Get
@@ -97,8 +97,7 @@ POST와 PUT의 경우 멱등성에 있어 차이를 보인다. POST는 idempoten
     - 307 : 메서드가 변하면 안 됨
     - 303 : 메서드가 GET으로 변경
     - 원칙
-        - 302 스펙의 의도는 HTT 메서드 유지
-        - 웹 브라우저 대부분 GET으로 변경
+        - 302 스펙의 의도는 HTTP 메서드 유지, 허나 웹 브라우저 대부분 302 코드에 대해 GET으로 변경
         - 모호한 302 대신 307, 303 등장
     - 현실
         - 구체적인 307, 303 사용을 권장하나 많은 애플리케이션 라이브러리들이 302 기본 사용
@@ -107,9 +106,9 @@ POST와 PUT의 경우 멱등성에 있어 차이를 보인다. POST는 idempoten
 #### 💻3. 특수 리다이렉션
 결과 대신 `캐시`를 사용  
 - HTTP 상태 코드
-    1. 300 Multiple Choices
+    1. `300` Multiple Choices
         - 사용 ❌
-    2. 304 Not Modified
+    2. `304` Not Modified
         - 캐시를 목적으로 사용
         - 클라이언트에게 리소스가 수정되지 않았음을 알려줌. 따라서 클라이언트는 로컬 PC에 저장된 캐시를 재사용(캐시로 리다이렉트)
         - 304 응답은 응답에 메시지 바디를 포함하면 ❌ (로컬 캐시 사용해야 하기 때문)
@@ -122,41 +121,7 @@ POST와 PUT의 경우 멱등성에 있어 차이를 보인다. POST는 idempoten
 
 # 3. 네트워크
 ## 3.1. Load-Balancer
-> 여러 대의 서버가 분산 처리할 수 있도록 요청을 나누어주는 서비스  
-
-클라이언트가 증가해 응답해야 하는 서버에 과부하가 걸리는 현상이 발생. 서버가 멈추는 경우가 발생하면 안되기 때문에 서버 증가가 필요하게 됨.  
-
-### 🚀서버 성능 증가 방법
-1. Scale-Up : 서버가 더 빠르게 동작하기 위해 하드웨어 성능을 올림
-2. Scale-Out : 서버의 개수를 늘려 여러 서버가 요청을 나눠서 처리
-
-
-### 🚀Load Balancer 종류
-OSI 7 Layer 기준으로 어떤 것을 나누는지에 따라 다름  
-
-#### 💻1. L2
-Mac 주소 기준 Load Balancing  
-
-#### 💻2. L3
-IP 주소 기준  
-
-#### 💻3. L4
-Transport Layer (IP & Port) 레벨에서 Load Balancing
-서버 A, 서버 B로 로드 밸런싱  
-IP와 Port정보를 보고 정해진 정책에 따라 라우팅  
-
-
-#### 💻4. L7
-Application Layer(User Request) 레벨에서 Load Balancing (HTTPS, HTTP, FTP)  
-IP와 Port정보 뿐만 아니라 패킷의 URL 정보, 쿠키, payload 정보들을 보고 정해진 정책에 따라 라우팅  
-하위 로드밸런서보다 세부적인 로드 밸런싱이 가능  
-마이크로서비스 간의 통신은 보통 HTTP 사용. 그래서 HTTP 기반 로드 밸런서는 이러한 통신을 쉽게 처리할 수 있다는 장점도 있음  
-하지만, 패킷 내용을 복호화하여 처리를 해야하기 때문에 부하가 많이 걸릴 수 있음.  
-
-### 🚀3.1. 참조
-- [10분 테코톡] 🐿 제이미의 Forward Proxy, Reverse Proxy, Load Balancer : [https://www.youtube.com/watch?v=YxwYhenZ3BE](https://www.youtube.com/watch?v=YxwYhenZ3BE)
-- [https://peemangit.tistory.com/197](https://peemangit.tistory.com/197)
-- [https://gruuuuu.github.io/network/lb01/](https://gruuuuu.github.io/network/lb01/)
+[[Network] Load Balacing](/study/2021/05/24/Network-Load-Balacing)
 
 ## 3.2. TCP vs UDP
 [[Network] TCP & UDP](/study/2021/05/24/Network-TCP-&-UDP)
@@ -165,36 +130,23 @@ IP와 Port정보 뿐만 아니라 패킷의 URL 정보, 쿠키, payload 정보�
 ## 4.1. 복합키
 
 ## 4.2. Sharding & Replication
+### 🚀Partitioning
+**파티셔닝**은 일반적으로 DB 테이블을 작은 부분으로 여러 개 나누는 것을 가리킴. Column을 기준으로 나누는 `Vertical Partitioning`(수직)과 Row를 기준으로 나누는 `Horizontal Partioning`(수평)이 있다.
+
+### 🚀Sharding
+**샤딩**은 파티셔닝의 수평 파티셔닝의 특수한 형태. `Shard key`라고 알려진 키를 기준으로 데이터가 나뉨. Shard key 알고리즘에 따라 여러 Sharding이 있음.  
+샤딩은 여러 서버에 스키마가 복제됨. 데이터는 Shard key를 기준으로 여러 노드들에 나누어 저장됨.  
+검색 요청에 대한 부하를 서로 다른 샤드가 있는 여러 서버에 분산할 수 있음.  
+스키마를 유지하기 때문에 DB 확장에 있어서도 적용이 쉬움.
+
+### 🚀Replication
+
+
+### 🚀4.2. 참조
+- [https://www.youtube.com/watch?v=AxpsOLLQt3o](https://www.youtube.com/watch?v=AxpsOLLQt3o)
 
 ## 4.3. PreparedStatement & Statement
-
-### 🚀Statement
-1. Statement 객체는 Connection 클래스의 createStatement() 메서드 호출을 통해 생성.
-2. Statement 객체가 생성되면 executeQuery() 메서드를 호출해 SQL문을 실행시킬 수 있다. 메서드의 인수로 SQL문을 담은 String 객체를 전달한다.
-3. Statement는 정적인 쿼리문을 처리할 수 있다. 즉 쿼리문에 값이 미리 입려되어 있어야 한다.
-
-### 🚀PreparedStatement
-1. PreparedStatement 객체는 Connection 객체의 preparedStatement() 메서드를 사용해서 생성. 메서드 인수로 SQL문을 담은 String 객체가 필요
-2. SQL 문장이 미리 컴파일되고, 실행 시간동안 인수값을 위한 공간을 확보할 수 있다는 점에서 Statement 객체와 다름
-3. Statement 객체의 SQL은 실행될 때 매 번 서버에서 분석해야 하는 반면, PreparedStatement 객체는 한 번 분석되면 재사용 용이
-4. 각각의 인수에 대해 위치홀더(placeholder)를 사용해 SQL 문장을 정의할 수 있게 해준다. 위치홀더는 ? 로 표현됨
-5. 동일한 SQL문을 특정 값만 바꾸어서 여러 번 실행해야 할 때, 인수가 많아서 SQL문을 정리해야 될 필요가 있을 때 사용하면 유용
-
-
-![prepared-statement-performance-1](/assets/img/etc/prepared-statement-performance-1.png)
-
-- PreparedStatement의 재사용 수준은 두 가지
-    1. JDBC 드라이버에 의한 PreparedStatement 재사용
-    2. DB에 의한 PreparedStatement 재사용
-
-### 🚀어떤 것을 사용해야 하는가?
-Statement의 경우 매 번 쿼리에 대한 컴파일을 수행한다. PreparedStatement의 경우 미리 컴파일된 쿼리를 사용하기 때문에 수행 속도가 더 빠르다는 장점이 있다.  
-SQL Injection 을 막고, 쿼리문 재사용을 통한 성능 상의 이점을 위해 PreparedStatement를 사용한다.  
-무조건 PreparedStatement를 사용할 경우 DB에 캐싱된 SQL문이 과도해질 수 있다. 이는 성능을 낮출 수 있으니, 자주 사용되는 구문만 PreparedStatement로 하는 것이 좋은 경우도 있다.
-
-### 4.3. 참조
-- [http://tutorials.jenkov.com/jdbc/preparedstatement.html](http://tutorials.jenkov.com/jdbc/preparedstatement.html)
-- [https://devbox.tistory.com/entry/Comporison](https://devbox.tistory.com/entry/Comporison)
+[[Java] Statement & PreparedStatement](/study/2021/05/24/Java-Statement-&-PreparedStatement)
 
 # 5. 스프링
 ## 5.1. 커넥션 풀

@@ -3,7 +3,7 @@ layout: post
 title: "[Network] TCP & UDP"
 subtitle: "TCP & UDP"
 categories: study
-tags: java
+tags: network
 ---
 
 > TCP & UDP 개념
