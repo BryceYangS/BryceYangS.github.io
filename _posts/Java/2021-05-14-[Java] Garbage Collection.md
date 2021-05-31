@@ -38,7 +38,6 @@ JVM은 GC를 통해 자동으로 메모리 관리를 하기 때문에 개발자�
     - 대부분 Young 영역보다 크게 할당, Young 영역보다 GC 적게 발생
     - 이 영역에서 객체가 사라질 때 `Major GC` 발생
 3. Permanent Generation
-    - Method Area
     - 객체나 억류(intern)된 문자열 정보를 저장하는 곳
     - Old 영역에서 살아남은 객체가 영원히 남아 있는 곳 ❌
     - 이 영역에서도 GC가 발생. `Major GC` 횟수에 포함됨
