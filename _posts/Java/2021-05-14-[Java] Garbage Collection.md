@@ -10,10 +10,11 @@ tags: java
 
 
 ## 가비지 컬렉션 과정
-`stop-the-world`   
+### Stop-The-World
 - GC를 실행하기 위해 JVM이 애플리케이션 실행을 멈추는 것
-- stop-the-world가 발생하면 GC를 실행하는 쓰레드를 제외한 나머지 쓰레드는 모두 작업을 멈춘다. GC 작업을 완료한 이후에야 중단했던 작업을 다시 시작한다.
-- 대부분의 GC 튜닝이란 stop-the-world 시간을 줄이는 것
+- Stop-The-World가 발생하면 GC를 실행하는 쓰레드를 제외한 *애플리케이션 쓰레드 모두 작업을 멈춘다*. GC 작업을 완료한 이후에야 중단했던 작업을 다시 시작한다.
+- 대부분의 GC 튜닝이란 Stop-The-World 시간을 줄이는 것
+- Stop-The-World는 Minor GC, Major GC 모두에서 발생함
 <br/>
 <br/>
 
@@ -43,6 +44,7 @@ JVM은 GC를 통해 자동으로 메모리 관리를 하기 때문에 개발자�
     - 이 영역에서도 GC가 발생. `Major GC` 횟수에 포함됨
 <br/>
 
+![heap-structure](/assets/img/java/hotspot-heap-structure.png)
 
 ## Young 영역의 구성
 `Eden` & `Survivor 2개` 로 세 영역으로 구성됨  
@@ -108,4 +110,4 @@ JVM은 GC를 통해 자동으로 메모리 관리를 하기 때문에 개발자�
 
 ### [참조]
 - 네이버 D2 "Java Garbage Collection" 글 : [https://d2.naver.com/helloworld/1329](https://d2.naver.com/helloworld/1329)
-
+- [https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)

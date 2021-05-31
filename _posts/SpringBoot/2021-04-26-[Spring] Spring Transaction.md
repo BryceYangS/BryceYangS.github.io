@@ -218,7 +218,7 @@ JDBC에선 이러한 해결책으로 JTA ( Java Transaction API )를 제공하�
 
         이미 트랜잭션이 있으면 중첩 트랜잭션을 발생시킨다. 중첩 트랜잭션은 부모 트랜잭션의 커밋, 롤백에는 영향을 받지만 반대의 영향은 주지않는다. 
 
-    ![transaction](/assets/img/SpringBoot/transaction.png)
+    ![transaction](/assets/img/springboot/transaction.png)
 
 2. 격리수준 ( Isolation Level )
     1. DEFAULT
