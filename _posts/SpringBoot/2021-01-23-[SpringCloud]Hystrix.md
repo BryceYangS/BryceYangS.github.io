@@ -15,7 +15,11 @@ tags: springboot
 Netflix에서 개발한 오픈소스로, 원격 시스템이나 서비스를 호출하는 구간을 격리해 관리 및 모니터링을 가능케 하는 라이브러리.  
 `Circuit Breaker` 로 호출에 대한 timeout 과 같은 설정을 할 수 있음. 
 
-## 2. 적용방법
+
+## 2. 작동방식
+![hystrix-command-flow-chart](/assets/img/springcloud/hystrix-command-flow-chart.png)
+
+## 3. 적용방법
 
 > Consumer 서비스(타서비스를 호출하는 서비스)에만 설정을 적용하면 됨 
 
@@ -129,6 +133,8 @@ public class CustomerCompositeImpl implements CustomerComposite {
 ![Hystrix Dashboard](/assets/img/springboot/Hystrix-Dashboard2.png)
 
 
-[References]
+
+### [References]
 - Neflix-Hystrix : [Hystrix Github Repository](https://github.com/Netflix/Hystrix)
 - chanwookpark님의 블로그 글 : [원격 서비스(Remote Service) 관리를 위한 Hystrix 적용 경험기](https://chanwookpark.github.io/hystrix/spring/2015/11/29/hystrix/#7-hystrix-대시보드-사용하기)
+- [https://github.com/Netflix/Hystrix/wiki/How-it-Works](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
