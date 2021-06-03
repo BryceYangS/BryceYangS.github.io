@@ -20,8 +20,9 @@ tags: etc
 ### 1.4. Generic
 [[Java]Generics](/study/2020/10/26/Java-Generics)
 
-### 1.5. Java 6-8-11 차이
+### 1.5. Java 6-8-11 차이.
 
+### 1.6. JSR 310?.
 
 
 ## 2. HTTP
@@ -31,7 +32,7 @@ tags: etc
 ### 2.2. Redirection
 [[HTTP] Redirection](/study/2021/05/28/HTTP-Redirection)
 
-### 2.3. HTTP - HTTPS 차이
+### 2.3. HTTP - HTTPS 차이.
 
 
 ## 3. 네트워크
@@ -59,7 +60,7 @@ tags: etc
 ### 5.2. @Transactional
 ### 5.3. 빈 스코프
 ### 5.4. Spring AOP
-### 5.5. SpringBoot Autoconfiguration 작동방식
+### 5.5. SpringBoot Autoconfiguration 작동방식.
 
 
 ## 6. 디자인 패턴

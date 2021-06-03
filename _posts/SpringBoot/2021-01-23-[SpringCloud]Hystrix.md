@@ -37,6 +37,12 @@ Netflix에서 개발한 오픈소스로, 원격 시스템이나 서비스를 호
 - 구성 변경의 낮은 지연 전파를 통해 복구 시간을 최적화하고 Hystrix의 대부분의 측면에서 동적 속성 변경을 지원하므로 지연 시간이 짧은 피드백 루프로 실시간 운영 수정 가능
 - 네트워크 트래픽뿐만 아니라 전체 의존성 클라이언트 실행의 실패로부터 보호
 
+
+##### 핵심 클라이언트 회복성 패턴
+- Circuit breaker Pattern : 느리게 실행되고, 성능이 저하된 시스템 호출을 종료해 빨리 실패시키고 자원 고갈을 방지한다.
+- Fall back Pattern : 개발자가 원격 서비스 호출이 실패하거나 호출에 대한 회로 차단기가 실패할 때 대체할 코드 경로를 정의할 수 있다.
+- Bulkhead Pattern : 원격 호출을 서로 격리하고 원격 서비스 호출을 자체 스레드 풀로 분리한다.
+
 #### Hystrix는 해당 목적들을 어떻게 달성하는가? 
 - 일반적으로 별도의 쓰레드 내에서 실행되는 HystixCommand 또는 HystrixObservableCommand 개체에서 외부 시스템(또는 "종속성")에 대한 모든 호출을 래핑합니다.(커맨드 패턴의 예)
 - 정확한 임계값보다 오래 걸리는 시간 초과 호출. 기본값이 있지만 대부분의 의존성에 대해 "properties"를 통해 이러한 시간 제한을 사용자 지정하여 각 종속성에 대해 측정된 99.5번째 분부위 수 성능보다 약간 높게 설정
@@ -63,6 +69,13 @@ Netflix에서 개발한 오픈소스로, 원격 시스템이나 서비스를 호
 7. 회로 상태 연산
 8. fallback 실행
 9. 성공 응답 리턴
+
+## 🚀 Circuit Breaker 구조
+circuit-breaker 는 fast-fail(빠른 실패)의 여부를 정하는 회로같은 역할을 수행. circuit-breaker는 hystrix 동작시 caching 확인 후 바로 다음에 확인 되며 열려 있을 경우 fallback 메서드를 실행한다. 
+
+![circuit-breaker](/assets/img/springcloud/circuit-breaker-1280.png)
+
+circuit을 열지 닫을지 판단의 기준은 **일정 시간동안 일정량 이상의 요청에 대해 어느정도의 실패율을 가지느냐**이다. 열려있는 circuit은 *특정시간이 지난 후 다시 1번 로직을 돌려* 성공여부에 따라 열어둘지 다시 닫을지 판단한다.
 
 ## 🚀 적용방법
 
@@ -183,3 +196,4 @@ public class CustomerCompositeImpl implements CustomerComposite {
 - Neflix-Hystrix : [Hystrix Github Repository](https://github.com/Netflix/Hystrix)
 - chanwookpark님의 블로그 글 : [원격 서비스(Remote Service) 관리를 위한 Hystrix 적용 경험기](https://chanwookpark.github.io/hystrix/spring/2015/11/29/hystrix/#7-hystrix-대시보드-사용하기)
 - [https://github.com/Netflix/Hystrix/wiki](https://github.com/Netflix/Hystrix/wiki)
+- [https://sabarada.tistory.com/52](https://sabarada.tistory.com/52)
