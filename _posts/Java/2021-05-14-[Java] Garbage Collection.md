@@ -43,7 +43,7 @@ JVM은 GC를 통해 자동으로 메모리 관리를 하기 때문에 개발자�
     - 이 영역에서도 GC가 발생. `Major GC` 횟수에 포함됨
 <br/>
 
-![heap-structure](/assets/img/java/hotspot-heap-structure.png)
+![heap-structure](/assets/img/java/hotspot_heap_structure.png)
 
 ## Young 영역의 구성
 `Eden` & `Survivor 2개` 로 세 영역으로 구성됨  
