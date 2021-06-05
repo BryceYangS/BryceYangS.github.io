@@ -50,6 +50,24 @@ tags: java
 원시 타입은 제네릭 타입에서 사용 불가. 참조 타입은 제네릭 타입에서 사용 가능.
 
 
+#### Wrapper 끼리 비교
+
+```java
+public class WrapperTest {
+
+	public static void main(String[] args) {
+		Integer a = new Integer(1);
+		Integer b = new Integer(1);
+
+		if (a.equals(b)) {
+			System.out.println(a.equals(b)); // true
+			System.out.println(a == b); // false
+            System.out.println(1 == a); // true
+		}
+	}
+}
+```
+
 
 ### 🚀1.3. 참조
 - [https://velog.io/@gillog/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85-%EC%B0%B8%EC%A1%B0%ED%83%80%EC%9E%85Primitive-Type-Reference-Type](https://velog.io/@gillog/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85-%EC%B0%B8%EC%A1%B0%ED%83%80%EC%9E%85Primitive-Type-Reference-Type)
