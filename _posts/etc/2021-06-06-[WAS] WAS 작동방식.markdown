@@ -1,0 +1,31 @@
+---
+layout: post
+title: "[WAS] request-response 작동 순서"
+subtitle: "was 통신"
+categories: study
+tags: etc
+---
+> Request 부터 Response까지의 작동 순서
+
+## WAS
+- 동적인 컨텐츠를 제공하기 위해 만들어진 Application Server
+- 주요 기능
+    1. 프로그램 실행환경, DB 접속
+    2. 여러 개의 트랜잭션 관리
+    3. 업무처리 비즈니스 로직 수행
+- WAS 예
+    - Tomcat, JBoss, Jeus, ... 등
+
+
+![web-service-architecture](/assets/img/etc/web_service_arch.png)  
+
+1. WS는 클라이언트로부터 HTTP 요청 받음
+2. WS는 받은 요청을 WAS에 전송
+3. WAS는 관련된 Servlet을 메모리에 올림. - `Servlet.init()`
+4. WAS는 web.xml을 참조해 해당 Servlet에 대한 Thread를 생성 (Thread Pool 이용)
+5. HttpServletRequest, HttpServletResponse 객체 생성해 Servlet에 전달
+    1. Thread는 Servlet의 service() 메서드 호출
+    2. service() 메서드는 요청에 맞게 doGet() 또는 doPost() 메서드를 호출
+6. doGet(), doPost() 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달
+7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달
+8. 생성된 Thread를 종료하고, HttpServletRequest & HttpServletResponse 객체를 제거
