@@ -19,9 +19,12 @@ tags: etc
 ### GC
 [[Java] Garbage Collection](/study/2021/05/14/Java-Garbage-Collection/)
 ### Java 6-8-11 차이.
+[[Java] Java 버전별 스펙](/study/2021/06/07/Java-Java-버전별-스펙)
 ### JSR 310?.
 ### 문자열
 [[Java] 문자열](/study/2021/06/04/Java-문자열)
+### Heap Dump, Thread Dump
+
 
 
 ## 2. HTTP

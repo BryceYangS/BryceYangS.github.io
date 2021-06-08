@@ -11,7 +11,7 @@ tags: java
 ### 🚀Statement
 1. Statement 객체는 Connection 클래스의 `createStatement()` 메서드 호출을 통해 생성.
 2. Statement 객체가 생성되면 executeQuery() 메서드를 호출해 SQL문을 실행시킬 수 있다. 메서드의 인수로 SQL문을 담은 String 객체를 전달한다.
-3. Statement는 `정적`인 쿼리문을 처리할 수 있다. 즉 쿼리문에 값이 미리 입려되어 있어야 한다.
+3. Statement는 `정적`인 쿼리문을 처리할 수 있다. 즉 쿼리문에 값이 미리 입력되어 있어야 한다.
 
 ### 🚀PreparedStatement
 1. PreparedStatement 객체는 Connection 객체의 `prepareStatement()` 메서드를 사용해서 생성. 메서드 인수로 SQL문을 담은 String 객체가 필요

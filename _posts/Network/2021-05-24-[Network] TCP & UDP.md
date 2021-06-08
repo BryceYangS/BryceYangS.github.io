@@ -10,11 +10,11 @@ tags: network
 
 ### 🚀TCP
 전송 제어 프로토콜 (Transmission Control Protocol)  
-1. 연결지향 - TCP 3 way handshake
-    1) Client - SYN : 접속 요청
-    2) Server - SYN + ACK : 요청 수락
-    3) Client - ACK : ACK와 함께 데이터 전송도 가능. 즉, 4단계 생략 가능
-    4) Client - 데이터 전송
+1. 연결지향 - TCP 3 way handshake  
+    1. Client - SYN : 접속 요청  
+    2. Server - SYN + ACK : 요청 수락  
+    3. Client - ACK : ACK와 함께 데이터 전송도 가능. 즉, 4단계 생략 가능  
+    4. Client - 데이터 전송
 2. 데이터 전달 보증
 3. 순서 보장
 
