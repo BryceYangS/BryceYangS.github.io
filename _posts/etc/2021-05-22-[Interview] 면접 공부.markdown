@@ -24,7 +24,7 @@ tags: etc
 ### 문자열
 [[Java] 문자열](/study/2021/06/04/Java-문자열)
 ### Heap Dump, Thread Dump
-
+### jar vs war
 
 
 ## 2. HTTP
@@ -58,7 +58,7 @@ tags: etc
 ### 커넥션 풀
 ### @Transactional
 ### 빈 스코프
-### Spring AOP
+### Filter, Interceptor, Spring AOP
 ### SpringBoot Autoconfiguration 작동방식.
 [[SpringBoot] 스프링부트 자동 설정](/study/2021/06/04/SpringBoot-스프링부트-자동-설정)
 ### Filter / Interceptor 작동 순서
@@ -83,6 +83,7 @@ tags: etc
 [[Linux] swap memory](/study/2021/06/05/Linux-swap-memory/)
 
 ## 9. ETC
+### 웹 처리 방식, 순서
 ### NGINX 킵얼라이브
 ### WAS-WS
 ### CSRF
