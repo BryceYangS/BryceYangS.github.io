@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Spring]Servelet & Spring-webmvc"
+title: "[Spring]Servlet & Spring-webmvc"
 subtitle: "servlet & spring"
 categories: study
 tags: springboot
