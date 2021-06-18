@@ -52,15 +52,15 @@ CGI에서부터 이어지는 Servlet → Spring MVC의 `DispatcherServlet`에 �
 public class DispatcherServlet extends FrameworkServlet {
     // ... 생략
 	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-                /** 로직 생략 **/
-				boolean isGet = "GET".equals(method);
-				if (isGet || "HEAD".equals(method)) {
-					long lastModified = ha.getLastModified(request, mappedHandler.getHandler());
-					if (new ServletWebRequest(request, response).checkNotModified(lastModified) && isGet) {
-						return;
-					}
-				}
-                /** 로직 생략 **/
+        /** 로직 생략 **/
+        boolean isGet = "GET".equals(method);
+        if (isGet || "HEAD".equals(method)) {
+            long lastModified = ha.getLastModified(request, mappedHandler.getHandler());
+            if (new ServletWebRequest(request, response).checkNotModified(lastModified) && isGet) {
+                return;
+            }
+        }
+        /** 로직 생략 **/
     }
     // ... 생략
 }
@@ -133,15 +133,15 @@ public enum HttpMethod {
 public class DispatcherServlet extends FrameworkServlet {
     // ... 생략
 	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-                /** 로직 생략 **/
-				boolean isGet = HttpMethod.GET.matches(method);
-				if (isGet || HttpMethod.HEAD.matches(method)) {
-					long lastModified = ha.getLastModified(request, mappedHandler.getHandler());
-					if (new ServletWebRequest(request, response).checkNotModified(lastModified) && isGet) {
-						return;
-					}
-				}
-                /** 로직 생략 **/
+        /** 로직 생략 **/
+        boolean isGet = HttpMethod.GET.matches(method);
+        if (isGet || HttpMethod.HEAD.matches(method)) {
+            long lastModified = ha.getLastModified(request, mappedHandler.getHandler());
+            if (new ServletWebRequest(request, response).checkNotModified(lastModified) && isGet) {
+                return;
+            }
+        }
+        /** 로직 생략 **/
     }
     // ... 생략
 }
@@ -149,12 +149,38 @@ public class DispatcherServlet extends FrameworkServlet {
 
 
 # 3. 도움이 될만한 책들
-|이미지|제목|저자|
-|--|--|--|
-|<img src="https://images-na.ssl-images-amazon.com/images/I/51wl8cINKYL.jpg" width="100px">|Effective Java|조슈아 블로크|
-|<img src="https://image.aladin.co.kr/product/58/27/cover/8979143400_2.jpg" width="100px">|Head First Design Pattern|케이시 시에라,버트 베이츠,엘리자베스 프리먼,에릭 프리먼|
-|<img src="https://woowabros.github.io/img/2019-03-20/book.jpg" width="100px">|클린 코드|로버트 C. 마틴|
-|<img src="https://www.hanbit.co.kr/data/books/B6952616555_l.jpg" width="100px">|리팩토링|마틴 파울러|
+
+<table>
+    <thead>
+        <tr>
+            <th>책 이미지</th>
+            <th>제목</th>
+            <th>저자</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="https://images-na.ssl-images-amazon.com/images/I/51wl8cINKYL.jpg" width="100px"></td>
+            <td>Effective Java</td>
+            <td>조슈아 블로크</td>
+        </tr>
+        <tr>
+            <td><img src="https://image.aladin.co.kr/product/58/27/cover/8979143400_2.jpg" width="100px"></td>
+            <td>Head First Design Pattern</td>
+            <td>케이시 시에라,버트 베이츠,엘리자베스 프리먼,에릭 프리먼</td>
+        </tr>
+        <tr>
+            <td><img src="https://woowabros.github.io/img/2019-03-20/book.jpg" width="100px"></td>
+            <td>클린 코드</td>
+            <td>로버트 C. 마틴</td>
+        </tr>
+        <tr>
+            <td><img src="https://www.hanbit.co.kr/data/books/B6952616555_l.jpg" width="100px"></td>
+            <td>리팩토링</td>
+            <td>마틴 파울러</td>
+        </tr>
+    </tbody>
+</table>
 
 
 # References
