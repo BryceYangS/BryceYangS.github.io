@@ -121,11 +121,11 @@ public enum HttpMethod {
 > 2. 피드백  
 > 3. 피드백에 대한 조치  
 
-<img src="/assets/img/etc/feedback.png">
+<img src="/assets/img/etc/feedback.jpeg">
 
 
 ### 4) 최종 승인 및 Merge
-<img src="/assets/img/etc/contribute.png" width="250px">
+<img src="/assets/img/etc/contribute.png">
 
 **TO-BE : Spring 5.3.7 ver**  
 
