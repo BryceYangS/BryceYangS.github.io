@@ -24,11 +24,19 @@ tags: etc
 
 # 2. spring-framework 오픈 소스 기여 경험 공유
 ## 2.1. Spring?
-![book](https://image.aladin.co.kr/product/139/35/cover500/0764543857_1.jpg)
-- 2002년 로드 존슨의 **\<J2EE Design and Development\>** 책으로부터 시작
-- 책 출간 이후 Jurgen Hoeller(유겐 휠러), Yann Caroff(얀 카로프)
-- 2021년 6월 현재 최신 버전 : 스프링 프레임워크 5.3.8 , 스프링 부트 2.5.1
-- Spring 프로젝트 Github URL : [https://github.com/spring-projects](https://github.com/spring-projects)
+<table style="border:0;">
+    <tr>
+        <td><img src="https://image.aladin.co.kr/product/139/35/cover500/0764543857_1.jpg"></td>
+        <td>
+            <ul style="line-height: 3.5em;">
+                <li>2002년 로드 존슨의 <b>"J2EE Design and Development"</b> 책으로부터 시작</li>
+                <li>책 출간 이후 Jurgen Hoeller(유겐 휠러), Yann Caroff(얀 카로프)</li>
+                <li> 2021년 6월 현재 최신 버전 : <b>스프링 프레임워크 5.3.8</b>, <b>스프링 부트 2.5.1</b></li>
+                <li>Spring 프로젝트 Github URL : <a href="https://github.com/spring-projects">https://github.com/spring-projects</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
 
 ## 2.2. Contribute 과정
 
