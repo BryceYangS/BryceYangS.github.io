@@ -125,10 +125,10 @@ tags: etc
             - OK
     3. HTTP API 제공
 
-Burrow 소개 : https://blog.voidmainvoid.net/243
-Burrow의 Consumer status 확인 방법 : https://blog.voidmainvoid.net/244
-Burrow http endpoint 정리 : https://blog.voidmainvoid.net/245
-Burrow github : https://github.com/linkedin/Burrow
+Burrow 소개 : [https://blog.voidmainvoid.net/243](https://blog.voidmainvoid.net/243)  
+Burrow의 Consumer status 확인 방법 : [https://blog.voidmainvoid.net/244](https://blog.voidmainvoid.net/244)  
+Burrow http endpoint 정리 : [https://blog.voidmainvoid.net/245](https://blog.voidmainvoid.net/245)  
+Burrow github : [https://github.com/linkedin/Burrow](https://github.com/linkedin/Burrow)  
 
 
 AWS에 카프카 클러스터 설치하기 : https://blog.voidmainvoid.net/325
