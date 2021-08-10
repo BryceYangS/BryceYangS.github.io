@@ -13,7 +13,13 @@ tags: springboot
 [modelmapper.org](http://modelmapper.org/)  
 
 - modelMapper 사용 시 주의 사항 : `getter`/`setter`가 필수
-
+- MapStruct와 다른점
+    - ModelMapper의 경우 내부에서 reflection을 사용하기 때문에 MapStruct보다 성능이 떨어집니다.
+    - ModelMapper 객체를 Spring 에서 사용할 경우 Bean으로 등록해서 사용하면 매번 객체 생성할 필요가 없습니다.
+    - MapStruct는 인터페이스의 구현체를 생성해주기 때문에 빌드 과정이 필수입니다.
+    - MapStruct는 매핑하려는 객체별로 매핑 인터페이스를 생성해야 하는 단점이 있습니다. ModelMapper의 경우, 바로 매핑을 하기 때문에 이러한 과정이 필요 없습니다.
+- 결론
+    - MapStruct가 성능 상 압도적으로 좋기 때문에 대용량 트래픽이 많은 애플리케이션에서 사용하는 것이 좋을 듯 합니다.
 
 
 ## 1. MapStruct란?
