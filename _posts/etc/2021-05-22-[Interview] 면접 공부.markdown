@@ -23,6 +23,17 @@ tags: etc
 ### JSR 310?.
 ### 문자열
 [[Java] 문자열](/study/2021/06/04/Java-문자열)
+### 자바 변수 Scope 3가지 종류 - 저장되는 JVM 메모리 영역 (Local, Instance, Class)
+
+### Immutable Object - Java class 중 대표적인 사례
+- Collections.unmodifeable
+### String vs StringBuffer
+- immutable object
+### sychronized?
+### java.util.concurrent.ConcurrentHashMap
+- 외부에서 동시성을 확보하는 것보다 성능 상 이점 있는 이유
+### java.util.concurrent.AtomicInteger vs Integer 
+### ConcurrentHashMap vs AtomicInteger 방식 차이점
 ### Heap Dump, Thread Dump
 ### jar vs war
 
@@ -63,8 +74,10 @@ tags: etc
 [[SpringBoot] 스프링부트 자동 설정](/study/2021/06/04/SpringBoot-스프링부트-자동-설정)
 ### Filter / Interceptor 작동 순서
 
+## 6. JPA
+### OSIV(Open Session In View)
 
-## 6. 디자인 패턴
+## 7. 디자인 패턴
 ### 전략패턴
 [전략패턴 정리 글](https://github.com/BryceYangS/Java/blob/main/DesignPattern/posting/1_Strategy_Pattern.md)
 ### 옵저버 패턴
@@ -72,17 +85,17 @@ tags: etc
 
 
 
-## 7. 동시성
+## 8. 동시성
 ### 프로세스 작동 방식 & 쓰레드 작동 방식
 [[Java] Thread](/study/2021/02/22/Java-Thread/)
 
 
 
-## 8. OS
+## 9. OS
 ### Linux 메모리 꽉 찰 경우 발생하는 현상 - swap memory
 [[Linux] swap memory](/study/2021/06/05/Linux-swap-memory/)
 
-## 9. ETC
+## 10. ETC
 ### 웹 처리 방식, 순서
 ### NGINX 킵얼라이브
 ### WAS-WS

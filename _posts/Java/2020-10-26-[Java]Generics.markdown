@@ -65,7 +65,7 @@ Box    : 원시 타입
     ```java
     class Box<T> {
             static T item; //에러
-            ststic int compare(T t1, T t2) { ... } // 에러
+            static int compare(T t1, T t2) { ... } // 에러
     }
     ```
     + Generic 타입의 배열 생성 불가
