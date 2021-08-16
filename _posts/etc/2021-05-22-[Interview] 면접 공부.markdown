@@ -12,7 +12,7 @@ tags: etc
 [[Java] HashMap vs TreeMap](/study/2021/05/24/Java-HashMap-vs-TreeMap)
 ### primitive & reference / Boxing & Unboxing / Wrapper 끼리 비교
 [[Java] Primitive & Reference & Boxing & Unboxing](/study/2021/05/24/Java-Primitive-&-Reference-&-Boxing-&-Unboxing)
-### JVM 메모리
+### JVM 메모리 & 자바 변수 Scope 3가지 종류 - 저장되는 JVM 메모리 영역 (Local, Instance, Class)
 [[Java] JVM Stack & Heap](/study/2021/05/24/Java-JVM-Stack-&-Heap)
 ### Generic
 [[Java]Generics](/study/2020/10/26/Java-Generics)
@@ -23,19 +23,30 @@ tags: etc
 ### JSR 310?.
 ### 문자열
 [[Java] 문자열](/study/2021/06/04/Java-문자열)
-### 자바 변수 Scope 3가지 종류 - 저장되는 JVM 메모리 영역 (Local, Instance, Class)
 
 ### Immutable Object - Java class 중 대표적인 사례
 - Collections.unmodifeable
+
 ### String vs StringBuffer
-- immutable object
+- immutable object?
+
 ### sychronized?
+
 ### java.util.concurrent.ConcurrentHashMap
 - 외부에서 동시성을 확보하는 것보다 성능 상 이점 있는 이유
+- [[Java] java.util.concurrent](/study/2021/08/16/Java-java.util.concurrent)
+
 ### java.util.concurrent.AtomicInteger vs Integer 
 ### ConcurrentHashMap vs AtomicInteger 방식 차이점
 ### Heap Dump, Thread Dump
 ### jar vs war
+- jar : java 명령어를 통한 실행 가능
+    - 자바 명령어로 -jar 패키징 이름 입력 시 스프링 부트 안에 내장 톰캣 서버가 작동하면서 스프링 부트 기동
+    - 자바 파일의 컴포넌트 : 컴포넌트는 배포 단위다. 컴포넌트는 시스템의 구성 요소로 배포할 수 있는 가장 작은 단위*(클린 아키텍처 12장 컴포넌트)
+- war
+    - web.xml 등 애플리케이션 구조가 web으로 바뀌게 됨. 내장 톰캣을 가지지 않은 상태이기 때문에 외부 톰캣 등 WAS를 사용해 배포하는 방식
+    - 여러 컴포넌트를 묶어 단일 아카이브로 생성한 것
+
 
 
 ## 2. HTTP

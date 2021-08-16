@@ -89,7 +89,15 @@ public class PersonBuilder {
 |Efficieny              |힙에 비해 상대적으로 훨씬 빠른 할당|스택에 비해 할당 속도 느림|
 |Allocation/Deallocation|이 메모리는 메서드가 각각 호출되고 반환될 때 자동을 할당 및 할당 해제|새 객체가 생성될 때 힙 공간이 할당 / 더 이상 참조되지 않는 객체에 대해 가비지 콜렉터에 의해 할당 해제|
 
+### 정리
 
+![jvm](/assets/img/java/jvm.png)
+
+
+Method Area, Class Area  
+인스턴스가 생성이 안되었어도 접근이 가능한 `static` 관련 **Class Area**에 저장이 됨  
+`new` 키워드로 인스턴스를 생성하면 **Heap**에 저장 됨 → 클래스를 만들 때 정보가 필요한데 *Class Area*에 저장된 메타데이터를 활용해서 객체를 생성함  
+쓰레드 마다 스택이 할당되고 로컬은 스택에 저장이 됨
 
 ### 🚀1.4. 참조
 - [https://www.baeldung.com/java-stack-heap](https://www.baeldung.com/java-stack-heap)

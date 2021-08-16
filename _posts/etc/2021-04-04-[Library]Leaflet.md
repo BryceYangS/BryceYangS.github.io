@@ -278,6 +278,7 @@ L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
 
 - 좌측 : 변경 전 네이버 지도 / 우측 : 변경 후 네이버 지도
 
+
 ### 기상청 날씨누리
 
 - 기상청 날씨누리 : [https://www.weather.go.kr/wgis-nuri/html/map.html](https://www.weather.go.kr/wgis-nuri/html/map.html)
@@ -285,14 +286,17 @@ L.tileLayer('https://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}', {
 ![weater](/assets/img/build/7_기상청날씨누리.png)
 
 - 2020년 1월 기상청 날씨누리 비주얼맵 기능 신규 화면에 Leaflet.js 적용
-- 소스 확인 결과 2021.04 기준 OpenLayers 적용중
+- 소스 확인 결과 2021.04 기준 OpenLayers 적용중  
 
-### 4월 총선 알리미
+### 4월 총선 알리미
 
 - 4월 총선 알리미 : [https://produce300.com](https://produce300.com)
+
+![vote](/assets/img/build/8_Produce300_1.gif)
+
 - 세 명이서 진행한 사이드 프로젝트
 - 2020년 4월 21대 총선 정보 지도 기반 종합서비스
-  ![vote](/assets/img/build/8_Produce300_1.gif)
+
 
 [References]
 
