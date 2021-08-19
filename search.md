@@ -1,7 +1,8 @@
 ---
 layout: search
-page_title: Search
-permalink: /search/
+title: Search
+menu: true
+order: 10
 ---
 
 <div class="container">
