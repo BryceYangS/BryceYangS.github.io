@@ -21,29 +21,38 @@ tags: springboot
 - **@Component** : 클래스에 @Component 애너테이션을 추가해 빈을 선언하는 또다른 방식. 자동 스캔 시점에 해당 클래스가 스프링 빈으로 등록된다.
 - **@Service** : @Component의 특수화된 애너테이션. 일반적인 컴포넌트들보다 더 자유롭게 다루는 것이 안전하다. 서비스는 캡슐화된 상태를 가지지 않는다.
 - **@Autowired** : 애플리케이션의 부품들을 연결하기 위해, 필드/생성자/메서드에 @Autowired를 사용하라. 스프링의 의존성 주입(Dependency Injection, DI)은 @Autowired가 붙어있는 클래스 멤버에 적절한 빈들을 주입하는 방식으로 이루어진다.
-- **@Bean** : 스프링 컨텍스트에서 관리되며 반환된 빈을 지정하는 메서드 수준의 애너테이션. 반환된 빈은 팩토리 메서드와 동일한 이름을 가진다.
-A method-level annotation to specify a returned bean to be managed by Spring context. The returned bean has the same name as the factory method.
+- **@Bean** : 스프링 컨텍스트에서 관리되며, **메서드에서 반환된 결과**를 빈으로 지정하는 애너테이션. 반환된 빈은 팩토리 메서드와 동일한 이름을 가진다.
 - **@Lookup** : tells Spring to return an instance of the method's return type when we invoke it.
-- **@Primary** : gives higher preference to a bean when there are multiple beans of the same type.
+- **@Primary** : 동일 타입의 빈이 다수 존재할 때, 특정 빈에 **우선순위**를 높게 준다.
 - **@Required** : shows that the setter method must be configured to be dependency-injected with a value at configuration time. Use @Required on setter methods to mark dependencies populated through XML. Otherwise, a BeanInitializationException is thrown.
 - **@Value** : used to assign values into fields in Spring-managed beans. It's compatible with the constructor, setter, and field injection.
 - **@DependsOn** : makes Spring initialize other beans before the annotated one. Usually, this behavior is automatic, based on the explicit dependencies between beans. The @DependsOn annotation may be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
 - **@Lazy** : makes beans to initialize lazily. @Lazy annotation may be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
-- **@Scope** : used to define the scope of a @Component class or a @Bean definition and can be either singleton, prototype, request, session, globalSession, or custom scope.
-- **@Profile** : adds beans to the application only when that profile is active.
+- **@Scope** : @Component 클래스 또는 @Bean의 범위(Scope)를 정의하기 위해 사용된다. 싱글턴(singleton), 프로토타입(prototype), 리퀘스트(request), 세션(session), 글로벌 세션(globalSession), 커스텀 스코프.
+    - default 는 싱글턴 : 객체 한 개만 생성
+    - 프로토타입 : 매 번 객체 생성
+- **@Profile** : 특정 프로파일에만 해당 빈이 추가된다.
 
 ## 🌗중요한 스프링 부트 애너테이션
 ### @SpringBootApplication
+One of the most basic and helpful annotations, is @SpringBootApplication. It's syntactic sugar for combining other annotations that we'll look at in just a moment. @SpringBootApplication is **@Configuration**, **@EnableAutoConfiguration** and **@ComponentScan** annotations combined, configured with their default attributes.
+
+
 ### @Configuration & @ComponentScan
+The @Configuration and @ComponentScan annotations that we described above make Spring create and configure the beans and components of your application. It's a great way to decouple the actual business logic code from wiring the app together.
+
+
 ### @EnableAutoConfiguration
+Now the @EnableAutoConfiguration annotation is even better. It makes Spring guess the configuration based on the JAR files available on the classpath. It can figure out what libraries you use and preconfigure their components without you lifting a finger. It is how all the spring-boot-starter libraries work. Meaning it's a major lifesaver both when you're just starting to work with a library as well as when you know and trust the default config to be reasonable.
+
 
 ## 🌕중요한 스프링 MVC Web 애너테이션
-- **@Controller** : 
-- **@ResponseBody** : 
-- **@RestController** : 
-- **@RequestMapping(method = RequestMethod.GET, value = "/path")** : 
-- **@RequestParam(value="name", defaultValue="World"** : 
-- **@PathVariable("placeholderName")** : 
+- **@Controller** : marks the class as a web controller, capable of handling the HTTP requests. Spring will look at the methods of the class marked with the @Controller annotation and establish the routing table to know which methods serve which endpoints.
+- **@ResponseBody** : The @ResponseBody is a utility annotation that makes Spring bind a method's return value to the HTTP response body. When building a JSON endpoint, this is an amazing way to magically convert your objects into JSON for easier consumption.
+- **@RestController** : Then there's the @RestController annotation, a convenience syntax for @Controller and @ResponseBody together. This means that all the action methods in the marked class will return the JSON response.
+- **@RequestMapping(method = RequestMethod.GET, value = "/path")** : The @RequestMapping(method = RequestMethod.GET, value = "/path") annotation specifies a method in the controller that should be responsible for serving the HTTP request to the given path. Spring will work the implementation details of how it's done. You simply specify the path value on the annotation and Spring will route the requests into the correct action methods.
+- **@RequestParam(value="name", defaultValue="World"** : Naturally, the methods handling the requests might take parameters. To help you with binding the HTTP parameters into the action method arguments, you can use the @RequestParam(value="name", defaultValue="World") annotation. Spring will parse the request parameters and put the appropriate ones into your method arguments.
+- **@PathVariable("placeholderName")** : Another common way to provide information to the backend is to encode it in the URL. Then you can use the @PathVariable("placeholderName") annotation to bring the values from the URL to the method arguments.
 
 
 ## 🌓마무리

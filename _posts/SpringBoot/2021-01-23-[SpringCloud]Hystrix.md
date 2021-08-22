@@ -103,7 +103,7 @@ circuit을 열지 닫을지 판단의 기준은 **일정 시간동안 일정량 
         }
     }
     ```
-    - Srping Cloud는 `Hostonx.SR8`을 사용
+    - Srping Cloud는 `Hoxton.SR8`을 사용
     - `Sprint Boot Starter Actuator` 의존성 추가.(Actuaotr는 애플리케이션의 상태에 대한 종합적인 분석 기능 제공)
     - `Hystrix` 및 `Hystrix Dashboard` 의존성 추가
         + Hystrix : Circuit Breaker 기능
