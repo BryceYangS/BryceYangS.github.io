@@ -37,6 +37,8 @@ tags: etc
 - [[Java] java.util.concurrent](/study/2021/08/16/Java-java.util.concurrent)
 
 ### java.util.concurrent.AtomicInteger vs Integer 
+[[Java] Atomic Variables](/study/2021/08/31/Java-Atomic-Variables)
+
 ### ConcurrentHashMap vs AtomicInteger 방식 차이점
 ### Heap Dump, Thread Dump
 ### jar vs war
@@ -87,6 +89,7 @@ tags: etc
 
 ## 6. JPA
 ### OSIV(Open Session In View)
+[[JPA] OSIV](/study/2021/09/01/JPA-OSIV)
 
 ## 7. 디자인 패턴
 ### 전략패턴
