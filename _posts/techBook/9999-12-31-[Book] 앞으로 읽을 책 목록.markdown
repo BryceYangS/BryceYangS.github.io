@@ -25,6 +25,7 @@ tags: techBook
 |🔺|Head First Design Pattern|케이시 시에라,버트 베이츠,엘리자베스 프리먼,에릭 프리먼|
 |🔺|Working Effectively With Legacy Code|마이클 C. 페더스|
 |❌|자바 웹 프로그래밍 Next Step|박재성|
+|❌|클린 소프트웨어|로버트 C. 마틴|
 |❌|객체 지향과 디자인 패턴|최범균|
 |❌|리팩토링|마틴 파울러|
 |❌|Domain-Driven Design|에릭 에반스|
