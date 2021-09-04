@@ -12,32 +12,31 @@ tags: springboot
 자바에서 DB와 Connect를 하는 방식은 다음과 같다.
 
 ```java
-		String url = "jdbc:mariadb://localhost:3306/user_msa";
-		String user = "user";
-		String pwd = "user123";
+String url = "jdbc:mariadb://localhost:3306/user_msa";
+String user = "user";
+String pwd = "user123";
 
-		try(Connection conn = DriverManager.getConnection(url, user, pwd)) {
-			Statement stmt = null;
-			ResultSet rs = null;
+try(Connection conn = DriverManager.getConnection(url, user, pwd)) {
+	Statement stmt = null;
+	ResultSet rs = null;
 
-			stmt = conn.createStatement ();
-			rs = stmt.executeQuery ( "select count(*) from post" );
-			rs.next ();
+	stmt = conn.createStatement ();
+	rs = stmt.executeQuery ( "select count(*) from post" );
+	rs.next ();
 
-			int cnt = rs.getInt ( "count(*)" );
-			System.out.println ( cnt );
+	int cnt = rs.getInt ( "count(*)" );
+	System.out.println ( cnt );
 
-		} catch (SQLException throwables) {
-			throwables.printStackTrace ( );
-		}
-
+} catch (SQLException throwables) {
+	throwables.printStackTrace ( );
+}
 ```
 
 DriverManager를 통해 Connection객체를 생성한 후 Statement를 생성하여 쿼리를 작성하고, resultset을 받아오는 방식이다. 이때 생성된 connection과 statement는 꼭 닫아주도록 해야한다.
 
-## business logic VS Data Logic
+## Business Logic VS Data Logic
 
-위 와 같은 방식으로 Connection을 얻고, 쿼리를 날리는 방식을 Service 로직에 작성하게 된다면 비지니스 로직과 데이터 로직이 서로 뒤 섞여 버린다. 이것은 비지니스 로직이라는 단일 책임을 지켜야 하는 서비스 객체로의 설계가 잘못되었음을 뜻한다.
+위 와 같은 방식으로 Connection을 얻고, 쿼리를 날리는 방식을 Service 로직에 작성하게 된다면 비지니스 로직과 데이터 로직이 서로 뒤섞여 버린다. 이것은 비지니스 로직이라는 단일 책임을 지켜야 하는 서비스 객체로의 설계가 잘못되었음을 뜻한다.
 
 따라서 Data에 Access, Quering, data get 하는 책임을 나눈 다른 객체를 DI받아 비지니스 로직에서 이용하도록 변경을 한다. 
 

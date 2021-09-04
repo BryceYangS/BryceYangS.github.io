@@ -42,7 +42,7 @@ A → B의 방식으로 의존되었을 때 B가 자유롭게 확장/변화하�
 
 
 ### 2. AOP (Aspect Oriented Programming, 관점 지향 프로그래밍)
-- [Spring AOP 상세 포스팅](./2021-04-26-\[Spring\]-Spring-AOP.md)
+- [Spring AOP 상세 포스팅](/study/2021/04/26/Spring-Spring-AOP)
 #### 2-1. AOP 적용기법
 1. 다이나믹 프록시 기법  
 스프링의 기본 AOP 실현 방법이다. 기존 코드에 영향을 주지 않고 데코레이터 패턴을 응용해 프록시를 구현한다. 이에 따라 부가기능은 메소드가 호출되는 시점에만 가능하다는 단점이 있다. 
