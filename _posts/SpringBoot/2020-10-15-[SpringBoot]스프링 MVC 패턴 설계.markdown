@@ -25,5 +25,5 @@ tags: springboot
 
 > JSP와 HTML의 차이?
 >
-> > **JSP** : 서버에서 compile을 한 후 HTML형식으로 결과을 클라이언트로 보내면 브라우저에서 interpret합니다.
+> > **JSP** : 서버에서 compile을 한 후 HTML형식으로 결과을 클라이언트로 보내면 브라우저에서 interpret합니다.  
 > > **HTML** : 브라우저에서 HTML을 interpret합니다.
