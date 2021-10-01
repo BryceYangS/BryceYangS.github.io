@@ -1,0 +1,42 @@
+---
+layout: post
+title: "[유플러스] 조인을 통한 서브쿼리 성능 개선"
+subtitle: "subquery join"
+categories: project
+tags: uplus
+---
+> 서브 쿼리와 조인  
+
+## 문제 상황
+### 1. 쿼리에서 서브쿼리를 사용하는 상황 - 쿼리에 소요되는 시간만 **10초**
+
+```sql
+SELECT A.a, A.b, B.a, 
+	(SELECT C.a 
+   FROM C
+   WHERE C.b = A.a
+   AND   C.c = A.b
+   AND   C.d = B.b)
+FROM A, B
+WHERE A.c = B.c
+```
+
+
+
+## 해결 방안
+### 1. 서브 쿼리 대신 조인을 사용 : 0.x초로 단축
+
+```sql
+SELECT A.a, A.b, B.a, 
+ C.a
+FROM A, B, C
+WHERE A.c = B.c
+AND   C.b = A.a
+AND   C.c = A.b
+AND   C.d = B.b
+```
+
+서브쿼리의 경우 메인 테이블의 매 레코드마다 서브 쿼리 테이블을 풀스캔 해야하는 현상이 발생할 수 있다. 그러다보니 성능 상에 있어 문제가 발생한다. 이를 조인으로 대체함으로써 성능 상의 이점을 가질 수 있었다.
+
+
+

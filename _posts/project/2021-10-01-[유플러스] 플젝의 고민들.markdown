@@ -1,0 +1,131 @@
+---
+layout: post
+title: "[유플러스] OOP, 도메인에 대한 고민들"
+subtitle: "About 유플러스"
+categories: project
+tags: uplus
+---
+> OOP, Domain 고민  
+
+## 문제 상황
+1. 레거시 코드는 HashMap 구조로 데이터를 관리. HashMap으로 데이터를 관리할 경우 데이터의 속성이 언제 어디서 변경하는지, 어떤 속성들이 있는지 확인하기가 어려운 문제가 존재.  
+2. 레거시 코드에서 효율적인 자료 구조를 사용하고 있지 않음. 예를 들면 HashMap을 사용하면 시간복잡도가 O(1)로 접근할 수 있는데, List를 활용해 데이터를 찾을 때 O(N), 더 심한 경우에는 O(N^2)의 시간복잡도가 발생하는 경우가 있었음.  
+
+
+
+## 해결하기 위한 고민들
+### 1. HashMap 데이터
+
+HashMap을 사용할 경우 속성의 확장성은 분명히 있을 것이다. 하지만 레거시 코드를 직접 분석하고 개발하는 입장에서 느꼈던 점은 정말 정말 코드 읽기가 어렵고 읽기 싫었다.
+  Map의 속성이 갑자기 추가되고 어디선가 추가된 이 속성이 다른 메소드 혹은 다른 클래스로 전달이 되는 경우 파악하기 난해한 코드가 되었기 때문이다. 코드에 대한 분석과 개발을 하기 위해서 수많은 디버깅을 거쳐야만 코드를 이해할 수 있었다.
+ 
+  레거시 코드 분석에 대한 어려움으로 기술 서적을 검색하다가 **\<Working Effectively with Legacy Code\>** 를 알게되어 메소드 추출, 클래스 추출에 대한 지식을 익힐 수 있었다.
+ 
+  또한, 레거시 코드는 테스트 코드가 없다보니 직접 디버깅을 하는 수밖에 없었다. 그래서 **JUnit**에 대한 관심을 가지게 되어 인프런 백기선님의 강의를 통해 테스트에 대한 기초를 학습했다. 이 후 알고리즘 공부에 테스트 케이스에 대한 코드를 작성하는 습관을 가지게 되었으며, API에 대한 테스트 코드도 작성하기 위해 노력하고 있다.
+ 
+  HashMap 대신에 문제에 대한 추상화를 거친 객체를 사용하는 것이 적합하다는 생각을 하게 되었다. Java 자체가 OOP 언어의 대표가 아니던가. 그런데 OOP라는 것을 OOP의 특징인 추상화, 캡슐화, 상속, 다형성 등으로만 알고 있었다. 이러한 특징들은 OOP를 나타내는 것들이지, 진정 OOP에 대한 정의를 내리는 것은 아니었다. 또한, OOP에 대해 알게 될 수록 알아야 할 것들이 많고 수많은 경험이 필요하다는 것을 느끼게 되었다. OOP에 대한 기초를 익히기 위해 **\<객체지향의 사실과 오해\>** 서적을 읽었다. 이 서적을 통해서 객체지향을 단순히 클래스를 만드는 것이 캡슐화가 아니라는 것을 알 수 있었다. 또한, 이 서적을 읽기 전에는 상태가 가장 중요하다고 여겼는데 이것이 잘못된 인식이며, 정말 중요한 것은 객체의 행위라는 것을 알게 되었다. 상태는 단순히 행위의 결과에 대해 저장하기 위한 속성인 것이다. OOP의 기초 서적을 읽은 후 OOP의 설계 원칙인 SOLID를 익히기 위해 **\<Clean Architecture\>** 서적을 읽기 시작했다. 클린 아키텍처를 통해 결합도가 낮은 코드를 작성하기 위해 DIP 원칙이 활용된다는 것을 알 수 있었다. 왜 인터페이스에 의존을 하는지에 대한 궁금증이 있었는데 추상에 의존함으로써 변경으로부터 독립적일 수 있다는 사실을 알 수 있는 책이었다.
+ 
+  이러저러한 지식들을 습득하고, 객체지향에 대한 관심이 높아져 실제 코드에 녹이는 것이 프로젝트의 첫 번째 목표였다. 대부분 서비스 레이어에 로직을 작성하는 트랜잭션 스크립트 방식에 익숙한 개발자들이 대부분이었다. 그러다보니 코드에 대한 질문을 받아줄 수 있는 선배 개발자가 없어 혼자서 공부를 할 수밖에 없었다. OOP와 함께 조금 더 나아가 DDD에 대한 관심도 증가해서 **\<DDD Start!\>** 서적을 통해 기초 지식을 익힐 수 있었다. 완독을 했으나, 실제 코드로 녹이는 것은 많은 어려움이 있었다. 레거시 코드의 복잡성, 일정의 압박, 부족한 지식과 경험 등으로 인해 내가 꿈꿨던 이상적인 코드와 멀어지는 것에 있어 상당한 괴로움을 느꼈다.
+ 
+  그래도 행위에 대한 책임을 고민하고 객체가 갖고 있는 책임에 알맞는 행위를 할당하기 위해 고민하고 코드를 작성하기 위해 최대한 노력했다. 아래는 HashMap의 구조를 객체로 변경한 예시이다.
+ 
+ ```java
+ // Legacy
+ List<Map<String, String>> prodList;
+ 
+ // TO-BE
+ List<Prod> prodList;
+ 
+ class Prod {
+   private String id;
+   private ProdType type;
+   private String prodCd;
+   private String prodName;
+   // ... 기타 등등
+ }
+ ```
+ 
+
+### 2. 상품 간의 관계 - 일급 컬렉션 도입 
+
+상품은 서로 관계를 가지고 있다. 레거시에서는 아래와 같은 구조로 이루어져 있었다.
+
+```java
+List<ProdRelations> prodRelations;
+
+class ProdRelations {
+private String prodCd;
+private String relationCode;
+private String targetProdCd;
+// ...
+}
+```
+
+이런 구조로 되어 있다보니 상품(prodCd)과 특정관계(relationCode)가 있는 상품(targetProdCd)을 조회하기 위해서는 반복문을 활용할 수밖에 없는 코드였다. 그래서 이러한 구조를 없애기 위해 특정 상품과 특정 관계가 있는 상품의 목록을 조회하기 위한 자료구조를 도입하는 방식으로 도입했다.
+
+
+```java
+// 사용법 : List<String> targetProdCds = prodRelations.get([prodCd]).get([relationCode]);
+Map<String, Map<String, List<String>> prodRelations;
+```
+
+이러한 방식을 도입함으로써 반복문을 통해서 특정 관계를 가진 상품들을 확인하기 위해 이중반복문을 사용했었던 구조에서 Map을 활용한 구조로 시간복잡도를 낮출 수 있었다. 다만 이렇게 만들게 될 경우 파악하기에 복잡하다는 문제가 발생할 수 있었다. 그래서 검색을 하다가 `일급 컬렉션`이라는 개념을 알게 되어 도입하기로 했다. (참고 블로그 : https://jojoldu.tistory.com/412)
+
+
+```java
+public class ProdRelationGroups {
+  private Map<String, Map<String, List<String>>> prodRelations;
+
+  public ProdRelationGroups(List<ProdRelations> prodRelations) {
+    this.prodRelations = prodRelations.stream()
+      .collect(Collectors.groupingBy(ProdRelations::getProdCd,
+                                    Collectors.groupingBy(ProdRelations::getRelationCode, HashMap::new,
+                                                          Collectors.mapping(ProdRelations::getTargetProdCd, Collectors.toList()))));
+  }
+
+  public List<String> getAllTargetProdCds(String prodCd, String relationCode) {
+    return prodRelations.getOrDefault(prodCd, new HashMap<>()).getOrDefault(relationCode, Collections.emptyList());
+  }
+}
+```
+
+
+### 3. 주문 상품 도메인 객체 도입
+
+하나의 주문에 대해 N개의 상품 주문이 가능하다. 비록 도메인 주도 설계에 완벽하게 부합하지는 않지만 DDD Start! 서적으로부터 얻은 아이디어를 활용하기로 정했다. 또한 각 객체가 갖게 되는 행위를 정의하고 적합한 곳에 위임을 하도록 했다.
+
+
+```java
+class Order {
+  private OrderLine orderLine;
+}
+
+class OrderLine {
+  private ProdOrder prodOrder;
+}
+
+class ProdOrder {
+  private ProdOrderEntity expiredPriceProdOrder;
+  private ProdOrderEntity nowPriceProdOrder;  
+  private List<ProdOrderEntity> expiredAddedValueProdOrders;
+  private List<ProdOrderEntity> nowAddedValueProdOrders;
+}
+
+class ProdOrderEntity {
+  private LocalDateTime prodEndDateTime;
+
+  public boolean isExpired() {
+    return prodEndDateTime.isBefore(LocalDateTime.of(9999, 12, 31, 23,59,59));
+  }
+  
+  public boolean isActive() {
+    return !isExpired();
+  }
+}
+```
+
+
+
+## 아쉬운점 & 좋았던 점
+
+일정의 압박 속에서 주말까지 계속해서 레거시 코드 구조를 어떻게 바꾸어야 할까 고민하고 개선하기 위한 방안을 공부하기 위해 노력했었다. 내 나름대로는 정말 열심히 몰두해서 바꾼 구조였고 최대한 이해하기 쉬운 코드, 남들이 사용하기 쉬운 구조를 고민해서 나온 결과였다. 이 결과가 제대로 된 정답인지 알 수가 없다는 아쉬움이 남는다. 또한 리팩토링을 할 수 있는 부분이 중간 중간 보임에도 불구하고 다른 기능의 개발로 인해서 코드를 더 개선하지 못했다는 점이 아쉽다. 그래도 상품 관련 업무를 진행하면서 유플러스 도메인 지식을 익힐 수 있었다. 또한, 상품 주문 개발에 도움을 주었던 두 사원들과 코드 리뷰를 진행하면서 **DRY, YAGNI, KISS** 원칙을 지키기 위한 고민들을 공유할 수 있었으며, 나아가 더 좋은 코드가 무엇인가에 대한 고민을 함께 나눌 수 있어 좋았다. 또한, 주말에도 고민하게 만들었던 이 문제를 해결해냈다는 뿌듯함을 느낄 수 있었다. 그리고 다양한 기술을 익히는 것도 중요하지만 튼튼한 기초를 바탕으로 주어진 요구사항과 업무 도메인 지식을 익히는 것이 가장 중요하다는 교훈을 얻을 수 있는 경험이었다.
