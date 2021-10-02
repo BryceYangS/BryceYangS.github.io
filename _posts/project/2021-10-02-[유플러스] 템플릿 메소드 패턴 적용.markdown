@@ -89,7 +89,7 @@ public class ProdService {
     private final ApplicationContext ac;
 
     public void validService(Map<String, String> service) {
-        ValidateCommonService certain = (ValidateCommonService)ac.getBean("Validate" + service.get("certain") + "Service");
+        ValidateCommonService certain = (ValidateCommonService)ac.getBean("validate" + service.get("certain") + "Service");
         certain.validateService(service);
     }
 
