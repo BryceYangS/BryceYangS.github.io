@@ -1,0 +1,104 @@
+---
+layout: post
+title: "[유플러스] enum을 활용한 하드 코딩 제거"
+subtitle: "enum"
+categories: project
+tags: uplus
+---
+> enum과 하드 코딩  
+
+## 문제 상황
+### 1. String으로 작성되어 있던 하드 코드를 제거하라는 요구사항 발생
+
+## 해결 방안 논의
+### 1. .properties 사용
+`@Value`를 통해 값을 가져오는 경우 결국 하드코딩을 사용하는 것과 같음.  
+`@ConfigruationProperties`를 통해서 하드코딩을 제거할 수 있으나 코드 작성하는 시간이 발생. 다른 인원들이 이해하기 위해서 가이드 파일 작성 필요함.
+
+```properties
+person.name=yang
+person.zip-code=1919
+```
+
+```java
+@ConfigurationProperties("person")
+public class PersonProperties {
+	private String name;
+	private int zipCode;
+
+   /* getter, setter 생략*/
+
+}
+```
+
+```java
+public class Person {
+	private String name;
+	private int zipCode;
+   /* getter, setter 생략 */
+}
+```
+
+
+```java
+@Configuration
+@EnableConfigurationProperties(PersonProperties.class)
+public class PersonConfiguration {
+
+	@Bean
+	public Person person(PersonProperties properties) {
+		Person person = new Person();
+		person.setName(properties.getName());
+		person.setZipCode(properties.getZipCode());
+		return person;
+	}
+
+}
+```
+
+
+```java
+@Component
+public class Runner implements ApplicationRunner {
+
+	@Autowired
+	PersonProperties properties;
+
+	@Autowired
+	Person person;
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		System.out.println(properties); // PersonProperties{name='yang', zipCode=1919}
+		System.out.println(person); // Person{name='yang', zipCode=1919}
+	}
+}
+```
+
+
+### 2. enum 사용
+enum의 경우 간단하며, 쉽게 사용할 수 있음.  
+결국 하드 코딩 제거를 위해 `enum`을 사용하기로 결정되어 아래와 같은 형태로 사용하도록 샘플 코드를 작성했다.
+
+```java
+public enum ProdType {
+   PRICE("P", "요금제"), 
+   ADD_SERVICE("R", "부가서비스");
+
+   String code;
+   String desc;
+
+   ProdType(String code, String desc) {
+      this.code = code;
+      this.desc = desc;
+   }
+
+   public boolean isEqualCode(String code) {
+      return this.code.equals(code);
+   }
+}
+```
+
+
+### 나중에 자세히 공부해야 할 것들
+배민 enum 활용기 : [https://techblog.woowahan.com/2527/](https://techblog.woowahan.com/2527/)
