@@ -1,0 +1,96 @@
+---
+layout: post
+title: "[유플러스] 템플릿 메소드 패턴 적용"
+subtitle: "template method pattern"
+categories: project
+tags: uplus
+---
+> 템플릿 메소드 패턴(Template Method Pattern) 적용  
+
+## 문제 상황
+### 1. 상품의 속성에 대한 유효성 검증 로직이 필요
+### 2. 상품의 종류는 2가지로 요금제/부가서비스로 나뉜다.
+### 3. 검증 로직은 요금제와 부가서비스 각각에 대해서 행해질 수도 있으며, 일반적으로는 요금제 이후 부가서비스에 대한 검증이 이루어진다.
+### 4. 특정 상품별로 검증 로직이 다르게 적용되어야 한다. 
+### 5. 부가서비스 검증 로직은 없을 수도 있다.
+
+## 해결 방안
+### 1. 템플릿 메소드 패턴 적용
+💡 `템플릿 메소드 패턴` : 메소드에서 알고리즘의 골격을 정의. 알고리즘의 여러 단계 중 일부는 서브클래스에서 구현할 수 있다. 템플릿 메소드를 이용하면 알고리즘의 구조는 그대로 유지하면서 서브클래스에서 특정 단계를 재정의할 수 있다. (Head First Design Pattern)  
+필수적이지 않은 부분은 추상 메소드가 아닌 **후크**로 구현할 수 있다.  
+❗️ `후크` : 추상클래스에서 선언되는 메소드지만 기본적인 내용만 구현되어 있거나 아무 코드도 들어있지 않은 메소드. 이렇게 하면 서브클래스 입장에서는 다양한 위치에서 알고리즘에 끼어들 수 있다. 혹은 그냥 무시하고 넘어갈 수도 있다.
+
+- 공통 적용 사항으로 상품에 대한 요금제 검증 -> 부가서비스 검증의 순서가 있음
+- 부가서비스 검증은 없을 수도 있기 때문에 후크를 적용
+
+
+
+```java
+public abstract class ValidateCommonService {
+	public final void validateService(Map<String, String> service) {
+		validatePriceProd(service);
+		validateSubProd(service);
+	}
+
+	protected abstract void validatePriceProd(Map<String, String> service);
+
+	protected void validateSubProd(Map<String, String> service) {
+	}
+}
+
+
+```java
+/**
+ * 특정 상품 속성 검증 로직
+ * 부가서비스에 대한 검증 로직도 override
+ */
+@Service
+@Transactional
+public class ValidateCertain1Service extends ValidateCommonService {
+
+	@Override
+	protected void validatePriceProd(Map<String, String> service) {
+		/* 요금제 검증 로직 */
+	}
+
+	@Override
+	protected void validateSubProd(Map<String, String> service) {
+		/* 부가서비스 속성 검증 로직*/
+	}
+}
+```
+
+
+```java
+/**
+ * 특정 상품 속성 검증 로직
+ * 부가서비스에 대한 검증 로직이 필요 없음
+ */
+@Service
+@Transactional
+public class ValidateCertain2Service extends ValidateCommonService {
+
+	@Override
+	protected void validatePriceProd(Map<String, String> service) {
+		/* 요금제 검증 로직 */
+	}
+}
+
+```
+
+### 2. LSP 리스코프 치환 원칙
+자식 객체로 부모 객체를 치환해서 사용할 수 있다는 원칙.
+
+- 상품별로 동적으로 검증 Service 클래스를 가져와야 하기 때문에 `ApplicationContext`로부터 등록된 Service 빈(Bean) 객체를 가져오도록 함
+
+```java
+public class ProdService {
+
+    private final ApplicationContext ac;
+
+    public void validService(Map<String, String> service) {
+        ValidateCommonService certain = (ValidateCommonService)ac.getBean("Validate" + service.get("certain") + "Service");
+        certain.validateService(service);
+    }
+
+```
