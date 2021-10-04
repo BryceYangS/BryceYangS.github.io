@@ -18,7 +18,8 @@ tags: springboot
 ## Origin?
 - URI 스키마 (http, https)
 - hostname (whiteship.me, localhost)
-- port (8080, 18080)
+- port (8080, 18080)  
+
 위 세 기준으로 origin이 생성됨.
 
 ## 스프링 MVC @CrossOrigin
