@@ -103,10 +103,29 @@ JVM은 GC를 통해 자동으로 메모리 관리를 하기 때문에 개발자�
         - GC 중 가장 빠름.
 
 
+### GC 설정
+생명 주기가 짧은 젊은 객체는 Old Generation으로 올라가기 전에 Young Generation에서 제거 되게끔 하고 오래된 객체의 경우 Old Generation에 상주시켜 상대적으로 아주 저렴한 Minor Garbage Collection 만으로 heap의 유지가 가능하게 유도하는 것이 좋다.
+
+이를 위해서는 JVM의 Memory 구성이 중요한데 **Young Generation은 전체 Heap의 1/2보다 약간 적게** 설정하는 것이 좋고, **Survivor Space는 Young Generation의 1/8정도**의 크기가 적당하다.
+
+이렇게 Heap을 구성하기 위해서는 별도의 Option을 주어야 한다. JVM의 Default의 경우는 Young Generation이 작게 잡혀있기 때문에 Default를 사용하는 것은 권장하지 않는다. 다시 얘기하지만 Young Generation이 작으면 젊은 객체가 Old Generation으로 넘어갈 확률이 커지고 이는 결국 Major GC가 발생확률이 높아지는 것이다.
+
+```
+$ java -Xms=256m -Xmx=1536m -XX:NewSize=32m -XX:MaxNewSize=512m -XX:NewRatio=2 -XXSurvivorRatio=8 MyApp
+```  
+
+- -Xms, -Xmx - Heap 사이즈의 최소, 최대값  
+- -XX:NewSize - Young Generation의 영역의 초기 사이즈  
+- -XX:MaxNewSize - Young Generation의 최대 사이즈  
+- -XX:NewRadio - 위와 같을 경우 Old Generation은 Young Generation의 2배의 크기를 갖는다.  
+- -XX:SurvivorRatio - 위와 같은 경우 Young Generation은 Survivor Space의 8배의 크기를 갖는다.
+
 ### 결론
 각 서비스의 WAS에서 생성하는 객체의 크기와 생존 주기가 모두 다르고, 장비의 종류도 다양. 따라서 WAS의 스레드 개수, 장비당 WAS 인스턴스 개수, GC 옵션 등은 지속적인 튜닝과 모니터링을 통해 최적화를 해나가야 함
+
 
 
 ### [참조]
 - 네이버 D2 "Java Garbage Collection" 글 : [https://d2.naver.com/helloworld/1329](https://d2.naver.com/helloworld/1329)
 - [https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
+- [https://www.holaxprogramming.com/2013/07/20/java-jvm-gc/][https://www.holaxprogramming.com/2013/07/20/java-jvm-gc/]
