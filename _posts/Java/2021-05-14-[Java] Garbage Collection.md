@@ -114,11 +114,28 @@ JVM은 GC를 통해 자동으로 메모리 관리를 하기 때문에 개발자�
 $ java -Xms=256m -Xmx=1536m -XX:NewSize=32m -XX:MaxNewSize=512m -XX:NewRatio=2 -XXSurvivorRatio=8 MyApp
 ```  
 
+|구분|	옵션|	설명|
+|--|--|--|
+|힙(heap) 영역 크기|	-Xms|	JVM 시작 시 힙 영역 크기|
+||-Xmx|	최대 힙 영역 크기|
+|New 영역의 크기	|-XX:NewRatio	|New영역과 Old 영역의 비율|
+||-XX:NewSize	|New영역의 크기|
+||-XX:SurvivorRatio	|Eden 영역과 Survivor 영역의 비율|
+
 - -Xms, -Xmx - Heap 사이즈의 최소, 최대값  
 - -XX:NewSize - Young Generation의 영역의 초기 사이즈  
 - -XX:MaxNewSize - Young Generation의 최대 사이즈  
 - -XX:NewRadio - 위와 같을 경우 Old Generation은 Young Generation의 2배의 크기를 갖는다.  
 - -XX:SurvivorRatio - 위와 같은 경우 Young Generation은 Survivor Space의 8배의 크기를 갖는다.
+
+
+|구분	|옵션|	비고|
+|--|--|--|
+|Serial GC|	-XX:+UseSerialGC	 ||
+|Parallel GC|	-XX:+UseParallelGC<br/>-XX:ParallelGCThreads=value	 ||
+|Parallel Compacting GC|	-XX:+UseParallelOldGC	 ||
+|CMS GC|	-XX:+UseConcMarkSweepGC<br/>-XX:+UseParNewGC<br/>-XX:+CMSParallelRemarkEnabled<br/>-XX:CMSInitiatingOccupancyFraction=value<br/>-XX:+UseCMSInitiatingOccupancyOnly	 ||
+|G1|	-XX:+UnlockExperimentalVMOptions<br/>-XX:+UseG1GC|	JDK 6에서는 두 옵션을 반드시 같이 사용해야 함|
 
 ### 결론
 각 서비스의 WAS에서 생성하는 객체의 크기와 생존 주기가 모두 다르고, 장비의 종류도 다양. 따라서 WAS의 스레드 개수, 장비당 WAS 인스턴스 개수, GC 옵션 등은 지속적인 튜닝과 모니터링을 통해 최적화를 해나가야 함
@@ -129,3 +146,4 @@ $ java -Xms=256m -Xmx=1536m -XX:NewSize=32m -XX:MaxNewSize=512m -XX:NewRatio=2 -
 - 네이버 D2 "Java Garbage Collection" 글 : [https://d2.naver.com/helloworld/1329](https://d2.naver.com/helloworld/1329)
 - [https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
 - [https://www.holaxprogramming.com/2013/07/20/java-jvm-gc/][https://www.holaxprogramming.com/2013/07/20/java-jvm-gc/]
+- GC 튜닝 : [https://d2.naver.com/helloworld/37111](https://d2.naver.com/helloworld/37111)
