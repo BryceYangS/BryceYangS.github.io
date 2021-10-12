@@ -57,7 +57,7 @@ tags: etc
 ### Redirection
 [[HTTP] Redirection](/study/2021/05/28/HTTP-Redirection)
 ### HTTP - HTTPS 차이.
-
+### http 1.0 / 1.1 / 2.0 차이점
 
 
 ## 3. 네트워크
@@ -75,7 +75,9 @@ tags: etc
 [[Java] Statement & PreparedStatement](/study/2021/05/24/Java-Statement-&-PreparedStatement)
 ### 복합키
 ### 정규화/비정규화
-
+### DISTINCT 와 GROUP BY의 차이
+- [http://intomysql.blogspot.com/2011/01/distinct-group-by.html](http://intomysql.blogspot.com/2011/01/distinct-group-by.html)
+- [https://stackoverflow.com/questions/164319/is-there-any-difference-between-group-by-and-distinct#comment80633329_45833583](https://stackoverflow.com/questions/164319/is-there-any-difference-between-group-by-and-distinct#comment80633329_45833583)
 
 
 ## 5. 스프링
@@ -96,6 +98,7 @@ tags: etc
 [전략패턴 정리 글](https://github.com/BryceYangS/Java/blob/main/DesignPattern/posting/1_Strategy_Pattern.md)
 ### 옵저버 패턴
 [옵저버 패턴 정리 글](https://github.com/BryceYangS/Java/blob/main/DesignPattern/posting/2_Observer.md)
+### 상태패턴 vs 전략패턴
 
 
 
@@ -114,3 +117,6 @@ tags: etc
 ### NGINX 킵얼라이브
 ### WAS-WS
 ### CSRF
+### BulkHead pattern
+- [https://techblog.woowahan.com/2542/](https://techblog.woowahan.com/2542/)
+- [https://github.com/Netflix/Hystrix/wiki/How-it-Works#threads--thread-pools](https://github.com/Netflix/Hystrix/wiki/How-it-Works#threads--thread-pools)
