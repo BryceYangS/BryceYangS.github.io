@@ -1,0 +1,33 @@
+---
+layout: post
+title: "[etc]우아한 CRUD"
+subtitle: "우아한 CRUD"
+categories: study
+tags: etc
+---
+> 우아한테크세미나의 우아한CRUD 정리
+
+
+### VO vs DTO
+#### VO
+- 값이 같으면 동일하다고 간주되는, 식별성이 없는 작은 객체
+- eg) Money, Color
+
+#### DTO
+- 원격호출을 효율화하기 위해 나온 패턴
+- `레이어 간의 경계를 넘어서 데이터를 전달`하는 역할은 과거와 동일
+- 다만 다양한 객체의 역할을 다 DTO로 칭하는 혼란도 존재
+
+### Entity
+- 연속성과 식별성의 맥락에서 정의되는 객체
+
+### Entity가 뷰, API 응답에 바로 노출될 때의 비용
+- 캡슐화를 지키기 어려워진다
+    - 꼭 필요하지 않은 속성도 외부로 노출되어 향후 수정하기 어려워진다.
+- 
+
+
+
+
+## 참조
+- [[우아한테크세미나] 200507 우아한CRUD by 정상혁&이명현님](https://www.youtube.com/watch?v=cflK7FTGPlg)
