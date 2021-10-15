@@ -116,7 +116,42 @@ class B {
         - 어디까지 읽으면 되는지에 대한 가이드가 없음
 - 수정 시 도메인 규칙을 함께 적용할 경계는?
     - = `트랜잭션 경계`는 어디까지인가?
-    - 
+- 객체 참조는 결합도가 가장 높은 의존성
+    - 객체 참조 끊기!!
+
+### 객체 참조 끊기
+#### Repository를 통한 탐색(약한 결합도)
+```java
+@Entity
+@Table(name = "ORDERS")
+public class Order {
+    @Column(name="SHOP_ID")
+    private Long shopId
+}
+
+Shop shop = shopRepository.findById(order.getShopId());
+
+@Entity
+@Table(name="SHOPS")
+public class Shop {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="SHOP_ID")
+    private Long id;
+}
+```
+
+### 어떤 객체들을 묶고 어떤 객체들을 분리할 것인가?
+- 함께 생성되고 함께 삭제되는 객체들을 함께 묶어라
+- 도메인 제약사항을 공유하는 객체들을 함께 묶어라
+- 가능하면 분리하라
+
+## 패키지 의존성 객체 끊기 3가지 방법
+### 1. 중간 객체를 새로 생성. 새로운 객체로 변환
+### 2. 의존성 역전
+### 3. 새로운 패키지 추가
+
+### 도메인 단위 모듈 = 시스템 분리의 기반
 
 ## 참조
 - [[우아한테크세미나] 190620 우아한객체지향 by 우아한형제들 개발실장 조영호님](https://www.youtube.com/watch?v=dJ5C4qRqAgA)
