@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[etc]우아한 객체지향"
+title: "[OOP]우아한 객체지향"
 subtitle: "우아한 객체지향"
 categories: study
-tags: etc
+tags: oop
 ---
 > 우아한테크세미나의 우아한객체지향 정리
 
