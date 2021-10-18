@@ -58,7 +58,25 @@ tags: etc
 [[HTTP] Redirection](/study/2021/05/28/HTTP-Redirection)
 ### HTTP - HTTPS 차이.
 ### http 1.0 / 1.1 / 2.0 차이점
+- HTTP/1.0
+    - 상태코드가 응답값 시작 부분에 포함됨
+    - HTTP 헤더 도입 : 메타데이터 전송을 허용하고 프로토콜을 극도로 유연하고 확장 가능하도록 만듦
+    - Content-Type 도입으로 HTML 이외의 다른 문서들도 전송 가능
+    - POST, HEAD 메서드 추가
+- HTTP/1.1 - 표준 프로토콜
+    - Connection : Keep-Alive 추가
+        - 커넥션이 재사용될 수 있게 하여, 탐색된 단일 원본 문서 내로 임베드된 리소스들을 디스플레이하기 위해 사용된 커넥션을 다시 열어 시간을 절약하게 함
+    - 파이프라이닝
+        - 첫번째 요청에 대한 응답이 완전히 전송되기 이전에 두번째 요청 전송을 가능케 하여, 커뮤니케이션 레이턴시를 낮춤
+    - HOST 헤더
+        - 동일 IP 주소에 다른 도메인을 호스트하는 기능이 서버 코로케이션을 가능케 함
+- HTTP/2.0
+    - 텍스트 프로토콜 ❌, 이진 프로토콜 ⭕️
+    - `병렬 요청`이 동일한 커넥션 상에서 다루어질 수 있는 다중화 프로토콜
+    - 요청 및 응답 다중화 : 스트림 도입으로 한 번의 커넥션으로 동시에 여러 개의 데이터를 주고 받을 수 있음.
 
+
+- [https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP#http2_%E2%80%93_%EB%8D%94_%EB%82%98%EC%9D%80_%EC%84%B1%EB%8A%A5%EC%9D%84_%EC%9C%84%ED%95%9C_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C](https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP#http2_%E2%80%93_%EB%8D%94_%EB%82%98%EC%9D%80_%EC%84%B1%EB%8A%A5%EC%9D%84_%EC%9C%84%ED%95%9C_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C)
 
 ## 3. 네트워크
 ### Load-Balancer
@@ -85,6 +103,8 @@ tags: etc
 ### @Transactional
 ### 빈 스코프
 ### Filter, Interceptor, Spring AOP
+[[Spring] 서블릿 필터 스프링 인터셉터](/study/2021/10/04/Spring-서블릿-필터-스프링-인터셉터)
+
 ### SpringBoot Autoconfiguration 작동방식.
 [[SpringBoot] 스프링부트 자동 설정](/study/2021/06/04/SpringBoot-스프링부트-자동-설정)
 ### Filter / Interceptor 작동 순서
