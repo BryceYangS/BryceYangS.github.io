@@ -45,6 +45,25 @@ tags: msa
 
 ## 1.3 Command Handler
 
+출처 : https://cqrs.nu/Faq/command-handlers
+
+명령 처리기의 일반적인 단계
+
+1. 명령 자체의 요소 Validation
+2. Aggregate의 현재 상태에서 명령의 유효성을 검사합니다.
+3. 유효성 검사에 성공하면 0..n개의 이벤트(1이 일반적.
+4. 새 이벤트를 지속시키십시오. 이 단계에서 동시성 충돌이 있으면 포기하거나 다시 시도하십시오.
+
+
+
+Should I do things that have side-effects in the outside world (such as sending email) in a command handler?
+
+- No, since a concurrency conflict will mean the command handler logic will be run again. Do such things in an event handler.
+
+
+
+출처 : https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api
+
 ### 1.3.1 Mediator 패턴 (in a Single microservice)
 
 - 로깅, 유효성 검사, audit, 보안 등과 같은 추가 동작 등의 수단 제공
