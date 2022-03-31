@@ -1,5 +1,5 @@
 ---
-layout: post
+172.17.0.2layout: post
 title: "[Docker] docker 명령어 에러 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running"
 subtitle: "Docker 명령어 에러"
 categories: study
@@ -14,5 +14,5 @@ tags: Docker
 	- Active 값이 dead 혹은 stop 일 시 아래 명령어 실행
  - **$sudo systemctl start docker** 
  - **$sudo systemctl enable docker**
- 
+
  ----> Active 되었는지 확인!
