@@ -204,7 +204,8 @@ public class Member {
 }
 ```
 
-- 영속성 유닛 단위 캐시 어떻게 적용할지 `shared-cache-mode` 설정
+- 영속성 유닛 단위 캐시 어떻게 적용할지 `shared-cache-mode` 설정  
+
 ```xml
 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
     <property name="sharedCacheMode" value="ENABLE_SELECTIVE"/>
