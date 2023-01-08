@@ -285,6 +285,7 @@ cf) JPA 표준은 엔티티 캐시만 정의되어 있음
 
 
 #### EHCACHE 의존성 추가
+
 ```xml
 <dependencies>
     <!-- other dependencies -->
@@ -296,6 +297,7 @@ cf) JPA 표준은 엔티티 캐시만 정의되어 있음
 ```
 
 #### 속성 설정
+
 ```properties
 spring.jpa.properties.hibernate.cache.use_second_level_cache=true
 spring.jpa.properties.hibernate.cache.use_query_cache=true
@@ -313,6 +315,7 @@ spring.jpa.properties.hibernate.generate_statistics=true
     - 통계정보 출력. 캐시 적용 여부 확인. (성능 영향 있어, 개발 환경에만 적용 추천)
 
 #### 엔티티 캐시 & 컬렉션 캐시
+
 ```java
 @Cacheable // 엔티티 캐시
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
