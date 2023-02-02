@@ -5,6 +5,7 @@ subtitle: "archunit"
 categories: study
 tags: test
 ---
+> ArchUnit
 
 ## ArchUnit?
 시스템의 아키텍처를 정의하고, 이에 맞춰 코드를 작성해야 함. 아키텍처 준수 여부에 대한 확인할 수 있는 기능을 제공하는 것이 `ArchUnit`.  
