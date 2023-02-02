@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Java] ArchUnit 의존성 테스트"
+title: "[Test] ArchUnit 의존성 테스트"
 subtitle: "archunit"
 categories: study
-tags: java
+tags: test
 ---
 
 ## ArchUnit?

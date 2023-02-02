@@ -3,7 +3,7 @@ layout: post
 title: "[IntelliJ] JUnit 테스트 에러"
 subtitle: "IntelliJ JUnit 에러"
 categories: study
-tags: etc
+tags: test
 ---
 
 > IntelliJ 에서 JUnit 테스트 에러 발생 시
