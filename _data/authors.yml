@@ -3,7 +3,7 @@
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 BryceYangS:
   name:              Bryce Yang
-  email:             nash31@korea.ac.kr
+  email:             yhs11211@gmail.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -57,7 +57,7 @@ BryceYangS:
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
-    email:           mailto:nash31@korea.ac.kr
+    email:           mailto:yhs11211@gmail.com
     #rss:             https://isme2n.github.io/feed.xml
 
 # Another author

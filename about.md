@@ -27,7 +27,7 @@ order: 10
 ## ☎️ Connect
 - github : [https://github.com/BryceYangS](https://github.com/BryceYangS)
 - blog : [https://bryceyangs.github.io](https://bryceyangs.github.io)
-- 메일 : nash31@korea.ac.kr
+- 메일 : yhs11211@gmail.com
 - LinkedIn : [https://www.linkedin.com/in/ho-suk-yang-1820571a6/](https://www.linkedin.com/in/ho-suk-yang-1820571a6/)
 
 ## Skills (⭐️ ~ ⭐️⭐️⭐️⭐️⭐️)
