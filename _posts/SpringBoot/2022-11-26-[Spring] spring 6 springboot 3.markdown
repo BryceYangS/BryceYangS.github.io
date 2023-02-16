@@ -42,6 +42,11 @@ tags: springboot
 # 2. SpringBoot 3.x
 - spring 6.x 기반
 
+## Observability
+T.B.D.  
+- https://www.youtube.com/watch?v=j2JRrsc1who
+- https://youtu.be/TR254zh-f3c?t=2439
+- https://www.baeldung.com/spring-boot-3-observability#2-web
 ## Deprecated Feature 제거
 - `spring.config.use-legacy-processing=true` 제거
 
