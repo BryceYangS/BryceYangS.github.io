@@ -288,6 +288,10 @@ https://aboooks.tistory.com/348
 ## 20. DB/Database/Sql
 - https://sqlfordevs.com/
 
+
+## 락 구현
+- shed lock : https://github.com/lukas-krecan/ShedLock
+- zookeeper 활용 분산락 구현해보기 : https://medium.com/@abhishekranjandev/concurrency-conundrum-in-booking-systems-2e53dc717e8c
 ---
 
 # 참고 도서
