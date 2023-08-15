@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "[Test] 테스트 데이터 생성"
-subtitle: "get the values of a test"
+title: "[Test] 테스트 데이터 생성(AutoParams, Instancio, Fixture Monkey)"
+subtitle: "get the values of a test, instancio, autoparams, fixture monkey"
 categories: study
 tags: test
 ---
