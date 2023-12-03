@@ -78,6 +78,31 @@ ApplicationContext 구현 대신 특정 인터페이스를 통해 Spring IoC con
 - FactoryBean을 통해 생성한 bean의 id는 FactoryBean을 구현한 클래스명
 	- beanFactory.getBean("&factoryBeanTest") : &를 붙이면 FactoryBean 자체를 가져올 수 있음
 
+<details>
+
+<summary>예제 코드</summary>
+
+ 
+```java
+@Component  
+public class FactoryBeanTest implements FactoryBean<User> {  
+  
+    @Override  
+    public User getObject() throws Exception {  
+       return new User("factoryBean", "yang");  
+    }  
+  
+    @Override  
+    public Class<?> getObjectType() {  
+       return User.class;  
+    }  
+}
+```
+
+</details>
+
+
+
 # 3. Annotation-based Container Configuration
 XML vs 어노테이션 기반
 - 어노테이션 기반
@@ -130,6 +155,7 @@ Autowiring 관련 설정을 사용자 정의하기 위해 확장할 수 있는 �
 - 외부 property 주입할 때 사용
 - @Value("${test.name:default}") : default 값 설정 가능
 - [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html) 사용 가능
+
 ## 7)  @PostConstruct, @PreDestroy
 JSR-250 의 @PostConstruct, @PreDestroy
 - @PostConstruct
