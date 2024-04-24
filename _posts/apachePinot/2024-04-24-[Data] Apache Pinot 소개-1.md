@@ -64,6 +64,7 @@ tags: etc
 - upsert 실시간 지원
 - 멀티 테넌시 지원 : 단일 시스템으로 멀티 유저 지원
 - 클라우드 배포
+
 #### 개선점
 - 데이터 타입 지원
 - BI 통합을 위한 outbound connector
@@ -74,6 +75,7 @@ tags: etc
 - 동일하게 실시간과 배치 데이터 소스
 - 데이터 ingestion 동안 데이터 사전 처리 지원이 뛰어남
 - 유연한 SQL 기반 insestion 방식
+
 #### 개선점
 - upsert 실시간 지원하지 않음
 - 실시간 push/write 미지원
@@ -86,6 +88,7 @@ tags: etc
 - 다른 모델보다 실시간 push 모델 좋음
 - 데이터 타입
 - outboud connector : pinot이 제공하지 못하는 grafana도 제공
+
 #### 개선점
 - 실시간 원천으로부터 데이터 pulling
 - 제한적인 인덱싱
