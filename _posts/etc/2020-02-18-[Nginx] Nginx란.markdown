@@ -39,9 +39,27 @@ tags: etc
 
 ```
 여러개의 커넥션을 Event Handler를 통해 비동기 방식으로 처리해 먼저 처리되는 것부터 로직이 진행됨.
-````
+```
 
+## Reverse Proxy?
+### 1) Forward Proxy
+- 여러 클라이언트가 인터넷에 요청을 할 때 그 중간에서 Proxy 서버를 두는 경우
+- 클라이언트 보호 목적
+
+### 2) Reverse Proxy
+- 인터넷 상의 여러 컴퓨터(클라이언트)가 서버에 요청을 할 때 그 중간에 Proxy 서버를 두는 경우
+- 서버 보안 강화 목적 : 서버 IP를 숨겨줌
+- 기능
+  - 트래픽 제어 (eg. DDOS 공격으로부터 보호 가능)
+  - 로드 밸런싱
+
+
+## Nginx
+- 서버의 앞단의 리버스 프록시로써 로드 밸런싱, 암호화(HTTPS의 encrytion), 캐싱, 트래픽 제어 등의 기능을 함.
+- nginx는 다양한 변수를 제공 ([변수 문서](https://nginx.org/en/docs/varindex.html))
 
 ## 참조
 
-[큰돌의 터전](https://m.blog.naver.com/jhc9639/220967352282)
+- [큰돌의 터전](https://m.blog.naver.com/jhc9639/220967352282)
+- [Proxy vs Reverse Proxy Youtube](https://www.youtube.com/watch?v=RXXRguaHZs0)
+- [NGINX Tutorial for Beginners Youtube](https://www.youtube.com/watch?v=9t9Mp0BGnyI)
